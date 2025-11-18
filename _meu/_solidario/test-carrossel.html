@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="carrossel">
+        <div class="slides" id="slidescontainer">
+            <img src="img/1.jpeg">
+            <img src="img/2.jpeg">
+            <img src="img/3.jpg">
+            <img src="img/4.jpg">
+            <img src="img/5.jpg">
+        </div>
+    </div>
+</body>
+<style>
+    body{
+        background-color: blue;
+    }
+
+    .carrossel{
+        width: 100vh;
+        max-width: 100vh;
+        overflow: hidden;
+        border-radius: 1.1vh;
+        box-shadow: var(--shadow);
+        padding-top: 0vh;
+        margin-left: 65vh;
+        margin-right: 50vh;
+    }
+
+    .carrossel:hover{
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        transform: scale(1.05);
+    }
+
+    .slides{
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img{
+        width: 100vh;
+        flex-shrink: 0;
+    }
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () =>{
+        let curre = 0;
+        const slides = document.getElementById('slidescontainer');
+        const total = slides.children.length;
+        function updateslide(){
+            slides.style.transform = `translateX(-${curre * 100}%)`;
+        }
+        setInterval(() =>{
+            curre = (curre + 1)% total;
+            updateslide()
+        }, 2000);
+    });
+</script>
+</html>

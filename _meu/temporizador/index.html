@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contagem Regressiva com Previsão</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    #contador {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+    #mensagem {
+      font-size: 2em;
+      color: #007BFF;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contagem Regressiva</h1>
+  <div id="contador">60:00</div>
+  <div id="mensagem"></div>
+
+  <script>
+    let minutos = 60;
+    let segundos = 0;
+
+    function formatarTempo(min, seg) {
+      return `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
+    }
+
+    function gerarMensagem() {
+      const mensagem = Math.random() < 0.5 ? 'NÃO' : 'SIM';
+      document.getElementById("mensagem").textContent = `Vai chover? ${mensagem}`;
+    }
+
+    const intervalo = setInterval(() => {
+      // Atualizar o display
+      document.getElementById("contador").textContent = formatarTempo(minutos, segundos);
+
+      // Verificar se deve exibir mensagem
+      if (segundos === 0 && minutos % 10 === 0) {
+        gerarMensagem();
+      }
+
+      // Reduzir o tempo
+      if (segundos === 0) {
+        if (minutos === 0) {
+          clearInterval(intervalo);
+          document.getElementById("mensagem").textContent = "Tempo encerrado.";
+        } else {
+          minutos--;
+          segundos = 59;
+        }
+      } else {
+        segundos--;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

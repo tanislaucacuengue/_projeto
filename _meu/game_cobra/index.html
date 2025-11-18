@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <title>Game Cobra</title>
+</head>
+<body class="container">
+    
+    <div class="contagem">Score: <span class="contagem--valor">00</span></div>
+
+    <div class="menu-screen">
+        <span class="game-over">Game Over</span>
+        <span class="final-contagem">Score: <span>00</span></span>
+
+        <button class="btn-play">
+            Jogar novamente
+        </button>
+    </div>
+
+    <div class="controle">
+        <label for="speedRange">Velocidade:</label>
+        <input type="range" id="velocidadeRange" min="50" max="300" step="10" value="100">
+        <span id="velocidadeValue">170</span> ms
+    </div>
+
+    <div class="high-contagem">Recorde: <span class="high-contagem--valor">00</span></div>
+
+    <canvas width="600" height="600"></canvas>
+
+    <script src="./js/script.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

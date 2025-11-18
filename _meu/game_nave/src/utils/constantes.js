@@ -1,0 +1,1 @@
+export const PATH_NAVE_IMAGE ="src\assets\imgs\spaceship.png";

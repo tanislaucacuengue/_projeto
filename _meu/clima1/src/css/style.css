@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: row; /* Conteúdo e descrição lado a lado */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px; /* Espaço entre o container e a descrição */
+    min-height: 100vh;
+    background: linear-gradient(#3d82fc, #4a7dff);
+    background-image: url('../image/images.jfif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 20px;
+}
+
+/* Container principal */
+#conteiner {
+    background-color: #f0f8ffcc;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 400px;
+    max-width: 90vw;
+}
+
+/* Formulário de pesquisa */
+#pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 4px 10px;
+    background-color: #ffffffaa;
+}
+
+#pesquisa input {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+#pesquisa input:focus-visible {
+    outline: none;
+}
+
+#pesquisa button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Área de clima */
+#clima {
+    display: none;
+    margin-top: 20px;
+}
+
+#clima.show {
+    display: block;
+}
+
+#clima #titulo {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #3723ff;
+}
+
+#temp {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    background: linear-gradient(to top, #345cc9, #6096dd);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#temp_img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+#temp_valor {
+    font-weight: bold;
+    font-size: 48px;
+}
+
+#temp_descricao {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Outras informações */
+#outra_infor {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+#outra_infor .info {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background-color: #ffffff80;
+    gap: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#outra_infor h2 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+p#qualidade_ar,#qualidade_ar_descricao{
+    display: inline;
+    margin-left: 3px;
+}
+
+#outra_infor i {
+    text-align: center;
+    font-size: 20px;
+    width: 20%;
+}
+
+#temp_max_icone{
+    color: #ff0000d0;
+}
+
+#temp_min_icone{
+    color:  #0284c7;
+}
+
+#umid_icone{
+    color: #0ea5e9;
+}
+
+#vento_icone{
+    color: #0000ffd0;
+}
+
+#qualidade_ar_icone{
+     color: #4b7285;
+}
+
+/* Área de descrição à direita */
+#descricao {
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    max-width: 90vw;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 30px; /* Fica fixa ao rolar */
+    right: 20px;
+}
+
+#descricao h2 {
+    color: #0033aa;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#descricao ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#descricao li {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #descricao {
+        width: 100%;
+        max-width: 600px;
+        position: static; /* Remove fixação lateral no mobile */
+        box-shadow: none;
+        background-color: #ffffffbb;
+    }
+}

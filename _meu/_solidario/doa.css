@@ -1,0 +1,122 @@
+:root{
+  --nav: #0057B7;
+  --body: #4A90E2;
+  --font: #f0f0f0ad;
+  --font-dark: #002147;
+  --shadow: 0 0.4vh 1.1vh rgba(0,0,0,0.5);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--body);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: white;
+  padding: 20px;
+  user-select: none;
+  /* overflow: hidden; */
+  flex-direction: column;
+}
+
+.pag {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--nav);
+  padding: 10vh;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  width: 100%;
+  max-width: 50vh;
+}
+
+img {
+  width: 30vh;
+  margin-bottom: 10px;
+
+}
+
+span{
+  color: var(--font-dark);
+}
+
+.pag h3 {
+  margin-bottom: 20px;
+}
+
+.nu h4 {
+  margin: 5px 0;
+}
+
+
+input {
+  background-color: aliceblue;
+  height: 40px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8vh;
+  box-sizing: border-box;
+  color: #333;
+}
+
+
+
+button {
+  background-color: var(--font-dark);
+  height: 45px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(0, 162, 255);
+  transform: scale(1.02);
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+
+#preview {
+  margin-top: 15px;
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  display: none;
+}
+
+
+@media (max-width: 480px) {
+  .pag {
+    padding: 20px;
+  }
+
+  .pag img {
+    width: 80px;
+  }
+
+  .a, .ab, button {
+    font-size: 0.95rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .nu h4 {
+    font-size: 1rem;
+  }
+}

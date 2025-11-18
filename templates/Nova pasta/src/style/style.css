@@ -1,0 +1,149 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+
+
+header{
+    background-color: #54ACDF;
+    
+    margin: 0px;
+    padding: 0.4px;
+}
+header img.lampadatransito{
+    float: right;
+    height: 180px;
+    width: 160px;
+    margin: 10px;
+    top: 60%;
+    right: 60%;
+    transform: translatey(-60%,-60%);
+}
+
+header h1 progress{
+    float: calc("center");
+}
+header h1{
+    background-image: url("src/img/images (4).jpeg");
+    background-image:linear-gradient(to right,#0477bf,#d98032 );
+    border-radius: 50px;
+    color: #012340; 
+    text-align: center; 
+    min-width: 80vw;
+    max-height: 820vh; 
+    box-shadow: 0px 5px 10px;       
+}
+header h2{  
+    color:rgba(4, 4, 102, 0.972);
+    text-align: justify;
+    margin: 9px;
+}
+
+
+
+nav{
+  background-color:#0477bf;
+  margin: 1px; 
+  padding: 0.4px; 
+  text-align: center;
+ 
+}
+nav ul a{
+    background-color: none;
+    float: calc("center");
+    margin: 10px;
+    padding: 9px;
+    border-radius: 100px;
+    float:calc("center center");
+    font-variant: bold;
+    text-decoration: none;
+    color: rgb(3, 6, 20);
+}
+nav ul a:hover{
+    background-color:#d98032;
+    color: #fffb00;
+}
+
+
+
+body {
+    background-image:linear-gradient(#012340,#0477bf,#048abf, #07b2d9,#d98032);
+   
+}
+
+main{
+    padding: 10px;
+    margin:0px 80px;
+     background-color: #b8ccf1;
+}
+main.fundo{
+    background-image: url("imagens/images\ \(4\).jpeg");
+    position: relative;  
+    background-repeat: no-repeat;
+    height: 200px;
+    max-width: 180px;
+}
+
+main section p{
+    color: black;
+    text-align: justify;
+    text-indent: 20px;
+    text-size-adjust: 14px;
+}
+
+main section div{
+    
+    
+}
+
+ main section div{
+        font-family: 'Times New Roman', Times, serif;
+        margin:0px;
+        max-width: 50px;
+    }
+    table{
+        min-width: 40vw;
+        border-collapse: collapse;
+        box-shadow: -2px -2px 1px 20px;
+        border:#d98032 ; 
+    }
+    th,td{
+        border: 1px solid #132afa;
+        padding: 8px;
+    }
+    caption{
+        font-size: 1.5em;
+        font-weight: bolder;
+        padding: 8px;
+    }
+    tr {
+        color: black;
+    }
+    col.cnome{
+        background-color: turquoise;
+    }
+    col.csexo{
+        background-color: gold;
+    }
+    col.cidade{
+        background-color: #f5b47a;
+    }
+    col.cprof{
+        background-color: rgb(148, 253, 148);
+    }
+
+
+
+footer{
+    background-color: black;
+    margin: -10px;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+footer :hover{
+    color: red;
+   
+}

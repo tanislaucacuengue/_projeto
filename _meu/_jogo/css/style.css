@@ -1,0 +1,92 @@
+
+/*Configurações Globais ou gerais do estilo do Jogo*/
+*{  
+
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #001e4d;
+}
+
+/*Configurações gerais de estilo da div o bloco que contem o todo o jogo */
+.app{   
+
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    padding: 30px;
+}
+
+/*Configurações de estilo do h1 que contem o título do Jogo */
+.app h1{
+    font-weight: 25px;
+    color: #001e4d;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    padding: 30px;
+}
+
+/*Configurações de estilo da div.quiz que contem a pergunta e respostas do Jogo */
+.quiz{
+    padding: 20px 0;
+}
+
+/*Configurações de estilo da div.quiz h2 que contem a pergunta do Jogo */
+.quiz h2 {
+    font-size: 18px;
+    color: #001e4d;
+    font-weight: 600;
+}
+
+/*Configurações de estilo da button.btn que está em cada resposta do jogo */
+.btn{
+    background-color: #ffffff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover:not([disabled]){
+    background-color: #222;
+    color: #ffffff;
+}
+
+.btn:disabled{
+    cursor: no-drop;
+}
+
+/*Configurações de estilo do button#next-btn contem o botão de avançar do Jogo */
+#next-btn{
+    background-color: #001e4d;
+    color: #ffffff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+/*Configurações de estilo  da resposta certa  */
+.correcto {
+    background-color: #9aeabc;
+}
+
+/*Configurações de estilo  da resposta errada  */
+.incorrecto {
+    background-color: #ff9393;
+}

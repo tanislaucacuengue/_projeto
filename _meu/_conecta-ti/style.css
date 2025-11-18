@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+
+/* Estilo principal da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fundo branco */
+    color: #003366; /* Texto azul escuro */
+    text-align: justify;
+  }
+
+
+  header {
+    background-color: white; /* Azul principal */
+    color: #007BFF;
+    padding: 20px ;
+    text-align: center;
+
+  }
+
+  /* Estilo do logótipo */
+  .logo {
+    width: 170px;
+    margin-bottom: -7px;
+  }
+
+  nav {
+    background-color: #0056b3; /* Azul mais escuro para o menu */
+    padding: 10px;
+    position: relative;
+  }
+
+  .menu-toggle{
+      background-color: white;
+      color: #0056b3;
+      border: none;
+      font-size: 18px;
+      display: none;
+      padding: 5px 10px;
+  }
+
+  .nav-links{
+      text-align: center;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover{
+    color: #80878d;
+  }
+/*Conteúdo*/
+  .content {
+    padding: 20px;
+    max-width: 900px;
+    min-width: 300px;
+    margin: auto;
+    border: 10px solid #fff;
+  
+  }
+
+  section {
+    margin-bottom: 30px;
+  }
+
+  ul.lista > li > a{
+    text-decoration: none;
+    color:#007BFF ;
+  }
+
+  ul.lista > li > a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #0056b3;
+  }
+
+  
+
+  article {
+    background-color: #353c4069;
+    min-height: 250px;
+    max-width: 750px;
+    margin: 27px 17px 17px 17px;
+    padding: 17px 17px 12px 17px;
+    border-radius: 10px;
+
+}
+
+.artigo>p{
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #f0f8ff83;
+}
+
+.artigo > a{
+  font-size: 13px;
+  font-weight: lighter;
+  text-decoration: none;
+  color: #fff;
+  
+}
+
+.artigo > a:hover{
+  text-decoration: underline;
+  color: #0056b3;
+  cursor: pointer;
+}
+
+#aprenda{
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #f0f8ff83;
+}
+
+
+
+  h2 {
+    color: #0056b3;
+  }
+
+  img {
+    max-width: 110%;
+    border-radius: 10px;
+    
+  }
+
+  .content > video{
+    min-width: 110%;
+   
+  }
+
+
+  abbr{
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+abbr:hover{
+  color: #007BFF;
+  
+}
+
+
+  
+  /*Botão de voltar para cima*/
+  #topBtn{
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+/*O Rodapé*/
+  footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+  }
+
+  /*A responsividade*/
+  @media (max-width: 768px){
+      .menu-toggle{
+          display: block;
+      }
+
+      .nav-links{
+          display: none;
+          flex-direction: column;
+          padding: 10px 0;
+      }
+
+      .nav-links a{
+          margin: 10px 0;
+          display: block;
+      }
+  }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do tempo</title>
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <!--Link do fonte awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div id="conteiner">
+        <form id="pesquisa">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="city_nome" id="city_nome" placeholder="Buscar cidade">
+
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <div id="clima">
+            <h1 id="titulo">Luanda, AO</h1>
+
+            <div id="infor">
+                <div id="temp">
+                    <img src="https://openweathermap.org/img/wn/03d.png" alt="Imagem repesentando o clima" id="temp_img">
+
+                    <div>
+                        <p id="temp_valor">
+                            32 
+                        </p>
+
+                        <p id="temp_descricao">
+                            Ensolarado
+                        </p>
+                    </div>
+                </div>
+
+                <div id="outra_infor">
+                    
+                    <div class="info">
+                        <i class="fa-solid fa-temperature-high" id="temp_max_icone"></i>
+
+                        <div>
+                            <h2>Tempo max</h2>
+
+                            <p id="temp_max">30</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-temperature-low" id="temp_min_icone"></i>
+
+                        <div>
+                            <h2>Tempo min</h2>
+
+                            <p id="temp_min">12</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-droplet" id="umid_icone"></i>
+
+                        <div>
+                            <h2>Umidade</h2>
+
+                            <p id="umid">50</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-wind" id="vento_icone"></i>
+
+                        <div>
+                            <h2>Vento</h2>
+
+                            <p id="vento">50 km/h</p>
+                        </div>
+                    </div>
+                    <div class="info" id="qualidade_ar_info" style="display:none;">
+
+                        <i class="fa-solid fa-smog" id="qualidade_ar_icone"></i>
+                        <div>
+                            <h2>Qualidade do Ar</h2>
+                            <p id="qualidade_ar">-- <p id="qualidade_ar_descricao" ></p></p>
+                                
+                        </div>
+                    </div>
+
+                    <div class="info" id="poluicao_info" style="display:none;">
+                        <i class="fa-solid fa-smog" id="poluicao_icone"></i>
+                        <div>
+                            <h2>Poluição do Ar</h2>
+                            <p id="poluicao_percent">--</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="alert">
+
+        </div>
+    </div>
+        
+    <!-- Seção de Descrição das Funções (fora do conteiner) -->
+    <div id="descricao">
+        <h2>Funções do Sistema</h2>
+        <ul>
+            <li>Mostrar a previsão do tempo atual.</li>
+            <li>Exibir a temperatura máxima e mínima.</li>
+            <li>Indicar a umidade e velocidade do vento.</li>
+            <li>Mostrar a qualidade do ar (se disponível).</li>
+            <li>Exibir a poluição do ar (se disponível).</li>
+        </ul>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>

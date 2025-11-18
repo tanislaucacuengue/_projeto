@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do tempo</title>
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <!--Link do fonte awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div id="conteiner">
+        <form id="pesquisa">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="city_nome" id="city_nome" placeholder="Buscar cidade">
+
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <div id="clima">
+            <h1 id="titulo">Luanda, AO</h1>
+
+            <div id="infor">
+                <div id="temp">
+                    <img src="https://openweathermap.org/img/wn/03d.png" alt="Imagem repesentando o clima" id="temp_img">
+
+                    <div>
+                        <p id="temp_valor">
+                            32 
+                        </p>
+
+                        <p id="temp_descricao">
+                            Ensolarado
+                        </p>
+                    </div>
+                </div>
+
+                <div id="outra_infor">
+                    
+                    <div class="info">
+                        <i class="fa-solid fa-temperature-high" id="temp_max_icone"></i>
+
+                        <div>
+                            <h2 data-i18n="tempMax">Temperatura max</h2>
+
+                            <p id="temp_max">30</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-temperature-low" id="temp_min_icone"></i>
+
+                        <div>
+                            <h2 data-i18n="tempMin">Temperatura min</h2>
+
+                            <p id="temp_min" >12</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-droplet" id="umid_icone"></i>
+
+                        <div>
+                            <h2 data-i18n="umidade">Umidade</h2>
+
+                            <p id="umid">50</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                         <i class="fa-solid fa-wind" id="vento_icone"></i>
+
+                        <div>
+                            <h2 data-i18n="vento">Vento</h2>
+
+                            <p id="vento">50 km/h</p>
+                        </div>
+                    </div>
+                    <div class="info" id="qualidade_ar_info" style="display:none;">
+
+                        <i class="fa-solid fa-smog" id="qualidade_ar_icone"></i>
+                        <div>
+                            <h2 data-i18n="qualidadeAr">Qualidade do Ar</h2>
+                            <p id="qualidade_ar">-- <p id="qualidade_ar_descricao" ></p></p>
+                                
+                        </div>
+                    </div>
+
+                    <div class="info" id="poluicao_info" style="display:none;">
+                        <i class="fa-solid fa-smog" id="poluicao_icone"></i>
+                        <div>
+                            <h2 data-i18n="poluicao">Poluição do Ar</h2>
+                            <p id="poluicao_percent">--</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="alert">
+
+        </div>
+    </div>
+        
+    <!-- Seção de Descrição das Funções (fora do conteiner) -->
+    <div id="descricao">
+        <h2 data-i18n="tituloFuncoes">Funções do Sistema</h2>
+      <ul>
+        <li data-i18n="func1">Mostrar a previsão do tempo atual.</li>
+        <li data-i18n="func2">Exibir a temperatura máxima e mínima.</li>
+        <li data-i18n="func3">Indicar a umidade e velocidade do vento.</li>
+        <li data-i18n="func4">Mostrar a qualidade do ar (se disponível).</li>
+        <li data-i18n="func5">Exibir a poluição do ar (se disponível).</li>
+      </ul>
+    </div>
+
+    <script src="src/js/script.js"></script>
+
+    <script>
+
+        //  Sistema de detecção e tradução automática
+  const translations = {
+    "en": {
+      tituloFuncoes: "System Functions",
+      func1: "Show current weather forecast.",
+      func2: "Display maximum and minimum temperature.",
+      func3: "Show humidity and wind speed.",
+      func4: "Display air quality (if available).",
+      func5: "Show air pollution (if available).",
+      tempMax: "Max Temp",
+      tempMin: "Min Temp",
+      umidade: "Humidity",
+      vento: "Wind",
+      qualidadeAr: "Air Quality",
+      poluicao: "Air Pollution"
+    },
+    "es": {
+      tituloFuncoes: "Funciones del Sistema",
+      func1: "Mostrar el pronóstico del tiempo actual.",
+      func2: "Mostrar la temperatura máxima y mínima.",
+      func3: "Indicar la humedad y la velocidad del viento.",
+      func4: "Mostrar la calidad del aire (si está disponible).",
+      func5: "Mostrar la contaminación del aire (si está disponible).",
+      tempMax: "Temp Máx",
+      tempMin: "Temp Mín",
+      umidade: "Humedad",
+      vento: "Viento",
+      qualidadeAr: "Calidad del Aire",
+      poluicao: "Contaminación del Aire"
+    }
+  };
+
+  const userLang = navigator.language.substring(0, 2);
+  const selectedLang = translations[userLang] ? userLang : "pt";
+
+  function applyTranslations() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[selectedLang] && translations[selectedLang][key]) {
+        el.textContent = translations[selectedLang][key];
+      }
+    });
+  }
+
+  applyTranslations();
+
+  //  Clima com idioma automático
+  document.querySelector('#pesquisa').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const cityNome = document.querySelector('#city_nome').value.trim();
+    const alertDiv = document.querySelector('#alert');
+    const climaDiv = document.querySelector('#clima');
+
+    if (!cityNome) {
+      alertDiv.textContent = selectedLang === "en"
+        ? "Please type a city name..."
+        : selectedLang === "es"
+        ? "Por favor, escribe el nombre de una ciudad..."
+        : "Você precisa digitar o nome de uma cidade...";
+      return;
+    }
+
+    const chaveapi = `af2e03141a2bbb2479f844146cea13ef`;
+    const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityNome)}&appid=${chaveapi}&units=metric&lang=${selectedLang}`;
+
+    try {
+      const resultado = await fetch(apiurl);
+      const json = await resultado.json();
+
+      if (json.cod === 200) {
+        climaDiv.classList.add('show');
+        document.querySelector('#titulo').innerHTML = `${json.name}, ${json.sys.country}`;
+        document.querySelector('#temp_valor').innerHTML = `${json.main.temp.toFixed(1)} ºC`;
+        document.querySelector('#temp_descricao').innerHTML = json.weather[0].description;
+        document.querySelector('#temp_img').setAttribute('src', `https://openweathermap.org/img/wn/${json.weather[0].icon}.png`);
+        document.querySelector('#temp_max').innerHTML = `${json.main.temp_max.toFixed(1)} ºC`;
+        document.querySelector('#temp_min').innerHTML = `${json.main.temp_min.toFixed(1)} ºC`;
+        document.querySelector('#umid').innerHTML = `${json.main.humidity}%`;
+        document.querySelector('#vento').innerHTML = `${json.wind.speed.toFixed(1)} km/h`;
+      } else {
+        alertDiv.textContent = selectedLang === "en"
+          ? "City not found."
+          : selectedLang === "es"
+          ? "Ciudad no encontrada."
+          : "Cidade não encontrada.";
+      }
+    } catch (error) {
+      alertDiv.textContent = selectedLang === "en"
+        ? "Error fetching data."
+        : selectedLang === "es"
+        ? "Error al obtener los datos."
+        : "Erro ao buscar os dados.";
+    }
+  });
+    </script>
+</body>
+</html>
