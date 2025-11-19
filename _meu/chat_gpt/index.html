@@ -1,0 +1,154 @@
+12.06 16:08
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>ArenaGest - Estádio</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f4f4f4; }
+
+    header { 
+      background: #0b3d91; 
+      color: white; 
+      padding: 20px; 
+      text-align: center; }
+
+    nav { 
+      display: flex; 
+      justify-content: space-around; 
+      background: #003366; 
+      padding: 10px; }
+
+    nav a { 
+      color: white; 
+      text-decoration: none; 
+      font-weight: bold; }
+
+    section { 
+      padding: 20px; }
+
+    .module { 
+      background: white; 
+      border-radius: 5px; 
+      padding: 15px; 
+      margin-bottom: 20px; 
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+    .image-placeholder { 
+      background: #ccc; 
+      height: 150px; 
+      margin-top: 10px; 
+      border-radius: 5px; 
+      text-align: center; 
+      line-height: 150px; 
+      color: #444; }
+      
+    footer { 
+      background: #003366; 
+      color: white; 
+      text-align: center; 
+      padding: 10px; }
+
+    input, button { 
+      padding: 8px; 
+      margin-top: 8px; 
+      width: 100%; 
+      box-sizing: border-box; }
+
+    #grafico { 
+      margin-top: 10px; 
+      font-size: 14px; }
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>ArenaGest</h1>
+    <p>Plataforma de Gerenciamento de Estádios</p>
+  </header>
+
+  <nav>
+    <a href="#eventos">Eventos</a>
+    <a href="#ingressos">Ingressos</a>
+    <a href="#acesso">Acesso</a>
+    <a href="#relatorios">Relatórios</a>
+  </nav>
+
+  <section id="eventos" class="module">
+    <h2> Gestão de Eventos</h2>
+    <p>Adicionar novo evento:</p>
+    <input type="text" id="nomeEvento" placeholder="Nome do evento">
+    <input type="date" id="dataEvento">
+    <button onclick="adicionarEvento()">Adicionar</button>
+    <ul id="listaEventos"></ul>
+  </section>
+
+  <section id="ingressos" class="module">
+    <h2>️ Venda de Ingressos</h2>
+    <p>Clique para simular uma nova venda:</p>
+    <button onclick="registrarVenda()">Registrar venda</button>
+    <div id="grafico"></div>
+  </section>
+
+  <section id="acesso" class="module">
+    <h2>🧑‍🤝‍🧑 Controle de Acesso</h2>
+    <p>Entradas registradas: <span id="contadorAcesso">0</span></p>
+    <button onclick="registrarEntrada()">Nova entrada</button>
+  </section>
+
+  <section id="relatorios" class="module">
+    <h2> Relatórios</h2>
+    <p>Resumo será gerado com base nas interações.</p>
+    <div class="image-placeholder">[Espaço para gráficos reais]</div>
+  </section>
+
+  <footer>
+&copy; 2025 ArenaGest. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const eventos = [];
+    function adicionarEvento() {
+      const nome = document.getElementById("nomeEvento").value;
+      const data = document.getElementById("dataEvento").value;
+      if (nome && data) {
+        eventos.push({ nome, data });
+        atualizarLista();
+        document.getElementById("nomeEvento").value = '';
+        document.getElementById("dataEvento").value = '';
+      } else {
+        alert("Preencha o nome e a data.");
+      }
+    }
+
+    function atualizarLista() {
+      const ul = document.getElementById("listaEventos");
+      ul.innerHTML = '';
+      eventos.forEach(ev => {
+        const li = document.createElement("li");
+        li.textContent = `ev.nome -{ev.data}`;
+        ul.appendChild(li);
+      });
+    }
+
+    let vendas = 0;
+    function registrarVenda() {
+      vendas++;
+      document.getElementById("grafico").innerText = "Ingressos vendidos: " + vendas;
+    }
+
+    let entradas = 0;
+    function registrarEntrada() {
+      entradas++;
+      document.getElementById("contadorAcesso").innerText = entradas;
+    }
+  </script>
+
+</body>
+</html>

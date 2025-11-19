@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Estádio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gerenciamento de Estádio</h1>
+    </header>
+    <nav>
+        <ul>
+                                     
+            <li><a href="#jogo">Jogo</a></li>                 
+            <li><a href="#jogador">Jogador</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="estadio">
+            <h2>Estádio</h2>
+            <img src="estadio.jpg" alt="Estádio">
+            <form id="form-estadio">
+                <label for="nome-estadio">Nome do Estádio:</label>
+                <input type="text" id="nome-estadio" name="nome-estadio">
+                <label for="endereco-estadio">Endereço do Estádio:</label>
+                <input type="text" id="endereco-estadio" name="endereco-estadio">
+                <button type="submit">Cadastrar Estádio</button>
+            </form>
+            <table id="tabela-estadio">
+                <thead>
+                    <tr>
+                        <th>Nome do Estádio</th>
+                        <th>Endereço do Estádio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+        <section id="jogo">
+            <h2>Jogo</h2>
+            <img src="jogo.jpg" alt="Jogo">
+            <form id="form-jogo">
+                <label for="nome-jogo">Nome do Jogo:</label>
+                <input type="text" id="nome-jogo" name="nome-jogo">
+                <label for="data-jogo">Data do Jogo:</label>
+                <input type="date" id="data-jogo" name="data-jogo">
+                <label for="hora-jogo">Hora do Jogo:</label>
+                <input type="time" id="hora-jogo" name="hora-jogo">
+                <button type="submit">Cadastrar Jogo</button>
+            </form>
+            <table id="tabela-jogo">
+                <thead>
+                    <tr>
+                        <th>Nome do Jogo</th>
+                        <th>Data do Jogo</th>
+                        <th>Hora do Jogo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+        <section id="time">
+            <h2>Time</h2>
+            <img src="time.jpg" alt="Time">
+            <form id="form-time">
+                <label for="nome-time">Nome do Time:</label>
+                <input type="text" id="nome-time" name="nome-time">
+                <label for="cor-time">Cor do Time:</label>
+                <input type="text" id="cor-time" name="cor-time">
+                <button type="submit">Cadastrar Time</button>
+            </form>
+            <table id="tabela-time">
+                <thead>
+                    <tr>
+                        <th>Nome do Time</th>
+                        <th>Cor do Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+        <section id="jogador">
+            <h2>Jogador</h2>
+            <img src="jogador.jpg" alt="Jogador">
+            <form id="form-jogador">
+                <label for="nome-jogador">Nome do Jogador:</label>
+                <input type="text" id="nome-jogador" name="nome-jogador">
+                <label for="idade-jogador">Idade do Jogador:</label>
+                <input type="number" id="idade-jogador" name="idade-jogador">
+                <label for="posicao-jogador">Posição do Jogador:</label>
+                <input type="text" id="posicao-jogador" name="posicao-jogador">
+                <button type="submit">Cadastrar Jogador</button>
+            </form>
+            <table id="tabela-jogador">
+                <thead>
+                    <tr>
+                        <th>Nome do Jogador</th>
+                        <th>Idade do Jogador</th>
+                        <th>Posição do Jogador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
