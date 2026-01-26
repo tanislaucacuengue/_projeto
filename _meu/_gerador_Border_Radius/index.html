@@ -1,110 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style media="screen">
-    body{
-        height: 100vh;
-        display: grid;
-        place-items: center;
-        background-color: yellow;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <title>Gerador de Bordas</title>
 
-    .principal{
-        display: grid;  
-        place-items: center;
-        height: 600px;
-        width: 400px;
-        background-color: #fff;
-        box-shadow: 0 0 10px #333;
-        border-radius: 10px;
-    }
+    <style>
+        body{
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: yellow;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+        }
 
-    .principal #saida{
-        height: 200px;
-        width: 200px;
-        background-color: #ff3300;
-    }
+        .principal{
+            display: grid;
+            gap: 10px;
+            place-items: center;
+            height: 600px;
+            width: 400px;
+            background-color: #fff;
+            box-shadow: 0 0 10px #333;
+            border-radius: 10px;
+            padding: 20px;
+        }
 
-    .principal #box{
-        height: 30px;
-        width: 300px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        outline: none;
-        border-radius: 25px;
-        text-align: center;
-    }
+        #saida{
+            height: 200px;
+            width: 200px;
+            background-color: #ff3300;
+        }
 
-    input[type = "range"]{
-        -webkit-appearance: none;
-        height: 15px;
-        width: 80%;
-        background-color: #333;
-        outline: none;
-        border-radius: 50px;
-    }
+        #box{
+            height: 30px;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            text-align: center;
+        }
 
-    input[type = "range"]::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        height: 30px;
-        width: 30px;
-        background-color: #ff3300;
-        outline: none;
-        cursor: pointer;
-        border-radius: 50%;
-    }
-</style>
+        input[type="range"]{
+            -webkit-appearance: none;
+            height: 15px;
+            width: 80%;
+            background-color: #333;
+            border-radius: 50px;
+        }
 
-<script defer src="jquery.js" charset="UTF-8"></script>
+        input[type="range"]::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            height: 30px;
+            width: 30px;
+            background-color: #ff3300;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
 
-    <title>Gerador de Bordas de esfera </title>
+    <!-- jQuery correto -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-
 
 <body>
 
     <div class="principal">
-        
-        Saída: <div id="saida"></div>
+        <strong>Saída:</strong>
+        <div id="saida"></div>
 
-        Resul: <input type="text" id="box" value="border-radius: 0% 0% 0% 0%;">
+        <input type="text" id="box" value="border-radius: 0% 0% 0% 0%;" readonly>
+
         <input type="range" min="0" max="100" value="0" id="slider1">
         <input type="range" min="0" max="100" value="0" id="slider2">
         <input type="range" min="0" max="100" value="0" id="slider3">
         <input type="range" min="0" max="100" value="0" id="slider4">
     </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-            $('#slider1, #slider2, #slider3, #slider4').on('input',function(){
-            
+    <script>
+        $(document).ready(function(){
+            $('#slider1, #slider2, #slider3, #slider4').on('input', function(){
 
-            var slider1 = $('#slider1').val();
-            var slider2 = $('#slider2').val();
-            var slider3 = $('#slider3').val();
-            var slider4 = $('#slider4').val();
+                let s1 = $('#slider1').val();
+                let s2 = $('#slider2').val();
+                let s3 = $('#slider3').val();
+                let s4 = $('#slider4').val();
 
-            $('#saida').css('border-top-right-radius', slider1 + '%');
-            $('#saida').css('border-top-left-radius', slider2 + '%');
-            $('#saida').css('border-bottom-right-radius', slider3 + '%');
-            $('#saida').css('border-bottom-left-radius', slider4 + '%');
-            $('#box').val('border-radius:'+slider1+'% '+slider2+'% '+slider3+'% '+slider4+'%;'); 
+                $('#saida').css({
+                    'border-top-right-radius': s1 + '%',
+                    'border-top-left-radius': s2 + '%',
+                    'border-bottom-right-radius': s3 + '%',
+                    'border-bottom-left-radius': s4 + '%'
+                });
 
-
-            
+                $('#box').val(`border-radius: ${s1}% ${s2}% ${s3}% ${s4}%;`);
             });
-         
-         
-         });
-</script>
-    
+        });
+    </script>
+
 </body>
 </html>
