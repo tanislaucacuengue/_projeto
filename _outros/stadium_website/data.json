@@ -1,0 +1,121 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Clássico do Futebol",
+      "date": "2025-02-15",
+      "time": "20:00",
+      "location": "Estádio Principal",
+      "category": "futebol",
+      "image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&h=300&fit=crop",
+      "description": "Grande clássico entre os maiores times da região. Ingressos a partir de R$ 50.",
+      "capacity": 50000,
+      "available": 12000,
+      "price": 50
+    },
+    {
+      "id": 2,
+      "title": "Show de Música ao Vivo",
+      "date": "2025-02-20",
+      "time": "21:00",
+      "location": "Arena de Eventos",
+      "category": "musica",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&h=300&fit=crop",
+      "description": "Apresentação de artistas internacionais. Uma noite inesquecível!",
+      "capacity": 8000,
+      "available": 2500,
+      "price": 120
+    },
+    {
+      "id": 3,
+      "title": "Campeonato de Voleibol",
+      "date": "2025-02-25",
+      "time": "19:00",
+      "location": "Ginásio Coberto",
+      "category": "esportes",
+      "image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&h=300&fit=crop",
+      "description": "Campeonato estadual de voleibol com os melhores times.",
+      "capacity": 3000,
+      "available": 800,
+      "price": 30
+    },
+    {
+      "id": 4,
+      "title": "Festival de Gastronomia",
+      "date": "2025-03-01",
+      "time": "18:00",
+      "location": "Praça Central",
+      "category": "gastronomia",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
+      "description": "Degustação de pratos de chefs renomados. Entrada gratuita!",
+      "capacity": 5000,
+      "available": 3500,
+      "price": 0
+    },
+    {
+      "id": 5,
+      "title": "Torneio de Basquete",
+      "date": "2025-03-05",
+      "time": "20:00",
+      "location": "Estádio Principal",
+      "category": "esportes",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "description": "Competição entre as melhores equipes de basquete do país.",
+      "capacity": 10000,
+      "available": 4200,
+      "price": 45
+    },
+    {
+      "id": 6,
+      "title": "Conferência de Tecnologia",
+      "date": "2025-03-10",
+      "time": "09:00",
+      "location": "Centro de Convenções",
+      "category": "tecnologia",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
+      "description": "Palestras sobre inovação e transformação digital.",
+      "capacity": 2000,
+      "available": 600,
+      "price": 150
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "Estádio Iluminado",
+      "image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+      "category": "estadio"
+    },
+    {
+      "id": 2,
+      "title": "Público Animado",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop",
+      "category": "publico"
+    },
+    {
+      "id": 3,
+      "title": "Momento de Ação",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "category": "acao"
+    },
+    {
+      "id": 4,
+      "title": "Celebração da Vitória",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "category": "celebracao"
+    },
+    {
+      "id": 5,
+      "title": "Arquibancada Cheia",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      "category": "estadio"
+    },
+    {
+      "id": 6,
+      "title": "Noite de Espetáculo",
+      "image":  "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop",
+      "category": "espetaculo"
+    }
+  ],
+  "users": []
+}

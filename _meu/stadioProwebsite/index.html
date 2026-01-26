@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StadiumPro - Sistema de Gestão de Estádios</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="barra-navegacao">
+        <div class="contentor">
+            <div class="marca-nav">
+                <h1>StadioPro</h1>
+            </div>
+            <ul class="menu-nav">
+                <li><a href="#inicio" class="link-nav ativo" data-seccao="inicio">Início</a></li>
+                <li><a href="#eventos" class="link-nav" data-seccao="eventos">Eventos</a></li>
+                <li><a href="#galeria" class="link-nav" data-seccao="galeria">Galeria</a></li>
+                <li><a href="#" id="botaoAutenticacaoNav" class="link-nav botao-autenticacao">Login</a></li>
+            </ul>
+            <div class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secção Inicial -->
+    <section id="inicio" class="seccao ativa">
+        <div class="destaque">
+            <div class="conteudo-destaque">
+                <h2>
+                    <span>Bem-vindo ao</span>
+                    <span class="palavra-animada">
+                        <span class="lista">
+                            <span>&nbsp;Website</span>
+                            <span>&nbsp;Mundo</span>
+                            <span>&nbsp;Estádio</span>
+                            <span>&nbsp;Futuro</span>
+                        </span>
+                    </span>
+                </h2>
+                <p>O seu portal completo para gerir e participar em eventos incríveis</p>
+                <button class="botao botao-primario" onclick="navegarPara('eventos')">Explorar Eventos</button>
+            </div>
+            <div class="imagem-destaque">
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" alt="Estádio">
+            </div>
+        </div>
+
+        <!-- Funcionalidades -->
+        <div class="funcionalidades">
+            <div class="contentor">
+                <h3>Porquê escolher o StadioPro?</h3>
+                <div class="grelha-funcionalidades">
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade">🎫</div>
+                        <h4>Bilhetes Fáceis</h4>
+                        <p>Compre bilhetes de forma rápida e segura</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade">📅</div>
+                        <h4>Eventos Variados</h4>
+                        <p>Futebol, música, desportos e muito mais</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade">👤</div>
+                        <h4>Perfil Personalizado</h4>
+                        <p>Gira os seus bilhetes e preferências</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade">🔒</div>
+                        <h4>Segurança</h4>
+                        <p>Os seus dados sempre protegidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Eventos -->
+    <section id="eventos" class="seccao">
+        <div class="contentor">
+            <h2>Eventos Disponíveis</h2>
+            
+            <!-- Filtros -->
+            <div class="filtros">
+                <input type="text" id="entradaPesquisa" placeholder="Procurar eventos..." class="entrada-filtro">
+                <select id="filtroCategoria" class="selecao-filtro">
+                    <option value="">Todas as categorias</option>
+                    <option value="futebol">Futebol</option>
+                    <option value="musica">Música</option>
+                    <option value="desportos">Desportos</option>
+                    <option value="gastronomia">Gastronomia</option>
+                    <option value="tecnologia">Tecnologia</option>
+                </select>
+            </div>
+
+            <!-- Grelha de Eventos -->
+            <div id="grelhaEventos" class="grelha-eventos">
+                <!-- Os eventos serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Galeria -->
+    <section id="galeria" class="seccao">
+        <div class="contentor">
+            <h2>Galeria de Fotos</h2>
+            <div id="grelhaGaleria" class="grelha-galeria">
+                <!-- Os itens da galeria serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Autenticação -->
+    <div id="modalAutenticacao" class="modal">
+        <div class="conteudo-modal">
+            <span class="fechar">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <div id="formularioLogin" class="formulario-autenticacao ativo">
+                <h2>Login</h2>
+                <form onsubmit="processarLogin(event)">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Palavra-passe" required>
+                    <button type="submit" class="botao botao-primario">Entrar</button>
+                </form>
+                <p>Não tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Registe-se</a></p>
+            </div>
+
+            <!-- Formulário de Registo -->
+            <div id="formularioRegisto" class="formulario-autenticacao">
+                <h2>Registo</h2>
+                <form onsubmit="processarRegisto(event)">
+                    <input type="text" placeholder="Nome completo" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Palavra-passe" required>
+                    <input type="password" placeholder="Confirmar palavra-passe" required>
+                    <button type="submit" class="botao botao-primario">Registar</button>
+                </form>
+                <p>Já tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Perfil de Utilizador -->
+    <div id="modalPerfil" class="modal">
+        <div class="conteudo-modal modal-perfil">
+            <span class="fechar">&times;</span>
+            <h2>O Meu Perfil</h2>
+            <div id="conteudoPerfil">
+                <!-- O conteúdo do perfil será carregado aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes do Evento -->
+    <div id="modalDetalheEvento" class="modal">
+        <div class="conteudo-modal modal-evento">
+            <span class="fechar">&times;</span>
+            <div id="conteudoDetalheEvento">
+                <!-- Os detalhes do evento serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="aplicacao.js"></script>
+</body>
+</html>
