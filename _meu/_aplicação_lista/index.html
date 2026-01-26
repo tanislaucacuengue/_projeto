@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App lista</title>
-    <style media="screen">
+    <title>App Lista de Tarefas</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
         *{
             margin: 0;
             padding: 0;
@@ -44,76 +51,84 @@
             margin: 15px 0;
         }
 
-
         #input::placeholder{
             color: #fff;
         }
 
+        ul{
+            list-style: none;
+        }
+
         ul li{
             background: #eee;
-            color: 40px;
             border-radius: 50px;
             margin: 10px 0;
-            padding: 10px;
+            padding: 10px 50px 10px 15px;
             position: relative;
         }
 
-        ul .fa-check, .fa-trash{
+        ul .fa-check,
+        ul .fa-trash{
             position: absolute;
             cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-         ul .fa-check{
+        ul .fa-check{
             right: 40px;
             color: green;
-         }
+        }
 
         ul .fa-trash{
             right: 15px;
             color: red;
-         }
+        }
 
-         ul .checked{
+        ul .checked{
             background: lightgreen;
             text-decoration: line-through;
-            transition: .2s;
-         }
+        }
     </style>
-
-    <script src="jquery.js" charset="UTF-8"></script>
 </head>
 <body>
 
-    <div class="contentor">
+<div class="contentor">
+    <input type="text" id="input" placeholder="Pressione Enter para adicionar tarefas">
+    <ul></ul>
+</div>
 
-        <input type="text" id="input" placeholder="Precione para adicionar tarefas">
-        <ul></ul>
+<script>
+$(document).ready(function(){
 
-    </div>
+    $('#input').on('keypress', function(e){
+        if(e.which === 13 && $(this).val().trim() !== ''){
+            let tarefa = $(this).val();
 
-    <script type="text/javascript">
+            $('ul').append(`
+                <li>
+                    ${tarefa}
+                    <i class="fas fa-check"></i>
+                    <i class="fas fa-trash"></i>
+                </li>
+            `);
 
-        $(document).ready(function(){
+            $(this).val('');
+        }
+    });
 
-            $('#input').change(function(){
-
-                var input = $(this).val();
-                $('ul').append('<>'+ input +' <i class="fas fa-check"></i> <i class="fas fa-trash"></i> </li>')
-                $(this).val('');
-            });
-
-            $('ul').on('click', '.fa-trash', function(){
-                $(this).parent('li').fadeOut(200);
-            });
-
-            $('ul').on('click', '.fa-check', function(){
-                $(this).parent('li').toggleClass('checked');
-            });
-
+    $('ul').on('click', '.fa-trash', function(){
+        $(this).parent('li').fadeOut(200, function(){
+            $(this).remove();
         });
+    });
 
-    </script>
-    
+    $('ul').on('click', '.fa-check', function(){
+        $(this).parent('li').toggleClass('checked');
+    });
+
+});
+</script>
+
 </body>
-
 </html>
