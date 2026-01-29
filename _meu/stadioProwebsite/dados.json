@@ -11,7 +11,7 @@
       "descricao": "Grande clássico entre as maiores equipas da região. Bilhetes a partir de 50€.",
       "capacidade": 50000,
       "disponivel": 12000,
-      "preco": 50
+      "preco": 5000
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "descricao": "Apresentação de artistas internacionais. Uma noite inesquecível!",
       "capacidade": 8000,
       "disponivel": 2500,
-      "preco": 120
+      "preco": 2000
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "descricao": "Campeonato distrital de voleibol com as melhores equipas.",
       "capacidade": 3000,
       "disponivel": 800,
-      "preco": 30
+      "preco": 3000
     },
     {
       "id": 4,
@@ -50,7 +50,7 @@
       "descricao": "Degustação de pratos de chefs conceituados. Entrada gratuita!",
       "capacidade": 5000,
       "disponivel": 3500,
-      "preco": 0
+      "preco": 1000
     },
     {
       "id": 5,
@@ -63,7 +63,7 @@
       "descricao": "Competição entre as melhores equipas de basquetebol do país.",
       "capacidade": 10000,
       "disponivel": 4200,
-      "preco": 45
+      "preco": 4500
     },
     {
       "id": 6,
@@ -76,7 +76,7 @@
       "descricao": "Palestras sobre inovação e transformação digital.",
       "capacidade": 2000,
       "disponivel": 600,
-      "preco": 150
+      "preco": 1500
     }
   ],
   "galeria": [

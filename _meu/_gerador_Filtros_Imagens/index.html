@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de filtros em imagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="contentor">
+
+    <div class="filtro">
+
+        <div class="inputBox">
+            <span>grayscale</span>
+            <input type="range" min="0" max="100" value="0" id="grayscale">
+        </div>
+
+        <div class="inputBox">
+            <span>sepia</span>
+            <input type="range" min="0" max="100" value="0" id="sepia">
+        </div>
+
+        <div class="inputBox">
+            <span>blur</span>
+            <input type="range" min="0" max="20" value="0" id="blur">
+        </div>
+
+        <div class="inputBox">
+            <span>invert</span>
+            <input type="range" min="0" max="100" value="0" id="invert">
+        </div>
+
+        <div class="inputBox">
+            <span>opacity</span>
+            <input type="range" min="0" max="100" value="100" id="opacity">
+        </div>
+
+        <div class="inputBox">
+            <span>brightness</span>
+            <input type="range" min="0" max="200" value="100" id="brightness">
+        </div>
+
+        <div class="inputBox">
+            <span>contrast</span>
+            <input type="range" min="0" max="200" value="100" id="contrast">
+        </div>
+
+        <div class="inputBox">
+            <span>saturate</span>
+            <input type="range" min="0" max="200" value="100" id="saturate">
+        </div>
+
+    </div>
+
+    <div class="resul">
+        <img src="background001.jpg" alt="Resultados em imagem" id="img">
+        <div class="output"></div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+    $('.inputBox input').on('input', function () {
+
+        let grayscale  = $('#grayscale').val();
+        let sepia      = $('#sepia').val();
+        let blur       = $('#blur').val();
+        let invert     = $('#invert').val();
+        let opacity    = $('#opacity').val();
+        let brightness = $('#brightness').val();
+        let contrast   = $('#contrast').val();
+        let saturate   = $('#saturate').val();
+
+        let filtros = `
+            grayscale(${grayscale}%)
+            sepia(${sepia}%)
+            blur(${blur}px)
+            invert(${invert}%)
+            opacity(${opacity}%)
+            brightness(${brightness}%)
+            contrast(${contrast}%)
+            saturate(${saturate}%)
+        `;
+
+        $('#img').css('filter', filtros);
+        $('.output').text('filter: ' + filtros + ';');
+    });
+
+});
+</script>
+
+</body>
+</html>

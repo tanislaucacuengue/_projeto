@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StadiumPro - Sistema de Gestão de Estádios</title>
     <link rel="stylesheet" href="estilos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <!-- Navegação -->
@@ -29,6 +32,9 @@
 
     <!-- Secção Inicial -->
     <section id="inicio" class="seccao ativa">
+
+         
+
         <div class="destaque">
             <div class="conteudo-destaque">
                 <h2>
@@ -45,13 +51,25 @@
                 <p>O seu portal completo para gerir e participar em eventos incríveis</p>
                 <button class="botao botao-primario" onclick="navegarPara('eventos')">Explorar Eventos</button>
             </div>
-            <div class="imagem-destaque">
-                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" alt="Estádio">
+            
+            <!-- Carrossel de Imagens -->
+            <div class="contentor-carrossel">
+                <div class="carrossel" id="slideContainer">
+                    <img src="img/fundos (2).jpg">
+                    <img src="img/img (1).png">
+                    <img src="img/fundos (1).jpg">
+                    <img src="img/fundos (3).jpg">
+                    <img src="img/fundos (4).jpg">
+                </div>
+                <button class="controlo-carrossel anterior" onclick="mudarSlide(-1)">&#10094;</button>
+                <button class="controlo-carrossel seguinte" onclick="mudarSlide(1)">&#10095;</button>
             </div>
         </div>
-
+    
         <!-- Funcionalidades -->
         <div class="funcionalidades">
+        
+
             <div class="contentor">
                 <h3>Porquê escolher o StadioPro?</h3>
                 <div class="grelha-funcionalidades">
@@ -78,7 +96,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- Secção Parallax Isolada -->
+        <div class="contentor-parallax-unico">
+            <div class="fundo-parallax-imagem" id="parallaxImg"></div>
+            <div class="texto-sobre-parallax">
+                <h2> Sinta a Emoção de Cada Momento</h2>
+                <p>A melhor tecnologia para a melhor experiência nos estádios.</p>
+               
+
+            </div>
+        </div>
+
     </section>
+
 
     <!-- Secção de Eventos -->
     <section id="eventos" class="seccao">
@@ -166,6 +197,59 @@
             </div>
         </div>
     </div>
+
+
+    <footer>
+        <div class="contentor-footer">
+            <div class="linha-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>StadioPro</h4>
+                    <ul>
+                        <li><a href="">Quem somos</a></li>
+                        <li><a href="">Nossos Serviços</a></li>
+                        <li><a href="">Pilítica de Privacidade</a></li>
+                        <li><a href="">Programa de afiliados</a></li>
+                    </ul>
+                </div>
+                <!-- fim do footer col -->
+
+                 <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Obter Ajuda</h4>
+                    <ul>
+                        <li><a href="">Online</a></li>
+                        <li><a href="">Serviços Apoio</a></li>
+                        <li><a href="">Pela plataforma</a></li>
+                        <li><a href="">Pelo Chat</a></li>
+                    </ul>
+                </div>
+                <!-- fim do footer col -->
+
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Contactos</h4>
+                    <!-- form sub -->
+
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" placeholder="Digite o seu e-mail" required>
+                            <button>Enviar</button>
+                        </form>
+                    </div>
+                    <!-- fim form sub -->
+
+                    <div class="midias-sociais">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+        
+                </div>
+                <!-- fim do footer col -->
+            </div>
+        </div>
+    </footer>
 
     <script src="aplicacao.js"></script>
 </body>

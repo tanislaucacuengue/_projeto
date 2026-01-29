@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Plataforma de Jogos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-icon">🎮</span>
+                <h1>GameHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" data-page="home">Início</a>
+                <a href="#quiz" class="nav-link" data-page="quiz">Quiz</a>
+                <a href="#mario" class="nav-link" data-page="mario">Mario</a>
+                <a href="#cobra" class="nav-link" data-page="cobra">Cobra</a>
+                <a href="#memoria" class="nav-link" data-page="memoria">Memória</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Bem-vindo ao GameHub</h2>
+                    <p>A plataforma completa de jogos educacionais e de entretenimento</p>
+                    <button class="cta-button" onclick="navigateTo('quiz')">Começar a Jogar</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-shape"></div>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="tips-section">
+                <h3>📚 Dicas e Como Jogar</h3>
+                <div class="tips-grid">
+                    <!-- Quiz Tips -->
+                    <div class="tip-card">
+                        <div class="tip-icon">❓</div>
+                        <h4>Quiz</h4>
+                        <p><strong>Objetivo:</strong> Responder corretamente às perguntas de conhecimento geral.</p>
+                        <p><strong>Dicas:</strong></p>
+                        <ul>
+                            <li>Leia cuidadosamente cada pergunta</li>
+                            <li>Pense antes de responder</li>
+                            <li>Existem 2 níveis de dificuldade</li>
+                            <li>Seu score é mostrado ao final</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mario Tips -->
+                    <div class="tip-card">
+                        <div class="tip-icon">🍄</div>
+                        <h4>Mario</h4>
+                        <p><strong>Objetivo:</strong> Pular sobre os tubos para evitar cair.</p>
+                        <p><strong>Dicas:</strong></p>
+                        <ul>
+                            <li>Pressione ESPAÇO ou clique para pular</li>
+                            <li>Evite os tubos vermelhos</li>
+                            <li>Quanto mais tempo sobreviver, melhor!</li>
+                            <li>A velocidade aumenta com o tempo</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cobra Tips -->
+                    <div class="tip-card">
+                        <div class="tip-icon">🐍</div>
+                        <h4>Cobra</h4>
+                        <p><strong>Objetivo:</strong> Comer a comida sem bater nas paredes ou em si mesma.</p>
+                        <p><strong>Dicas:</strong></p>
+                        <ul>
+                            <li>Use as setas do teclado para controlar</li>
+                            <li>Ajuste a velocidade com o slider</li>
+                            <li>Cada comida aumenta seu score</li>
+                            <li>Evite colidir com o corpo da cobra</li>
+                        </ul>
+                    </div>
+
+                    <!-- Memória Tips -->
+                    <div class="tip-card">
+                        <div class="tip-icon">🧠</div>
+                        <h4>Memória</h4>
+                        <p><strong>Objetivo:</strong> Encontrar todos os pares de cartas iguais.</p>
+                        <p><strong>Dicas:</strong></p>
+                        <ul>
+                            <li>Clique nas cartas para virá-las</li>
+                            <li>Tente memorizar a posição das cartas</li>
+                            <li>Encontre todos os pares para vencer</li>
+                            <li>Quanto menos tentativas, melhor!</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Games Showcase -->
+            <section class="games-showcase">
+                <h3>🎮 Nossos Jogos</h3>
+                <div class="games-grid">
+                    <!-- Quiz Card -->
+                    <div class="game-card" onclick="navigateTo('quiz')">
+                        <div class="game-icon">❓</div>
+                        <h4>Quiz</h4>
+                        <p>Teste seus conhecimentos com perguntas de conhecimento geral</p>
+                        <div class="game-meta">
+                            <span class="difficulty">Fácil - Médio</span>
+                            <span class="players">1 Jogador</span>
+                        </div>
+                        <span class="game-arrow">→</span>
+                    </div>
+
+                    <!-- Mario Card -->
+                    <div class="game-card" onclick="navigateTo('mario')">
+                        <div class="game-icon">🍄</div>
+                        <h4>Mario</h4>
+                        <p>Pule sobre os obstáculos e sobreviva o máximo de tempo</p>
+                        <div class="game-meta">
+                            <span class="difficulty">Médio</span>
+                            <span class="players">1 Jogador</span>
+                        </div>
+                        <span class="game-arrow">→</span>
+                    </div>
+
+                    <!-- Cobra Card -->
+                    <div class="game-card" onclick="navigateTo('cobra')">
+                        <div class="game-icon">🐍</div>
+                        <h4>Cobra</h4>
+                        <p>Coma a comida e cresça sem bater em si mesma</p>
+                        <div class="game-meta">
+                            <span class="difficulty">Médio - Difícil</span>
+                            <span class="players">1 Jogador</span>
+                        </div>
+                        <span class="game-arrow">→</span>
+                    </div>
+
+                    <!-- Memória Card -->
+                    <div class="game-card" onclick="navigateTo('memoria')">
+                        <div class="game-icon">🧠</div>
+                        <h4>Memória</h4>
+                        <p>Encontre todos os pares de cartas iguais</p>
+                        <div class="game-meta">
+                            <span class="difficulty">Fácil - Médio</span>
+                            <span class="players">1 Jogador</span>
+                        </div>
+                        <span class="game-arrow">→</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Quiz Page -->
+        <section id="quiz" class="page">
+            <div class="game-header">
+                <button class="back-button" onclick="navigateTo('home')">← Voltar</button>
+                <h2>Quiz - Teste seus Conhecimentos</h2>
+            </div>
+            <div class="game-container quiz-container">
+                <div class="quiz-wrapper">
+                    <h3 id="question">Carregando pergunta...</h3>
+                    <div id="answer-buttons" class="answer-buttons"></div>
+                    <div class="quiz-controls">
+                        <button id="next-btn" class="next-button">Próximo</button>
+                    </div>
+                    <div class="quiz-progress">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mario Page -->
+        <section id="mario" class="page">
+            <div class="game-header">
+                <button class="back-button" onclick="navigateTo('home')">← Voltar</button>
+                <h2>Mario - Pule e Sobreviva</h2>
+            </div>
+            <div class="game-container mario-container">
+                <div class="mario-score">Score: <span id="mario-score">0</span></div>
+                <div class="game-board">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23FF6B6B'/%3E%3C/svg%3E" class="nuvens" alt="nuvem">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFD700'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FF6B6B'/%3E%3C/svg%3E" class="mario" alt="mario">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23228B22'/%3E%3C/svg%3E" class="tubo" alt="tubo">
+                </div>
+                <p class="mario-instructions">Pressione ESPAÇO ou clique para pular!</p>
+            </div>
+        </section>
+
+        <!-- Cobra Page -->
+        <section id="cobra" class="page">
+            <div class="game-header">
+                <button class="back-button" onclick="navigateTo('home')">← Voltar</button>
+                <h2>Cobra - Coma e Cresça</h2>
+            </div>
+            <div class="game-container cobra-container">
+                <div class="cobra-info">
+                    <div class="cobra-score">Score: <span id="cobra-score">0</span></div>
+                    <div class="cobra-highscore">Recorde: <span id="cobra-highscore">0</span></div>
+                </div>
+                <div class="cobra-controls">
+                    <label for="speedRange">Velocidade:</label>
+                    <input type="range" id="speedRange" min="50" max="300" step="10" value="100">
+                    <span id="speedValue">100</span> ms
+                </div>
+                <canvas id="gameCanvas" width="600" height="600" class="game-canvas"></canvas>
+                <p class="cobra-instructions">Use as setas do teclado para controlar a cobra!</p>
+            </div>
+        </section>
+
+        <!-- Memória Page -->
+        <section id="memoria" class="page">
+            <div class="game-header">
+                <button class="back-button" onclick="navigateTo('home')">← Voltar</button>
+                <h2>Memória - Encontre os Pares</h2>
+            </div>
+            <div class="game-container memoria-container">
+                <div class="memoria-info">
+                    <div class="memoria-moves">Tentativas: <span id="memoria-moves">0</span></div>
+                    <div class="memoria-timer">Tempo: <span id="memoria-timer">0</span>s</div>
+                </div>
+                <div id="memory-game" class="memory-game"></div>
+                <button id="restart-memory" class="restart-button">Reiniciar Jogo</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 GameHub - Plataforma de Jogos. Desenvolvido com ❤️ para jogadores.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

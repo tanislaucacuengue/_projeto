@@ -79,15 +79,17 @@ body {
 }
 
 .botao-autenticacao {
-    background-color: var(--cor-amarela);
-    color: var(--cor-escura);
+    background: linear-gradient(135deg, var(--cor-cinza)  0%, var(--cor-vermelha) 100%);;
+    color: var(--cor-amarela);
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: var(--transicao);
 }
 
 .botao-autenticacao:hover {
-    background-color: var(--cor-branca);
+    color: var(--cor-vermelha);
+    background: linear-gradient(135deg, var(--cor-cinza)  0%, var(--cor-amarela) 100%);
 }
 
 .hamburguer {
@@ -168,11 +170,54 @@ body {
     margin-bottom: 2rem;
 }
 
-.imagem-destaque img {
+
+/* Carrossel */
+.contentor-carrossel {
+    position: relative;
     width: 100%;
-    border-radius: 10px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrossel img {
+  width: 100%;
+  flex-shrink: 0;
+  
+}
+
+
+.controlo-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicao);
+}
+
+.controlo-carrossel:hover {
+    background: var(--cor-vermelha);
+}
+
+.anterior { left: 10px; }
+.seguinte { right: 10px; }
 
 /* Botões */
 .botao {
@@ -210,6 +255,8 @@ body {
 
 /* Funcionalidades */
 .funcionalidades {
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(135deg, var(--cor-clara) 0%, var(--cor-branca) 100%);
     padding: 3rem 0;
     margin-top: 3rem;
@@ -251,6 +298,58 @@ body {
     color: var(--cor-vermelha);
     margin-bottom: 0.5rem;
 }
+
+
+/* Estilos Isolados para Parallax */
+.contentor-parallax-unico {
+ position: relative;
+ height: 450px;
+ overflow: hidden;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 40px 0;
+}
+.fundo-parallax-imagem {
+ position: absolute;
+ top: 0; left: 0;
+ width: 100%;
+ height: 150%; /* Maior que o contentor para o movimento */
+ background-image: url('img/img\ \(1\).png');
+ background-position: center center;
+ background-size: cover;
+ background-attachment: fixed;
+ z-index: -1;
+}
+
+
+.texto-sobre-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.texto-sobre-parallax h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--cor-amarela);
+}
+
+.texto-sobre-parallax p {
+    font-size: 1.5rem;
+    max-width: 800px;
+}
+
 
 /* Secção de Eventos */
 #eventos {
@@ -636,6 +735,122 @@ body {
     font-weight: bold;
 }
 
+/* Footer */
+
+footer{
+    background: linear-gradient(135deg, var(--cor-cinza) 0%, var(--cor-vermelha) 100%);
+    color: var(--cor-branca);
+    padding: 50px 0;
+    margin-top: 100px;
+}
+
+.contentor-footer{
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+
+.linha-footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.footer-col ul{
+    list-style: none;
+}
+
+.footer-col ul li{
+    margin: 10px 0;
+}
+
+.footer-col ul li a{
+    color: var(--cor-branca);
+    text-decoration: none;
+    transition: var(--transicao);
+    text-transform: capitalize;
+    font-weight: 500;
+    position: relative;
+    display: block;
+}
+
+.footer-col ul li a:hover{
+    color: var(--cor-amarela);
+    padding-left: 10px;
+}
+
+.footer-col .midias-sociais{
+    margin-top: 30px;
+}
+
+.footer-col .midias-sociais a{
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: var(--cor-branca);
+    border: 1px solid var(--cor-branca);
+    transition: var(--transicao);
+}
+
+.footer-col .midias-sociais a i{
+    font-size: 20px;
+}
+
+.footer-col .midias-sociais a:hover{
+    color: var(--cor-amarela);
+    background-color: var(--cor-branca);
+}
+
+.footer-col .form-sub input{
+    width: 100%;
+    padding: 20px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid var(--cor-branca);
+    background-color: var(--cor-branca); 
+    border-radius: 5px;
+}
+
+.footer-col .form-sub input::placeholder{
+    color: var(--cor-vermelha);
+}
+
+.footer-col .form-sub button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    color: var(--cor-amarela);
+    background: linear-gradient(135deg, var(--cor-cinza)  0%, var(--cor-vermelha) 100%);
+    transition: var(--transicao);
+}
+
+.footer-col .form-sub button:hover{
+    color: var(--cor-vermelha);
+    background: linear-gradient(135deg, var(--cor-cinza)  0%, var(--cor-amarela) 100%);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .hamburguer {
@@ -666,6 +881,18 @@ body {
 
     .conteudo-destaque h2 {
         font-size: 2rem;
+        justify-content: center;
+    }
+
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:568px){
+    .footer-col{
+        width: 100%;
     }
 }
 

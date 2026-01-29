@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  text-transform: capitalize;
+}
+
+.contentor{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.inputBox{
+  margin: 10px 0;
+}
+
+.inputBox span{
+  display: block;
+  font-size: 18px;
+  color: #333;
+}
+
+.inputBox input{
+  width: 450px;
+}
+
+.resul img{
+  width: 600px;
+}
+
+.output{
+  margin-top: 10px;
+  padding: 10px;
+  background: #ddd;
+  font-size: 18px;
+}

@@ -47,7 +47,7 @@ function carregarDadosFicticios() {
             descricao: "Grande clássico entre as maiores equipas da região.",
             capacidade: 50000,
             disponivel: 12000,
-            preco: 50
+            preco: 5000
         },
         {
             id: 2,
@@ -60,7 +60,7 @@ function carregarDadosFicticios() {
             descricao: "Apresentação de artistas internacionais.",
             capacidade: 8000,
             disponivel: 2500,
-            preco: 120
+            preco: 1200
         }
     ];
 
@@ -79,6 +79,23 @@ function carregarDadosFicticios() {
         }
     ];
 }
+
+// Lógica do Carrossel
+window.addEventListener('DOMContentLoaded', () => {
+    let princial= 0;
+    const slide = document.getElementById('slideContainer');
+    const totalSlides = slide.children.length;
+    function updateSlide(){
+      slide.style.transform = `translateX(-${princial * 100}%)`;
+    }
+    setInterval(()=>{
+      princial = (princial + 1)% totalSlides;
+      updateSlide();
+    },3500);
+  }); 
+
+
+
 
 // Configurar ouvintes de eventos (Event Listeners)
 function configurarOuvintesEventos() {
@@ -172,7 +189,7 @@ function renderizarEventos() {
                 <h3>${evento.titulo}</h3>
                 <p class="data-evento">📅 ${formatarData(evento.data)} às ${evento.hora}</p>
                 <p class="localizacao-evento">📍 ${evento.localizacao}</p>
-                <p class="preco-evento">${evento.preco.toFixed(2)}€</p>
+                <p class="preco-evento">${evento.preco.toFixed(2)}Kz</p>
                 <p class="disponibilidade-evento">${evento.disponivel} bilhetes disponíveis</p>
                 <button class="botao botao-primario">Ver Detalhes</button>
             </div>
@@ -222,7 +239,7 @@ function filtrarEventos() {
                 <h3>${evento.titulo}</h3>
                 <p class="data-evento">📅 ${formatarData(evento.data)} às ${evento.hora}</p>
                 <p class="localizacao-evento">📍 ${evento.localizacao}</p>
-                <p class="preco-evento">${evento.preco.toFixed(2)}€</p>
+                <p class="preco-evento">${evento.preco.toFixed(2)}Kz</p>
                 <p class="disponibilidade-evento">${evento.disponivel} bilhetes disponíveis</p>
                 <button class="botao botao-primario">Ver Detalhes</button>
             </div>
@@ -375,7 +392,7 @@ function abrirDetalheEvento(idEvento) {
                 <div class="descricao-detalhe-evento">
                     <p>${evento.descricao}</p>
                 </div>
-                <div class="preco-detalhe-evento">${evento.preco.toFixed(2)}€</div>
+                <div class="preco-detalhe-evento">${evento.preco.toFixed(2)}Kz</div>
                 <button class="botao botao-primario" onclick="comprarBilhete(${evento.id})">Comprar Bilhete</button>
             </div>
         </div>
