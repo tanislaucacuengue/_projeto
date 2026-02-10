@@ -1,7 +1,7 @@
-/* ============================================
+/* 
    GameHub - Estilos Globais
    Design: Roxo, Laranja, Azul e Verde
-   ============================================ */
+    */
 
 /* Variáveis de Cores */
 :root {
@@ -65,9 +65,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    NAVBAR / HEADER
-   ============================================ */
+    */
 
 .navbar {
     position: sticky;
@@ -148,9 +148,9 @@ body {
     width: 100%;
 }
 
-/* ============================================
+/* 
    MAIN CONTENT
-   ============================================ */
+    */
 
 .main-content {
     min-height: calc(100vh - 200px);
@@ -179,9 +179,9 @@ body {
     }
 }
 
-/* ============================================
+/* 
    HOME PAGE - HERO SECTION
-   ============================================ */
+    */
 
 .hero {
     display: grid;
@@ -274,9 +274,9 @@ body {
     50% { transform: translateY(20px); }
 }
 
-/* ============================================
-   TIPS SECTION
-   ============================================ */
+/* 
+   Dicas SECTION
+    */
 
 .tips-section {
     margin-bottom: var(--spacing-2xl);
@@ -350,9 +350,9 @@ body {
     font-weight: bold;
 }
 
-/* ============================================
+/* 
    GAMES SHOWCASE
-   ============================================ */
+    */
 
 .games-showcase {
     margin-bottom: var(--spacing-2xl);
@@ -457,9 +457,9 @@ body {
     transform: translateX(5px);
 }
 
-/* ============================================
+/* 
    GAME PAGES
-   ============================================ */
+    */
 
 .game-header {
     display: flex;
@@ -502,9 +502,9 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* ============================================
+/* 
    QUIZ GAME
-   ============================================ */
+    */
 
 .quiz-container {
     max-width: 800px;
@@ -604,9 +604,9 @@ body {
     transition: width var(--transition-base);
 }
 
-/* ============================================
+/* 
    MARIO GAME
-   ============================================ */
+    */
 
 .mario-container {
     max-width: 800px;
@@ -661,9 +661,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    COBRA GAME
-   ============================================ */
+    */
 
 .cobra-container {
     max-width: 700px;
@@ -726,9 +726,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    MEMÓRIA GAME
-   ============================================ */
+    */
 
 .memoria-container {
     max-width: 600px;
@@ -806,9 +806,9 @@ body {
     transform: translateY(-2px);
 }
 
-/* ============================================
+/* 
    FOOTER
-   ============================================ */
+    */
 
 .footer {
     background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
@@ -824,9 +824,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    RESPONSIVIDADE
-   ============================================ */
+    */
 
 @media (max-width: 768px) {
     .navbar-container {

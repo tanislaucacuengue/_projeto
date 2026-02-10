@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateHub - Educação sobre Alterações Climáticas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-icon">🌍</span>
+                <h1>ClimateHub</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" data-page="home">Início</a>
+                <a href="#weather" class="nav-link" data-page="weather">App do Clima</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteudo principal -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Alterações Climáticas</h2>
+                    <p>Compreenda o impacto global e descubra como fazer a diferença</p>
+                    <button class="cta-button" onclick="navigateTo('weather')">Verificar Clima Agora</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-shape"></div>
+                </div>
+            </section>
+
+            <!-- O que são Alterações Climáticas -->
+            <section class="education-section">
+                <h3>❓ O que são Alterações Climáticas?</h3>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-icon">🌡️</div>
+                        <h4>Definição</h4>
+                        <p>As alterações climáticas referem-se a mudanças de longo prazo nas temperaturas e padrões climáticos globais. Estas mudanças são principalmente causadas pela atividade humana, especialmente pela emissão de gases de efeito estufa.</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-icon">🏭</div>
+                        <h4>Causas Principais</h4>
+                        <p><strong>Gases de Efeito Estufa:</strong> CO2, metano e óxido nitroso. <strong>Desflorestação:</strong> Reduz a capacidade de absorção de carbono. <strong>Combustíveis Fósseis:</strong> Carvão, petróleo e gás natural.</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-icon">📊</div>
+                        <h4>Evidências Científicas</h4>
+                        <p>Aumento de 1.1°C na temperatura global desde 1850. Aceleração do derretimento do gelo nos polos. Aumento do nível do mar. Eventos climáticos extremos mais frequentes.</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-icon">⛅</div>
+                        <h4>Clima vs Tempo</h4>
+                        <p><strong>Tempo:</strong> Condições atmosféricas a curto prazo (dias). <strong>Clima:</strong> Padrões médios de longo prazo (décadas/séculos). As alterações climáticas afetam os padrões de tempo global.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Impactos Globais -->
+            <section class="education-section impact-section">
+                <h3>🌍 Impactos Globais das Alterações Climáticas</h3>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">1</div>
+                        <h4>Aumento da Temperatura</h4>
+                        <p>Ondas de calor mais intensas e frequentes, afetando a saúde humana, agricultura e ecossistemas. Regiões tropicais e subtropicais são particularmente vulneráveis.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">2</div>
+                        <h4>Eventos Climáticos Extremos</h4>
+                        <p>Furacões, inundações, secas e tempestades de maior intensidade. Causam perdas económicas significativas e deslocação de populações.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">3</div>
+                        <h4>Impacto na Biodiversidade</h4>
+                        <p>Extinção de espécies, degradação de habitats. Ecossistemas marinhos e terrestres enfrentam pressão extrema. Perda de polinizadores essenciais.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">4</div>
+                        <h4>Saúde Humana</h4>
+                        <p>Aumento de doenças respiratórias, alergias e desnutrição. Propagação de doenças infecciosas. Impacto mental e psicológico.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">5</div>
+                        <h4>Impacto Económico</h4>
+                        <p>Perdas em agricultura, turismo e infraestrutura. Custos de adaptação e mitigação. Desigualdades económicas aumentam.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">6</div>
+                        <h4>Desigualdades Sociais</h4>
+                        <p>Países em desenvolvimento sofrem mais. Populações pobres têm menos recursos para adaptação. Migrações forçadas e conflitos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Soluções e Ações -->
+            <section class="education-section solutions-section">
+                <h3>💡 Como Combater as Alterações Climáticas</h3>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">☀️</div>
+                        <h4>Energias Renováveis</h4>
+                        <p>Solar, eólica, hidrelétrica e geotérmica. Reduzem emissões de carbono. Criam novos empregos e são cada vez mais acessíveis economicamente.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">💡</div>
+                        <h4>Eficiência Energética</h4>
+                        <p>Edifícios inteligentes, isolamento térmico, LED. Reduz consumo de energia em 20-30%. Economiza dinheiro a longo prazo.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🚌</div>
+                        <h4>Transportes Sustentáveis</h4>
+                        <p>Veículos elétricos, transportes públicos, bicicletas. Reduz emissões urbanas. Melhora a qualidade do ar nas cidades.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🌳</div>
+                        <h4>Reflorestação</h4>
+                        <p>Plantação de árvores absorve CO2. Restaura habitats. Protege contra erosão do solo e inundações.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">♻️</div>
+                        <h4>Economia Circular</h4>
+                        <p>Reduzir, reutilizar, reciclar. Minimiza resíduos. Cria oportunidades de negócio sustentáveis.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">📋</div>
+                        <h4>Políticas Públicas</h4>
+                        <p>Regulações ambientais, incentivos verdes, educação. Governos e empresas têm papel crucial na transição.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Por que Monitorar -->
+            <section class="education-section monitoring-section">
+                <h3>📊 Por que é Importante Monitorar o Clima?</h3>
+                <div class="monitoring-content">
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">⚠️</div>
+                        <h4>Previsão de Eventos Extremos</h4>
+                        <p>Monitoramento permite alertas antecipados. Salva vidas e reduz danos. Comunidades podem se preparar melhor.</p>
+                    </div>
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">🏙️</div>
+                        <h4>Planeamento Urbano</h4>
+                        <p>Cidades precisam adaptar infraestrutura. Drenagem para inundações, arrefecimento urbano. Desenvolvimento resiliente.</p>
+                    </div>
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">🏥</div>
+                        <h4>Saúde Pública</h4>
+                        <p>Sistemas de saúde podem se preparar. Prevenção de doenças relacionadas ao clima. Melhor resposta a crises.</p>
+                    </div>
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">🌾</div>
+                        <h4>Agricultura e Alimentação</h4>
+                        <p>Agricultores adaptam culturas e técnicas. Melhor gestão de recursos hídricos. Segurança alimentar global.</p>
+                    </div>
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">💼</div>
+                        <h4>Decisões Empresariais</h4>
+                        <p>Empresas identificam riscos e oportunidades. Investimento em tecnologias limpas. Resiliência operacional.</p>
+                    </div>
+                    <div class="monitoring-item">
+                        <div class="monitoring-icon">🌐</div>
+                        <h4>Ação Global Coordenada</h4>
+                        <p>Dados compartilhados entre países. Acordos internacionais baseados em ciência. Responsabilidade comum.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Locais de Uso -->
+            <section class="education-section locations-section">
+                <h3>📍 Onde a ClimateHub Pode Ser Utilizada</h3>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <div class="location-icon">🏙️</div>
+                        <h4>Cidades e Zonas Urbanas</h4>
+                        <p>Monitoramento de qualidade do ar, planeamento urbano, gestão de eventos climáticos extremos, saúde pública.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🌾</div>
+                        <h4>Regiões Agrícolas</h4>
+                        <p>Previsão de precipitação, gestão de irrigação, proteção de culturas, otimização de colheitas.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🌊</div>
+                        <h4>Zonas Costeiras</h4>
+                        <p>Monitoramento de nível do mar, alertas de tempestades, proteção de comunidades, turismo sustentável.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🌲</div>
+                        <h4>Áreas de Conservação</h4>
+                        <p>Proteção de biodiversidade, monitoramento de habitats, prevenção de incêndios, gestão de recursos naturais.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🎓</div>
+                        <h4>Escolas e Universidades</h4>
+                        <p>Educação ambiental, pesquisa científica, projetos de sustentabilidade, conscientização estudantil.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🏭</div>
+                        <h4>Empresas e Indústrias</h4>
+                        <p>Gestão de emissões, eficiência energética, conformidade regulatória, responsabilidade corporativa.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🏛️</div>
+                        <h4>Governos e Administrações</h4>
+                        <p>Formulação de políticas, planeamento estratégico, resposta a emergências, relatórios internacionais.</p>
+                    </div>
+                    <div class="location-card">
+                        <div class="location-icon">🏥</div>
+                        <h4>Setor de Saúde</h4>
+                        <p>Prevenção de doenças climáticas, preparação de recursos, pesquisa epidemiológica, saúde pública.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <h3>🌱 Comece Agora</h3>
+                <p>Explore a app do clima e monitore as condições climáticas da sua região. Cada ação conta!</p>
+                <button class="cta-button-large" onclick="navigateTo('weather')">Aceder à App do Clima</button>
+            </section>
+        </section>
+
+        <!-- Clima App Page -->
+        <section id="weather" class="page">
+            <div class="weather-container">
+                <div class="weather-header">
+                    <button class="back-button" onclick="navigateTo('home')">← Voltar</button>
+                    <h2>App do Clima</h2>
+                </div>
+
+                <div id="conteiner" class="weather-app">
+                    <form id="pesquisa">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="search" name="city_nome" id="city_nome" placeholder="Buscar cidade">
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+
+                    <div id="clima">
+                        <h1 id="titulo">Luanda, AO</h1>
+
+                        <div id="infor">
+                            <div id="temp">
+                                <img src="https://openweathermap.org/img/wn/03d.png" alt="Imagem representando o clima" id="temp_img">
+
+                                <div>
+                                    <p id="temp_valor">32</p>
+                                    <p id="temp_descricao">Ensolarado</p>
+                                </div>
+                            </div>
+
+                            <div id="outra_infor">
+                                <div class="info">
+                                    <i class="fa-solid fa-temperature-high" id="temp_max_icone"></i>
+                                    <div>
+                                        <h2>Temp máx</h2>
+                                        <p id="temp_max">30</p>
+                                    </div>
+                                </div>
+
+                                <div class="info">
+                                    <i class="fa-solid fa-temperature-low" id="temp_min_icone"></i>
+                                    <div>
+                                        <h2>Temp mín</h2>
+                                        <p id="temp_min">12</p>
+                                    </div>
+                                </div>
+
+                                <div class="info">
+                                    <i class="fa-solid fa-droplet" id="umid_icone"></i>
+                                    <div>
+                                        <h2>Umidade</h2>
+                                        <p id="umid">50</p>
+                                    </div>
+                                </div>
+
+                                <div class="info">
+                                    <i class="fa-solid fa-wind" id="vento_icone"></i>
+                                    <div>
+                                        <h2>Vento</h2>
+                                        <p id="vento">50 km/h</p>
+                                    </div>
+                                </div>
+
+                                <div class="info" id="qualidade_ar_info" style="display:none;">
+                                    <i class="fa-solid fa-smog" id="qualidade_ar_icone"></i>
+                                    <div>
+                                        <h2>Qualidade do Ar</h2>
+                                        <p id="qualidade_ar">-- <p id="qualidade_ar_descricao"></p></p>
+                                    </div>
+                                </div>
+
+                                <div class="info" id="poluicao_info" style="display:none;">
+                                    <i class="fa-solid fa-smog" id="poluicao_icone"></i>
+                                    <div>
+                                        <h2>Poluição do Ar</h2>
+                                        <p id="poluicao_percent">--</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="alert"></div>
+                </div>
+
+                <div id="descricao">
+                    <h2>Funções do Sistema</h2>
+                    <ul>
+                        <li>Mostrar a previsão do tempo atual.</li>
+                        <li>Exibir a temperatura máxima e mínima.</li>
+                        <li>Indicar a umidade e velocidade do vento.</li>
+                        <li>Mostrar a qualidade do ar (se disponível).</li>
+                        <li>Exibir a poluição do ar (se disponível).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ClimateHub - Educação sobre Alterações Climáticas. Desenvolvido com 🌍 para um futuro sustentável.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,11 +1,11 @@
-/* ============================================
+/* 
    GameHub - JavaScript Principal
    Contém a lógica de navegação e todos os jogos
-   ============================================ */
+    */
 
-// ============================================
+// 
 // NAVEGAÇÃO ENTRE PÁGINAS
-// ============================================
+// 
 
 function navigateTo(pageId) {
     const pages = document.querySelectorAll('.page');
@@ -37,9 +37,9 @@ function navigateTo(pageId) {
     }
 }
 
-// ============================================
+// 
 // QUIZ GAME
-// ============================================
+// 
 
 const quizData = {
     nivel1: [
@@ -229,9 +229,9 @@ function showQuizResults() {
     }
 }
 
-// ============================================
+// 
 // MARIO GAME
-// ============================================
+// 
 
 let marioState = {
     marioTop: 0,
@@ -332,9 +332,9 @@ function startMarioGame() {
     }, 30);
 }
 
-// ============================================
+// 
 // COBRA GAME
-// ============================================
+// 
 
 let cobraState = {
     snake: [{ x: 10, y: 10 }],
@@ -460,9 +460,9 @@ function startCobraGame() {
     }, cobraState.gameSpeed);
 }
 
-// ============================================
+// 
 // MEMÓRIA GAME
-// ============================================
+// 
 
 const memoryEmojis = ['🎮', '🎮', '🎲', '🎲', '🎯', '🎯', '🎪', '🎪', '🎨', '🎨', '🎭', '🎭', '🎬', '🎬', '🎸', '🎸'];
 
@@ -559,9 +559,9 @@ function startMemoryTimer() {
 
 document.getElementById('restart-memory')?.addEventListener('click', initMemory);
 
-// ============================================
+// 
 // INICIALIZAÇÃO
-// ============================================
+// 
 
 document.addEventListener('DOMContentLoaded', () => {
     navigateTo('home');

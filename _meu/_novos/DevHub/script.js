@@ -1,10 +1,10 @@
-/* ============================================
+/*
    DevHub - JavaScript Interativo
-   ============================================ */
+ */
 
-// ============================================
+//
 // Navegação entre Páginas
-// ============================================
+//
 
 function navigateTo(pageId) {
     // Remover classe 'active' de todas as páginas
@@ -29,9 +29,9 @@ function navigateTo(pageId) {
     window.scrollTo(0, 0);
 }
 
-// ============================================
+//
 // Gerador de Cores RGB
-// ============================================
+//
 
 function initRGBGenerator() {
     const redSlider = document.getElementById('redSlider');
@@ -65,9 +65,9 @@ function initRGBGenerator() {
     updateColor();
 }
 
-// ============================================
+//
 // Gerador de Border-Radius
-// ============================================
+//
 
 function initBorderRadiusGenerator() {
     const borderTR = document.getElementById('borderTR');
@@ -106,9 +106,9 @@ function initBorderRadiusGenerator() {
     updateBorderRadius();
 }
 
-// ============================================
+//
 // Gerador de Filtros de Imagens
-// ============================================
+//
 
 function initImageFiltersGenerator() {
     const grayscaleFilter = document.getElementById('grayscaleFilter');
@@ -170,9 +170,9 @@ function initImageFiltersGenerator() {
     updateFilters();
 }
 
-// ============================================
+//
 // Função para Copiar para Clipboard
-// ============================================
+//
 
 function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
@@ -195,9 +195,9 @@ function copyToClipboard(elementId) {
     });
 }
 
-// ============================================
+//
 // Inicialização
-// ============================================
+//
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar geradores
@@ -215,9 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ============================================
+//
 // Melhorias de UX
-// ============================================
+//
 
 // Adicionar efeito de ripple nos botões
 document.addEventListener('click', (e) => {

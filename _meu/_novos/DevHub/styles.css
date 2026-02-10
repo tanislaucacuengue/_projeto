@@ -1,7 +1,7 @@
-/* ============================================
+/* 
    DevHub - Estilos Globais
    Design: Azul, Branco e Azul Escuro
-   ============================================ */
+    */
 
 /* Variáveis de Cores */
 :root {
@@ -64,9 +64,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    NAVBAR / HEADER
-   ============================================ */
+    */
 
 .navbar {
     position: sticky;
@@ -147,9 +147,9 @@ body {
     width: 100%;
 }
 
-/* ============================================
+/* 
    MAIN CONTENT
-   ============================================ */
+    */
 
 .main-content {
     min-height: calc(100vh - 200px);
@@ -178,9 +178,9 @@ body {
     }
 }
 
-/* ============================================
+/* 
    HOME PAGE - HERO SECTION
-   ============================================ */
+    */
 
 .hero {
     display: grid;
@@ -301,9 +301,9 @@ body {
     line-height: 1.5;
 }
 
-/* ============================================
+/* 
    TOOLS SHOWCASE
-   ============================================ */
+    */
 
 .tools-showcase {
     margin-bottom: var(--spacing-2xl);
@@ -388,9 +388,9 @@ body {
     transform: translateX(5px);
 }
 
-/* ============================================
+/* 
    TOOL PAGES
-   ============================================ */
+    */
 
 .tool-header {
     display: flex;
@@ -432,9 +432,9 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* ============================================
+/* 
    CALCULADORA
-   ============================================ */
+    */
 
 .calculator-form {
     display: flex;
@@ -506,9 +506,9 @@ body {
     background-color: #c82333;
 }
 
-/* ============================================
+/* 
    RGB COLOR GENERATOR
-   ============================================ */
+    */
 
 .rgb-container {
     display: grid;
@@ -645,9 +645,9 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* ============================================
+/* 
    BORDER-RADIUS GENERATOR
-   ============================================ */
+    */
 
 .border-container {
     display: grid;
@@ -724,9 +724,9 @@ body {
     margin-top: var(--spacing-lg);
 }
 
-/* ============================================
+/* 
    IMAGE FILTERS GENERATOR
-   ============================================ */
+    */
 
 .filters-container {
     display: grid;
@@ -816,9 +816,9 @@ body {
     font-size: var(--font-size-sm);
 }
 
-/* ============================================
+/* 
    FOOTER
-   ============================================ */
+    */
 
 .footer {
     background-color: var(--dark-blue);
@@ -834,9 +834,9 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* ============================================
+/* 
    RESPONSIVIDADE
-   ============================================ */
+    */
 
 @media (max-width: 768px) {
     .navbar-container {
