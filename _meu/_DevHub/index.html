@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevHub - Ferramentas para Desenvolvedores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho/Barra de Navegação -->
+    <header class="barra-navegacao">
+        <div class="contentor-navegacao">
+            <div class="logotipo">
+                <span class="icone-logotipo">⚙️</span>
+                <h1>DevHub</h1>
+            </div>
+            <!-- Botão Hamburger -->
+            <button class="botao-hamburger" id="botao-hamburger">
+                <span class="barra"></span>
+                <span class="barra"></span>
+                <span class="barra"></span>
+            </button>
+
+            <nav class="menu-navegacao" id="menu-navegacao">
+                <a href="#inicio" class="link-navegacao ativa" data-pagina="inicio">Início</a>
+                <a href="#calculadora" class="link-navegacao" data-pagina="calculadora">Calculadora</a>
+                <a href="#rgb" class="link-navegacao" data-pagina="rgb">Cores RGB</a>
+                <a href="#bordas" class="link-navegacao" data-pagina="bordas">Border-Radius</a>
+                <a href="#filtros" class="link-navegacao" data-pagina="filtros">Filtros</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo-principal">
+        <!-- Página Inicial -->
+        <section id="inicio" class="pagina ativa">
+            <!-- Secção de Destaque -->
+            <section class="destaque">
+                <div class="conteudo-destaque">
+                    <h2>Bem-vindo ao DevHub</h2>
+                    <p>A plataforma completa de ferramentas que eu achei que são essenciais para desenvolvedores</p>
+                    <button class="botao-acao" onclick="navegarPara('calculadora')">Explorar Ferramentas</button>
+                </div>
+                <div class="visual-destaque">
+                    <div class="forma-destaque"></div>
+                </div>
+            </section>
+
+            <!-- Secção de Benefícios -->
+            <section class="beneficios">
+                <h3>Por que DevHub?</h3>
+                <div class="grelha-beneficios">
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio">🚀</div>
+                        <h4>Rápido e Eficiente</h4>
+                        <p>Acesso instantâneo a todas as ferramentas que precisa, sem complicações</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio">🎨</div>
+                        <h4>Interface Intuitiva</h4>
+                        <p>Design limpo e focado que torna cada ferramenta fácil de usar</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio">⚡</div>
+                        <h4>Produtividade</h4>
+                        <p>Economize tempo com ferramentas otimizadas para desenvolvedores</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio">🔧</div>
+                        <h4>Tudo em Um Lugar</h4>
+                        <p>Não precisa de abrir múltiplas abas - tudo integrado aqui</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção de Montra de Ferramentas -->
+            <section class="montra-ferramentas">
+                <h3>Nossas Ferramentas</h3>
+                <div class="grelha-ferramentas">
+                    <!-- Cartão Calculadora -->
+                    <div class="cartao-ferramenta" onclick="navegarPara('calculadora')">
+                        <div class="icone-ferramenta">🧮</div>
+                        <h4>Calculadora</h4>
+                        <p>Cálculos rápidos e precisos com interface intuitiva</p>
+                        <span class="seta-ferramenta">→</span>
+                    </div>
+
+                    <!-- Cartão Gerador de Cores RGB -->
+                    <div class="cartao-ferramenta" onclick="navegarPara('rgb')">
+                        <div class="icone-ferramenta">🎨</div>
+                        <h4>Gerador de Cores RGB</h4>
+                        <p>Crie cores personalizadas com controle total dos valores RGB</p>
+                        <span class="seta-ferramenta">→</span>
+                    </div>
+
+                    <!-- Cartão Gerador de Border-Radius -->
+                    <div class="cartao-ferramenta" onclick="navegarPara('bordas')">
+                        <div class="icone-ferramenta">◇</div>
+                        <h4>Border-Radius</h4>
+                        <p>Gere propriedades CSS de border-radius de forma visual</p>
+                        <span class="seta-ferramenta">→</span>
+                    </div>
+
+                    <!-- Cartão Gerador de Filtros -->
+                    <div class="cartao-ferramenta" onclick="navegarPara('filtros')">
+                        <div class="icone-ferramenta">🖼️</div>
+                        <h4>Filtros de Imagens</h4>
+                        <p>Aplique filtros CSS a imagens e veja o resultado em tempo real</p>
+                        <span class="seta-ferramenta">→</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Página Calculadora -->
+        <section id="calculadora" class="pagina">
+            <div class="cabecalho-ferramenta">
+                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <h2>Calculadora</h2>
+            </div>
+            <div class="contentor-ferramenta">
+                <form name="calculadora" class="formulario-calculadora">
+                    <input type="text" name="exibir" class="visor-calculadora" readonly>
+                    
+                    <div class="grelha-calculadora">
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '1'">1</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '2'">2</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '3'">3</button>
+                        <button type="button" class="btn-calc operador" onclick="calculadora.exibir.value += '+'">+</button>
+
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '4'">4</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '5'">5</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '6'">6</button>
+                        <button type="button" class="btn-calc operador" onclick="calculadora.exibir.value += '-'">-</button>
+
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '7'">7</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '8'">8</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '9'">9</button>
+                        <button type="button" class="btn-calc operador" onclick="calculadora.exibir.value += '*'">×</button>
+
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '.'">.</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '0'">0</button>
+                        <button type="button" class="btn-calc operador" onclick="calculadora.exibir.value += '/'">÷</button>
+                        <button type="button" class="btn-calc igual" onclick="calcularResultado()">=</button>
+
+                        <button type="button" class="btn-calc limpar" onclick="calculadora.exibir.value = ''" style="grid-column: 1 / 3;">Limpar</button>
+                        <button type="button" class="btn-calc" onclick="calculadora.exibir.value = calculadora.exibir.value.slice(0, -1)" style="grid-column: 3 / 5;">Apagar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Página Gerador de Cores RGB -->
+        <section id="rgb" class="pagina">
+            <div class="cabecalho-ferramenta">
+                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <h2>Gerador de Cores RGB</h2>
+            </div>
+            <div class="contentor-ferramenta contentor-rgb">
+                <div class="pre-visualizacao-cor" id="preVisualizacaoCor"></div>
+                
+                <div class="controlos-cor">
+                    <div class="grupo-entrada-cor">
+                        <label>Vermelho</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="deslizanteVermelho" min="0" max="255" value="100" class="deslizante-cor deslizante-vermelho">
+                            <span class="valor-deslizante" id="valorVermelho">100</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-cor">
+                        <label>Verde</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="deslizanteVerde" min="0" max="255" value="150" class="deslizante-cor deslizante-verde">
+                            <span class="valor-deslizante" id="valorVerde">150</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-cor">
+                        <label>Azul</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="deslizanteAzul" min="0" max="255" value="200" class="deslizante-cor deslizante-azul">
+                            <span class="valor-deslizante" id="valorAzul">200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saida-cor">
+                    <input type="text" id="saidaCor" class="campo-saida" readonly>
+                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaCor')">Copiar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página Gerador de Border-Radius -->
+        <section id="bordas" class="pagina">
+            <div class="cabecalho-ferramenta">
+                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <h2>Gerador de Border-Radius</h2>
+            </div>
+            <div class="contentor-ferramenta contentor-bordas">
+                <div class="pre-visualizacao-borda" id="preVisualizacaoBorda"></div>
+
+                <div class="controlos-borda">
+                    <div class="grupo-entrada-borda">
+                        <label>Canto Superior Direito</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="bordaSD" min="0" max="100" value="0" class="deslizante-borda">
+                            <span class="valor-deslizante" id="valorBordaSD">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-borda">
+                        <label>Canto Superior Esquerdo</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="bordaSE" min="0" max="100" value="0" class="deslizante-borda">
+                            <span class="valor-deslizante" id="valorBordaSE">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-borda">
+                        <label>Canto Inferior Direito</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="bordaID" min="0" max="100" value="0" class="deslizante-borda">
+                            <span class="valor-deslizante" id="valorBordaID">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-borda">
+                        <label>Canto Inferior Esquerdo</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="bordaIE" min="0" max="100" value="0" class="deslizante-borda">
+                            <span class="valor-deslizante" id="valorBordaIE">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saida-borda">
+                    <input type="text" id="saidaBorda" class="campo-saida" readonly>
+                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaBorda')">Copiar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página Gerador de Filtros -->
+        <section id="filtros" class="pagina">
+            <div class="cabecalho-ferramenta">
+                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <h2>Filtros de Imagens</h2>
+            </div>
+            <div class="contentor-ferramenta contentor-filtros">
+                <div class="contentor-imagem-filtro">
+                    <img src="background001.jpg" id="imagemFiltro" alt="Imagem de Exemplo">
+                </div>
+
+                <div class="controlos-filtros">
+                    <div class="grupo-entrada-filtro">
+                        <label>Escala de Cinza</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroCinza" min="0" max="100" value="0" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorCinza">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Sépia</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroSepia" min="0" max="100" value="0" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorSepia">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Desfoque (Blur)</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroDesfoque" min="0" max="20" value="0" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorDesfoque">0px</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Inverter</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroInverter" min="0" max="100" value="0" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorInverter">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Opacidade</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroOpacidade" min="0" max="100" value="100" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorOpacidade">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Brilho</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroBrilho" min="0" max="200" value="100" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorBrilho">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Contraste</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroContraste" min="0" max="200" value="100" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorContraste">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-entrada-filtro">
+                        <label>Saturação</label>
+                        <div class="contentor-deslizante">
+                            <input type="range" id="filtroSaturacao" min="0" max="200" value="100" class="deslizante-filtro">
+                            <span class="valor-deslizante" id="valorSaturacao">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saida-filtros">
+                    <input type="text" id="saidaFiltros" class="campo-saida" readonly>
+                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaFiltros')">Copiar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; 2026 DevHub - Ferramentas Essenciais para Desenvolvedores. 🚀</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
