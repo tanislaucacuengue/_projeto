@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StadiumPro - Sistema de Gestão de Estádios</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Font Awesome para ícones profissionais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- jsPDF para exportação de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Estilos de Extensões -->
+    <link rel="stylesheet" href="extensoes.css">
+
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="barra-navegacao">
+        <div class="contentor">
+            <div class="marca-nav">
+                <h1>Nov11 Sports</h1>
+            </div>
+            <div class="hamburguer" id="botaoHamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu-nav" id="menuNav">
+                <li class="item-menu-lateral-topo">
+                    <h2>Menu Nov11 Sports</h2>
+                </li>
+                <li><a href="#inicio" class="link-nav ativo" data-seccao="inicio"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#eventos" class="link-nav" data-seccao="eventos"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                <li><a href="#galeria" class="link-nav" data-seccao="galeria"><i class="fas fa-images"></i> Galeria</a></li>
+                <li id="itemNavAdmin" style="display: none;"><a href="#admin" class="link-nav" data-seccao="admin"><i class="fas fa-user-shield"></i> Admin</a></li>
+                <li><a href="#" id="botaoAutenticacaoNav" class="link-nav botao-autenticacao"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li id="itemNavSair" style="display: none;"><a href="#" onclick="terminarSessao()" class="link-nav botao-sair-menu"><i class="fas fa-sign-out-alt"></i> Sair da Conta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Overlay para fechar menu lateral -->
+    <div class="overlay-menu" id="overlayMenu"></div>
+
+    <!-- Secção Inicial -->
+    <section id="inicio" class="seccao ativa">
+
+         
+
+        <div class="destaque">
+            <div class="conteudo-destaque">
+                <h2>
+                    <span>Bem-vindo ao</span>
+                    <span class="palavra-animada">
+                        <span class="lista">
+                            <span>&nbsp;Website</span>
+                            <span>&nbsp;Mundo</span>
+                            <span>&nbsp;Estádio</span>
+                            <span>&nbsp;Futuro</span>
+                        </span>
+                    </span>
+                </h2>
+                <p>O seu portal completo para gerir e participar em eventos incríveis</p>
+                <button class="botao botao-primario" onclick="navegarPara('eventos')">Explorar Eventos</button>
+            </div>
+            
+            <!-- Carrossel de Imagens -->
+            <div class="contentor-carrossel">
+                <div class="carrossel" id="slideContainer">
+                    <img src="img/fundos (2).jpg">
+                    <img src="img/img (1).png">
+                    <img src="img/fundos (1).jpg">
+                    <img src="img/fundos (3).jpg">
+                    <img src="img/fundos (4).jpg">
+                </div>
+                <button class="controlo-carrossel anterior" onclick="mudarSlide(-1)">&#10094;</button>
+                <button class="controlo-carrossel seguinte" onclick="mudarSlide(1)">&#10095;</button>
+            </div>
+        </div>
+    
+        <!-- Funcionalidades -->
+        <div class="funcionalidades">
+        
+
+            <div class="contentor">
+                <h3>Porquê escolher o Nov11 Sports?</h3>
+                <div class="grelha-funcionalidades">
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade"><i class="fas fa-ticket-alt"></i></div>
+                        <h4>Bilhetes Fáceis</h4>
+                        <p>Compre bilhetes de forma rápida e segura</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade"><i class="fas fa-calendar-alt"></i></div>
+                        <h4>Eventos Variados</h4>
+                        <p>Futebol, música, desportos e muito mais</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade"><i class="fas fa-user"></i></div>
+                        <h4>Perfil Personalizado</h4>
+                        <p>Gira os seus bilhetes e preferências</p>
+                    </div>
+                    <div class="cartao-funcionalidade">
+                        <div class="icone-funcionalidade"><i class="fas fa-lock"></i></div>
+                        <h4>Segurança</h4>
+                        <p>Os seus dados sempre protegidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secção Parallax Isolada -->
+        <div class="contentor-parallax-unico">
+            <div class="fundo-parallax-imagem" id="parallaxImg"></div>
+            <div class="texto-sobre-parallax">
+                <h2> Sinta a Emoção de Cada Momento</h2>
+                <p>A melhor tecnologia para a melhor experiência nos estádios.</p>
+               
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Secção Quem Somos -->
+    <section id="quem-somos" class="seccao">
+        <div class="contentor">
+            <h2>Quem Somos</h2>
+            <div class="conteudo-institucional">
+                <p>O <strong>Nov11 Sports</strong> nasceu da paixão pelo desporto e pela tecnologia. Somos uma plataforma líder em gestão de eventos e bilhética em Angola, focada em proporcionar a melhor experiência tanto para organizadores quanto para o público.</p>
+                <p>Nossa missão é democratizar o acesso aos grandes eventos, garantindo segurança, transparência e facilidade em cada transação. Com uma equipa dedicada, trabalhamos diariamente para inovar e trazer as melhores soluções para o mercado nacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Nossos Serviços -->
+    <section id="servicos" class="seccao">
+        <div class="contentor">
+            <h2>Nossos Serviços</h2>
+            <div class="grelha-funcionalidades">
+                <div class="cartao-funcionalidade">
+                    <div class="icone-funcionalidade"><i class="fas fa-ticket-alt"></i></div>
+                    <h4>Venda de Bilhetes</h4>
+                    <p>Sistema completo de bilhética online com validação em tempo real.</p>
+                </div>
+                <div class="cartao-funcionalidade">
+                    <div class="icone-funcionalidade"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Gestão de Eventos</h4>
+                    <p>Painéis administrativos para controlo total de vendas e público.</p>
+                </div>
+                <div class="cartao-funcionalidade">
+                    <div class="icone-funcionalidade"><i class="fas fa-bullhorn"></i></div>
+                    <h4>Marketing e Promoção</h4>
+                    <p>Divulgação estratégica para garantir o sucesso do seu evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Política de Privacidade -->
+    <section id="privacidade" class="seccao">
+        <div class="contentor">
+            <h2>Política de Privacidade</h2>
+            <div class="conteudo-institucional">
+                <p>No Nov11 Sports, a sua privacidade é nossa prioridade. Esta política descreve como recolhemos, usamos e protegemos as suas informações pessoais.</p>
+                <ul>
+                    <li><strong>Recolha de Dados:</strong> Apenas solicitamos informações necessárias para o processamento de bilhetes e segurança da conta.</li>
+                    <li><strong>Uso de Informações:</strong> Seus dados nunca são partilhados com terceiros sem o seu consentimento explícito.</li>
+                    <li><strong>Segurança:</strong> Utilizamos criptografia de ponta para proteger todas as transações financeiras.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Programa de Afiliados -->
+    <section id="afiliados" class="seccao">
+        <div class="contentor">
+            <h2>Programa de Afiliados</h2>
+            <div class="conteudo-institucional">
+                <p>Junte-se à família Nov11 Sports e ganhe comissões por cada venda realizada através do seu link exclusivo.</p>
+                <p>Ideal para influenciadores, blogueiros e entusiastas do desporto que desejam monetizar sua audiência enquanto promovem os melhores eventos do país.</p>
+                <button class="botao botao-primario">Saber Mais</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Secção de Eventos -->
+    <section id="eventos" class="seccao">
+        <div class="contentor">
+            <h2>Eventos Disponíveis</h2>
+            
+            <!-- Filtros -->
+            <div class="filtros">
+                <input type="text" id="entradaPesquisa" placeholder="Procurar eventos..." class="entrada-filtro">
+                <select id="filtroCategoria" class="selecao-filtro">
+                    <option value="">Todas as categorias</option>
+                    <option value="futebol">Futebol</option>
+                    <option value="musica">Música</option>
+                    <option value="desportos">Desportos</option>
+                    <option value="gastronomia">Gastronomia</option>
+                    <option value="tecnologia">Tecnologia</option>
+                </select>
+            </div>
+
+            <!-- Grelha de Eventos -->
+            <div id="grelhaEventos" class="grelha-eventos">
+                <!-- Os eventos serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Galeria -->
+    <section id="galeria" class="seccao">
+        <div class="contentor">
+            <h2>Galeria de Fotos</h2>
+            <div id="grelhaGaleria" class="grelha-galeria">
+                <!-- Os itens da galeria serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Perfil do Utilizador -->
+    <section id="perfil" class="seccao">
+        <div class="contentor">
+            <h2>O Meu Perfil</h2>
+            <div id="seccaoConteudoPerfil" class="conteudo-perfil-seccao">
+                <!-- O conteúdo do perfil será carregado aqui via JS -->
+                <div class="estado-vazio">
+                    <p>Por favor, faça login para ver o seu perfil.</p>
+                    <button class="botao botao-primario" onclick="abrirModalAutenticacao()">Fazer Login</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Agendamento de Estádio para Utilizadores -->
+    <section id="agendamento" class="seccao">
+        <div class="contentor">
+            <h2>Agendar Estádio</h2>
+            <div class="conteudo-agendamento">
+                <div class="formulario-agendamento-wrapper">
+                    <h3>Preencha o formulário para agendar o estádio</h3>
+                    <form id="formularioAgendamento" class="formulario-agendamento">
+                        <div class="grupo-formulario">
+                            <label for="dataAgendamento">Data do Evento:</label>
+                            <input type="date" id="dataAgendamento" name="dataAgendamento" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="horaAgendamento">Hora do Evento:</label>
+                            <input type="time" id="horaAgendamento" name="horaAgendamento" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="tipoEvento">Tipo de Evento:</label>
+                            <select id="tipoEvento" name="tipoEvento" required>
+                                <option value="">Selecione um tipo de evento</option>
+                                <option value="futebol">Futebol</option>
+                                <option value="musica">Música</option>
+                                <option value="desportos">Desportos</option>
+                                <option value="gastronomia">Gastronomia</option>
+                                <option value="conferencia">Conferência</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="nomeEvento">Nome do Evento:</label>
+                            <input type="text" id="nomeEvento" name="nomeEvento" placeholder="Insira o nome do evento" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="descricaoEvento">Descrição do Evento:</label>
+                            <textarea id="descricaoEvento" name="descricaoEvento" placeholder="Descreva o seu evento" rows="4" required></textarea>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="capacidadeEsperada">Capacidade Esperada:</label>
+                            <input type="number" id="capacidadeEsperada" name="capacidadeEsperada" placeholder="Número de pessoas" min="1" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="nomeOrganizador">Seu Nome:</label>
+                            <input type="text" id="nomeOrganizador" name="nomeOrganizador" placeholder="Seu nome completo" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="emailOrganizador">Seu Email:</label>
+                            <input type="email" id="emailOrganizador" name="emailOrganizador" placeholder="Seu email" required>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="telefonePedido">Seu Telefone:</label>
+                            <input type="tel" id="telefonePedido" name="telefonePedido" placeholder="Seu número de telefone" required>
+                        </div>
+
+                        <button type="submit" class="botao botao-primario">Enviar Pedido de Agendamento</button>
+                    </form>
+                </div>
+
+                <div class="meus-agendamentos-wrapper">
+                    <h3>Meus Pedidos de Agendamento</h3>
+                    <div id="listaAgendamentos" class="lista-agendamentos">
+                        <p>Faça login para ver seus pedidos de agendamento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção de Administração -->
+    <section id="admin" class="seccao">
+        <div class="contentor">
+            <h2>Painel de Administração</h2>
+            <div class="abas-admin" id="abasAdmin">
+                <button class="aba-botao ativo" data-aba="dashboard"><i class="fas fa-chart-line"></i> Dashboard</button>
+                <button class="aba-botao" data-aba="criar-evento"><i class="fas fa-plus-circle"></i> Criar Evento</button>
+                <button class="aba-botao" data-aba="pedidos-agendamento"><i class="fas fa-calendar-check"></i> Pedidos</button>
+                <button class="aba-botao" data-aba="relatorios"><i class="fas fa-file-alt"></i> Relatórios</button>
+                <button class="aba-botao" data-aba="suporte-admin"><i class="fas fa-headset"></i> Suporte</button>
+                <button class="aba-botao" data-aba="manutencao"><i class="fas fa-tools"></i> Manutenção</button>
+            </div>
+            <div class="dashboard-admin">
+                <div class="cartoes-estatisticas">
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica"><i class="fas fa-ticket-alt"></i></div>
+                        <div class="info-estatistica">
+                            <h4 id="totalBilhetesVendidos">0</h4>
+                            <p>Bilhetes Vendidos</p>
+                        </div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="info-estatistica">
+                            <h4 id="receitaTotal">0.00Kz</h4>
+                            <p>Receita Total</p>
+                        </div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica"><i class="fas fa-users"></i></div>
+                        <div class="info-estatistica">
+                            <h4 id="totalUtilizadores">0</h4>
+                            <p>Utilizadores Registados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabela-vendas">
+                    <h3>Vendas Recentes</h3>
+                    <div class="contentor-tabela">
+                        <table id="tabelaVendasAdmin">
+                            <thead>
+                                <tr>
+                                    <th>ID Bilhete</th>
+                                    <th>Evento</th>
+                                    <th>Utilizador</th>
+                                    <th>Data</th>
+                                    <th>Preço</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- As vendas serão carregadas aqui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba: Criar Evento -->
+            <div id="aba-criar-evento" class="conteudo-aba" style="display: none;">
+                <h3>Criar Novo Evento</h3>
+                <form id="formularioCriarEvento" class="formulario-admin">
+                    <div class="grupo-formulario">
+                        <label for="tituloEvento">Título do Evento:</label>
+                        <input type="text" id="tituloEvento" name="tituloEvento" placeholder="Título do evento" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="dataEvento">Data:</label>
+                        <input type="date" id="dataEvento" name="dataEvento" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="horaEvento">Hora:</label>
+                        <input type="time" id="horaEvento" name="horaEvento" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="localizacaoEvento">Localização:</label>
+                        <input type="text" id="localizacaoEvento" name="localizacaoEvento" placeholder="Localização do evento" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="categoriaEvento">Categoria:</label>
+                        <select id="categoriaEvento" name="categoriaEvento" required>
+                            <option value="futebol">Futebol</option>
+                            <option value="musica">Música</option>
+                            <option value="desportos">Desportos</option>
+                            <option value="gastronomia">Gastronomia</option>
+                            <option value="tecnologia">Tecnologia</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="descricaoEventoAdmin">Descrição:</label>
+                        <textarea id="descricaoEventoAdmin" name="descricaoEventoAdmin" placeholder="Descrição do evento" rows="4" required></textarea>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="capacidadeEvento">Capacidade:</label>
+                        <input type="number" id="capacidadeEvento" name="capacidadeEvento" placeholder="Capacidade do estádio" min="1" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="precoEvento">Preço do Bilhete (Kz):</label>
+                        <input type="number" id="precoEvento" name="precoEvento" placeholder="Preço" min="0" step="0.01" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="imagemEvento">URL da Imagem:</label>
+                        <input type="url" id="imagemEvento" name="imagemEvento" placeholder="https://exemplo.com/imagem.jpg" required>
+                    </div>
+
+                    <button type="submit" class="botao botao-primario">Criar Evento</button>
+                </form>
+            </div>
+
+            <!-- Aba: Pedidos de Agendamento -->
+            <div id="aba-pedidos-agendamento" class="conteudo-aba" style="display: none;">
+                <h3>Pedidos de Agendamento do Estádio</h3>
+                <div class="contentor-tabela">
+                    <table id="tabelaPedidosAgendamento">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Organizador</th>
+                                <th>Tipo de Evento</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os pedidos serão carregados aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Aba: Relatórios -->
+            <div id="aba-relatorios" class="conteudo-aba" style="display: none;">
+                <h3>Relatórios Mensais de Atividades</h3>
+                <div class="opcoes-relatorio">
+                    <div class="grupo-formulario">
+                        <label for="mesRelatorio">Selecione o Mês:</label>
+                        <input type="month" id="mesRelatorio" name="mesRelatorio">
+                    </div>
+                    <button class="botao botao-primario" onclick="gerarRelatorioMensal()">Gerar Relatório</button>
+                    <button class="botao botao-secundario" onclick="descarregarRelatorioMensal()">Descarregar PDF</button>
+                </div>
+                <div id="conteudoRelatorio" class="conteudo-relatorio" style="display: none;">
+                    <!-- O relatório será exibido aqui -->
+                </div>
+            </div>
+
+            <!-- Aba: Suporte Admin -->
+            <div id="aba-suporte-admin" class="conteudo-aba" style="display: none;">
+                <h3>Mensagens de Suporte</h3>
+                <div id="listaMensagensSuporteAdmin" class="lista-mensagens-admin">
+                    <p>A carregar mensagens...</p>
+                </div>
+            </div>
+
+            <!-- Aba: Manutenção de Infraestruturas -->
+            <div id="aba-manutencao" class="conteudo-aba" style="display: none;">
+                <h3>Gestão de Manutenção da Infraestrutura</h3>
+                <form id="formularioManutencao" class="formulario-admin">
+                    <div class="grupo-formulario">
+                        <label for="tipoManutencao">Tipo de Manutenção:</label>
+                        <select id="tipoManutencao" required>
+                            <option value="relvado">Relvado</option>
+                            <option value="iluminacao">Iluminação</option>
+                            <option value="arquibancadas">Arquibancadas</option>
+                            <option value="balnearios">Balneários</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="descricaoManutencao">Descrição da Atividade:</label>
+                        <textarea id="descricaoManutencao" placeholder="Descreva a atividade realizada..." rows="3" required></textarea>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="dataManutencao">Data da Atividade:</label>
+                        <input type="date" id="dataManutencao" required>
+                    </div>
+                    <button type="submit" class="botao botao-primario">Registar Manutenção</button>
+                </form>
+
+                <div class="tabela-manutencao" style="margin-top: 2rem;">
+                    <h3>Registos de Manutenção</h3>
+                    <div class="contentor-tabela">
+                        <table id="tabelaManutencao">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
+                                    <th>Descrição</th>
+                                    <th>Responsável</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Os registos serão carregados aqui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Autenticação -->
+    <div id="modalAutenticacao" class="modal">
+        <div class="conteudo-modal">
+            <span class="fechar">&times;</span>
+            
+            <!-- Formulário de Login -->
+            <div id="formularioLogin" class="formulario-autenticacao ativo">
+                <h2>Login</h2>
+                <form onsubmit="processarLogin(event)">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Palavra-passe" required>
+                    <button type="submit" class="botao botao-primario">Entrar</button>
+                </form>
+                <p>Não tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Registe-se</a></p>
+            </div>
+
+            <!-- Formulário de Registo -->
+            <div id="formularioRegisto" class="formulario-autenticacao">
+                <h2>Registo</h2>
+                <form onsubmit="processarRegisto(event)">
+                    <input type="text" placeholder="Nome completo" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Palavra-passe" required>
+                    <input type="password" placeholder="Confirmar palavra-passe" required>
+                    <button type="submit" class="botao botao-primario">Registar</button>
+                </form>
+                <p>Já tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Perfil removido - Perfil agora é uma secção integrada -->
+
+    <!-- Modal de Detalhes do Evento -->
+    <div id="modalDetalheEvento" class="modal">
+        <div class="conteudo-modal modal-evento">
+            <span class="fechar"></span>
+            <div id="conteudoDetalheEvento">
+                <!-- Os detalhes do evento serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Aceitar/Recusar Pedido -->
+    <div id="modalAcaoPedido" class="modal">
+        <div class="conteudo-modal">
+            <span class="fechar"></span>
+            <div id="conteudoAcaoPedido">
+                <!-- O conteúdo será carregado aqui -->
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="contentor-footer">
+            <div class="linha-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Nov11 Sports</h4>
+                    <ul>
+                        <li><a href="#quem-somos" class="link-nav" data-seccao="quem-somos">Quem somos</a></li>
+                        <li><a href="#servicos" class="link-nav" data-seccao="servicos">Nossos Serviços</a></li>
+                        <li><a href="#privacidade" class="link-nav" data-seccao="privacidade">Política de Privacidade</a></li>
+                        <li><a href="#afiliados" class="link-nav" data-seccao="afiliados">Programa de afiliados</a></li>
+                    </ul>
+                </div>
+                <!-- fim do footer col -->
+
+                 <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Obter Ajuda</h4>
+                    <ul>
+                        <li><a href="">Online</a></li>
+                        <li><a href="">Serviços Apoio</a></li>
+                        <li><a href="">Pela plataforma</a></li>
+                        <li><a href="">Pelo Chat</a></li>
+                    </ul>
+                </div>
+                <!-- fim do footer col -->
+
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Contactos</h4>
+                    <!-- form sub -->
+
+                    <div class="form-sub">
+                        <form id="formularioContactoFooter">
+                            <input type="email" id="emailContactoFooter" placeholder="O seu e-mail" required>
+                            <textarea id="mensagemContactoFooter" placeholder="Como podemos ajudar?" rows="3" required></textarea>
+                            <button type="submit">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                    <!-- fim form sub -->
+
+                    <div class="midias-sociais">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+        
+                </div>
+                <!-- fim do footer col -->
+            </div>
+        </    <!-- Botão Voltar ao Topo -->
+    <button id="botaoVoltarTopo" class="botao-voltar-topo" title="Voltar ao Topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="aplicacao.js"></script>
+    <script src="extensoes.js"></script>
+    <script src="melhorias-perfil.js"></script>
+</body></html>

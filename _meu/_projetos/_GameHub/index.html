@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <!-- ====================================
+         METADADOS E CONFIGURAÇÃO
+         ==================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PlataformaJogos - Hub de jogos educativos e divertidos">
+    <meta name="author" content="PlataformaJogos">
+    
+    <!-- Título da página -->
+    <title>GameHub - Hub de Jogos</title>
+    
+    <!-- Link para a folha de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link para Font Awesome (ícones) -->
+    <!-- Link para Font Awesome (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Link para Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ====================================
+         CABEÇALHO PRINCIPAL
+         ==================================== -->
+    <header class="cabecalho">
+        <div class="contentor-cabecalho">
+            <!-- Logo e título da aplicação -->
+            <div class="logotipo">
+                <span class="icone-logotipo"><i class="fas fa-gamepad"></i></span>
+                <h1 class="titulo-logotipo">GameHub</h1>
+            </div>
+            
+            <!-- Botão Hamburger -->
+            <button class="botao-hamburger" id="botao-hamburger">
+                <span class="barra-hamburger"></span>
+                <span class="barra-hamburger"></span>
+                <span class="barra-hamburger"></span>
+            </button>
+
+            <!-- Menu de navegação principal -->
+            <nav class="menu-navegacao" id="menu-navegacao">
+                <a href="#inicio" class="ligacao-navegacao ativa" dados-pagina="inicio">
+                    <i class="fas fa-home"></i> Início
+                </a>
+                <a href="#quiz" class="ligacao-navegacao" dados-pagina="quiz">
+                    <i class="fas fa-brain"></i> Quiz
+                </a>
+                <a href="#cobra" class="ligacao-navegacao" dados-pagina="cobra">
+                    <i class="fas fa-snake"></i> Cobra
+                </a>
+                <a href="#memoria" class="ligacao-navegacao" dados-pagina="memoria">
+                    <i class="fas fa-th"></i> Memória
+                </a>
+                <a href="#flappybird" class="ligacao-navegacao" dados-pagina="flappybird">
+                    <i class="fas fa-dove"></i> Flappy
+                </a>
+                <a href="#jogo2048" class="ligacao-navegacao" dados-pagina="jogo2048">
+                    <i class="fas fa-th-large"></i> 2048
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ====================================
+         CONTEÚDO PRINCIPAL
+         ==================================== -->
+    <main class="conteudo-principal">
+        
+        <!-- ====== PÁGINA INICIAL ====== -->
+        <section id="inicio" class="pagina ativa">
+            <!-- Seção Herói -->
+            <section class="secao-heroi">
+                <div class="conteudo-heroi">
+                    <h2 class="titulo-heroi">Bem-vindo à PlataformaJogos</h2>
+                    <p class="descricao-heroi">
+                        Divirta-se com uma coleção de jogos educativos e emocionantes. 
+                        Teste seus conhecimentos, reflexos e memória!
+                    </p>
+                    <button class="botao-acao-grande" onclick="navegarPara('quiz')">
+                        <i class="fas fa-play"></i> Começar a Jogar
+                    </button>
+                </div>
+                <div class="visual-heroi">
+                    <div class="forma-heroi"></div>
+                </div>
+            </section>
+
+            <!-- Seção de Dicas e Como Jogar -->
+            <section class="secao-dicas">
+                <h2 class="titulo-secao">📚 Dicas e Como Jogar</h2>
+                
+                <div class="grelha-dicas">
+                    <!-- Dica do Quiz -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-brain"></i></div>
+                        <h3 class="titulo-dica">Quiz - Teste seus Conhecimentos</h3>
+                        <p class="texto-dica">
+                            Responda a perguntas sobre geografia, história e curiosidades gerais. 
+                            Existem 2 níveis de dificuldade progressiva. Acerte o máximo de perguntas 
+                            possível e veja sua pontuação final!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ 4 perguntas por nível</li>
+                            <li>✓ 2 níveis de dificuldade</li>
+                            <li>✓ Feedback imediato</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dica da Cobra -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-snake"></i></div>
+                        <h3 class="titulo-dica">Cobra - Coma e Cresça</h3>
+                        <p class="texto-dica">
+                            Controle a cobra com as setas do teclado e coma a comida para crescer. 
+                            Evite bater nas paredes e em si mesma. Quanto mais comida comer, 
+                            mais pontos ganha!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ Controles: Setas do teclado</li>
+                            <li>✓ Botão de pausa</li>
+                            <li>✓ Ajuste de velocidade</li>
+                            <li>✓ Sistema de recorde</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dica da Memória -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-puzzle-piece"></i></div>
+                        <h3 class="titulo-dica">Memória - Encontre os Pares</h3>
+                        <p class="texto-dica">
+                            Clique nas cartas para encontrar os pares correspondentes. 
+                            Quanto menos tentativas usar, melhor sua pontuação. 
+                            Teste sua memória visual!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ 16 cartas (8 pares)</li>
+                            <li>✓ Contador de tentativas</li>
+                            <li>✓ Timer automático</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dica do Flappy Bird -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-dove"></i></div>
+                        <h3 class="titulo-dica">Flappy Bird - Voe Alto</h3>
+                        <p class="texto-dica">
+                            Clique ou pressione espaço para fazer o pássaro pular. 
+                            Evite os canos e voe o máximo de distância possível. 
+                            Simples mas desafiador!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ Controles: Clique ou Espaço</li>
+                            <li>✓ Dificuldade progressiva</li>
+                            <li>✓ Sistema de pontuação</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dica do 2048 -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-th-large"></i></div>
+                        <h3 class="titulo-dica">2048 - Combine Números</h3>
+                        <p class="texto-dica">
+                            Use as setas do teclado para mover os blocos. 
+                            Combine blocos com o mesmo número para criar números maiores. 
+                            Objetivo: Alcançar o bloco 2048!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ Controles: Setas do teclado</li>
+                            <li>✓ Objetivo: Alcançar 2048</li>
+                            <li>✓ Desafio: Continue jogando!</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dica Geral -->
+                    <div class="cartao-dica">
+                        <div class="icone-dica"><i class="fas fa-star"></i></div>
+                        <h3 class="titulo-dica">Dicas Gerais</h3>
+                        <p class="texto-dica">
+                            Todos os jogos têm um botão de reinício para começar do zero. 
+                            Seus recordes são salvos automaticamente. 
+                            Divirta-se e desafie seus amigos!
+                        </p>
+                        <ul class="lista-dica">
+                            <li>✓ Recordes salvos localmente</li>
+                            <li>✓ Sem necessidade de conexão</li>
+                            <li>✓ Compatível com todos os dispositivos</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Benefícios -->
+            <section class="secao-beneficios">
+                <h2 class="titulo-secao">💡 Por que Jogar?</h2>
+                
+                <div class="grelha-beneficios">
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio"><i class="fas fa-graduation-cap"></i></div>>
+                        <h3>Educação</h3>
+                        <p>Aprenda enquanto se diverte com conteúdo educativo</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <<div class="icone-beneficio"><i class="fas fa-bolt"></i></div>
+                        <h3>Reflexos</h3>
+                        <p>Melhore seus reflexos e tempo de reação</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <div class="icone-beneficio"><i class="fas fa-brain"></i></div>>
+                        <h3>Memória</h3>
+                        <p>Fortaleça sua memória e concentração</p>
+                    </div>
+                    <div class="cartao-beneficio">
+                        <<div class="icone-beneficio"><i class="fas fa-smile"></i></div>
+                        <h3>Diversão</h3>
+                        <p>Passe tempo de qualidade se divertindo</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ====== JOGO QUIZ ====== -->
+        <section id="quiz" class="pagina">
+            <div class="contentor-jogo">
+                <div class="cabecalho-jogo">
+                    <h2 class="titulo-jogo">Quiz - Teste seus Conhecimentos</h2>
+                    <button class="botao-voltar" onclick="navegarPara('inicio')">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                </div>
+
+                <div class="aplicacao-quiz">
+                    <div class="progresso-quiz">
+                        <div class="barra-progresso">
+                            <div class="preenchimento-progresso" id="preenchimento-progresso"></div>
+                        </div>
+                        <p class="texto-progresso" id="texto-progresso">Pergunta 1 de 4</p>
+                    </div>
+
+                    <h3 id="pergunta-quiz" class="pergunta-quiz">Carregando pergunta...</h3>
+
+                    <div id="botoes-resposta" class="botoes-resposta"></div>
+
+                    <button id="botao-proximo" class="botao-proximo" style="display: none;">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== JOGO COBRA ====== -->
+        <section id="cobra" class="pagina">
+            <div class="contentor-jogo">
+                <div class="cabecalho-jogo">
+                    <h2 class="titulo-jogo">Cobra - Coma e Cresça</h2>
+                    <button class="botao-voltar" onclick="navegarPara('inicio')">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                </div>
+
+                <div class="aplicacao-cobra">
+                    <!-- Informações do jogo -->
+                    <div class="info-cobra">
+                        <div class="item-info">
+                            <span class="label-info">Pontuação:</span>
+                            <span class="valor-info" id="pontuacao-cobra">0</span>
+                        </div>
+                        <div class="item-info">
+                            <span class="label-info">Recorde:</span>
+                            <span class="valor-info" id="recorde-cobra">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Controles do jogo -->
+                    <div class="controles-cobra">
+                        <div class="grupo-velocidade">
+                            <label for="velocidade-cobra"><i class="fas fa-tachometer-alt"></i> Velocidade:</label>
+                            <input type="range" id="velocidade-cobra" min="50" max="300" step="10" value="100">
+                            <span id="valor-velocidade">100</span> ms
+                        </div>
+
+                        <button id="botao-pausa-cobra" class="botao-pausa">
+                            <i class="fas fa-pause"></i> Pausar
+                        </button>
+                    </div>
+
+                    <!-- Canvas do jogo -->
+                    <div class="contentor-tela-jogo">
+                        <canvas id="tela-cobra" width="600" height="600" class="tela-cobra"></canvas>
+                        
+                        <!-- Setas de Controlo Mobile -->
+                        <div class="controlos-mobile" id="controlos-mobile-cobra">
+                            <button class="btn-seta cima" id="btn-cobra-cima"><i class="fas fa-chevron-up"></i></button>
+                            <div class="linha-meio">
+                                <button class="btn-seta esquerda" id="btn-cobra-esquerda"><i class="fas fa-chevron-left"></i></button>
+                                <button class="btn-seta direita" id="btn-cobra-direita"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <button class="btn-seta baixo" id="btn-cobra-baixo"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Menu de Game Over -->
+                    <div id="menu-game-over-cobra" class="menu-game-over" style="display: none;">
+                        <div class="conteudo-game-over">
+                            <h3>Game Over!</h3>
+                            <p>Sua pontuação: <span id="pontuacao-final-cobra">0</span></p>
+                            <button onclick="reiniciarCobra()" class="botao-reiniciar">
+                                <i class="fas fa-redo"></i> Jogar Novamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== JOGO MEMÓRIA ====== -->
+        <section id="memoria" class="pagina">
+            <div class="contentor-jogo">
+                <div class="cabecalho-jogo">
+                    <h2 class="titulo-jogo">Memória - Encontre os Pares</h2>
+                    <button class="botao-voltar" onclick="navegarPara('inicio')">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                </div>
+
+                <div class="aplicacao-memoria">
+                    <div class="info-memoria">
+                        <div class="item-info">
+                            <span class="label-info">Tentativas:</span>
+                            <span class="valor-info" id="tentativas-memoria">0</span>
+                        </div>
+                        <div class="item-info">
+                            <span class="label-info">Pares encontrados:</span>
+                            <span class="valor-info" id="pares-memoria">0/8</span>
+                        </div>
+                    </div>
+
+                    <div id="tabuleiro-memoria" class="tabuleiro-memoria"></div>
+
+                    <button onclick="reiniciarMemoria()" class="botao-reiniciar">
+                        <i class="fas fa-redo"></i> Novo Jogo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== JOGO FLAPPY BIRD ====== -->
+        <section id="flappybird" class="pagina">
+            <div class="contentor-jogo">
+                <div class="cabecalho-jogo">
+                    <h2 class="titulo-jogo">Flappy Bird - Voe Alto</h2>
+                    <button class="botao-voltar" onclick="navegarPara('inicio')">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                </div>
+
+                <div class="aplicacao-flappy">
+                    <div class="info-flappy">
+                        <div class="item-info">
+                            <span class="label-info">Pontuação:</span>
+                            <span class="valor-info" id="pontuacao-flappy">0</span>
+                        </div>
+                        <div class="item-info">
+                            <span class="label-info">Recorde:</span>
+                            <span class="valor-info" id="recorde-flappy">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Controles do jogo Flappy -->
+                    <div class="controles-flappy">
+                        <div class="grupo-velocidade">
+                            <label for="velocidade-flappy"><i class="fas fa-tachometer-alt"></i> Velocidade:</label>
+                            <input type="range" id="velocidade-flappy" min="1" max="10" step="1" value="3">
+                            <span id="valor-velocidade-flappy">3</span>
+                        </div>
+
+                        <button id="botao-pausa-flappy" class="botao-pausa">
+                            <i class="fas fa-play"></i> Iniciar
+                        </button>
+                    </div>
+
+                    <div class="contentor-tela-jogo">
+                        <canvas id="tela-flappy" width="400" height="600" class="tela-flappy"></canvas>
+                        
+                        <!-- Instrução Mobile -->
+                        <div class="instrucao-mobile" id="instrucao-mobile-flappy">
+                            <p><i class="fas fa-hand-pointer"></i> Toque para voar</p>
+                        </div>
+                    </div>
+
+                    <div id="menu-game-over-flappy" class="menu-game-over" style="display: none;">
+                        <div class="conteudo-game-over">
+                            <h3>Game Over!</h3>
+                            <p>Sua pontuação: <span id="pontuacao-final-flappy">0</span></p>
+                            <button onclick="reiniciarFlappy()" class="botao-reiniciar">
+                                <i class="fas fa-redo"></i> Jogar Novamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== JOGO 2048 ====== -->
+        <section id="jogo2048" class="pagina">
+            <div class="contentor-jogo">
+                <div class="cabecalho-jogo">
+                    <h2 class="titulo-jogo">2048 - Combine Números</h2>
+                    <button class="botao-voltar" onclick="navegarPara('inicio')">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                </div>
+
+                 <div class="aplicacao-2048">
+                    <div class="info-2048">
+                        <div class="item-info">
+                            <span class="label-info">Pontuação:</span>
+                            <span class="valor-info" id="pontuacao-2048">0</span>
+                        </div>
+                        <div class="item-info">
+                            <span class="label-info">Recorde:</span>
+                            <span class="valor-info" id="recorde-2048">0</span>
+                        </div>
+                    </div>
+
+                    <div class="contentor-tela-jogo">
+                        <div id="tabuleiro-2048" class="tabuleiro-2048"></div>
+                        
+                        <!-- Setas de Controlo Mobile -->
+                        <div class="controlos-mobile" id="controlos-mobile-2048">
+                            <button class="btn-seta cima" id="btn-2048-cima"><i class="fas fa-chevron-up"></i></button>
+                            <div class="linha-meio">
+                                <button class="btn-seta esquerda" id="btn-2048-esquerda"><i class="fas fa-chevron-left"></i></button>
+                                <button class="btn-seta direita" id="btn-2048-direita"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <button class="btn-seta baixo" id="btn-2048-baixo"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>>
+                        <i class="fas fa-redo"></i> Novo Jogo
+                    </button>
+
+                    <div id="tabuleiro-2048" class="tabuleiro-2048"></div>
+
+                    <div id="menu-game-over-2048" class="menu-game-over" style="display: none;">
+                        <div class="conteudo-game-over">
+                            <h3>Game Over!</h3>
+                            <p>Sua pontuação: <span id="pontuacao-final-2048">0</span></p>
+                            <button onclick="reiniciar2048()" class="botao-reiniciar">
+                                <i class="fas fa-redo"></i> Jogar Novamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====================================
+         RODAPÉ
+         ==================================== -->
+    <footer class="rodape">
+        <p class="texto-rodape">
+            &copy; 2026 GameHub - Diversão e Educação. 
+            Desenvolvido com 🎮 para proporcionar entretenimento de qualidade.
+        </p>
+    </footer>
+
+    <!-- ====================================
+         SCRIPTS JAVASCRIPT
+         ==================================== -->
+    <script src="script.js"></script>
+</body>
+</html>

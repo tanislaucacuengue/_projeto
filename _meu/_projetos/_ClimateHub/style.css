@@ -1,0 +1,1182 @@
+/* ============================================
+   PLATAFORMA CLIMA - ESTILOS GLOBAIS
+   Design: Azul, Verde e Laranja
+
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   VARIÁVEIS DE CORES E ESPAÇAMENTO
+   ============================================ */
+
+:root {
+    /* Cores Primárias */
+    --cor-azul-profundo: #1E40AF;
+    --cor-azul-claro: #3B82F6;
+    
+    /* Cores Secundárias */
+    --cor-verde: #10B981;
+    --cor-laranja: #F97316;
+    
+    /* Cores Neutras */
+    --cor-branca: #FFFFFF;
+    --cor-fundo-escuro: #0F172A;
+    --cor-cinzento-claro: #F3F4F6;
+    --cor-texto-escuro: #1F2937;
+    --cor-texto-claro: #6B7280;
+    --cor-borda: #E5E7EB;
+    
+    /* Cores de Destaque */
+    --cor-vermelho: #EF4444;
+    
+    /* Espaçamento */
+    --espacamento-xs: 0.5rem;
+    --espacamento-sm: 1rem;
+    --espacamento-md: 1.5rem;
+    --espacamento-lg: 2rem;
+    --espacamento-xl: 3rem;
+    --espacamento-2xl: 4rem;
+    
+    /* Tipografia */
+    --familia-fonte: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --tamanho-fonte-pequeno: 0.875rem;
+    --tamanho-fonte-base: 1rem;
+    --tamanho-fonte-grande: 1.125rem;
+    --tamanho-fonte-xl: 1.5rem;
+    --tamanho-fonte-2xl: 2rem;
+    --tamanho-fonte-3xl: 2.5rem;
+    
+    /* Sombras */
+    --sombra-pequena: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --sombra-media: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-grande: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --sombra-muito-grande: 0 20px 25px rgba(0, 0, 0, 0.2);
+    
+    /* Transições */
+    --transicao-rapida: 150ms ease-in-out;
+    --transicao-base: 300ms ease-in-out;
+    --transicao-lenta: 500ms ease-in-out;
+}
+
+/* ============================================
+   RESET E ESTILOS BASE
+   ============================================ */
+
+/* Reset de estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Comportamento de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos do corpo da página */
+body {
+    font-family: var(--familia-fonte);
+    background-color: var(--cor-branca);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    font-size: var(--tamanho-fonte-base);
+    overflow-x: hidden; /* Evita rolagem lateral */
+    width: 100%;
+}
+
+/* ============================================
+   CABEÇALHO / NAVBAR
+   ============================================ */
+
+/* Estilo do cabeçalho principal */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--cor-azul-profundo) 0%, var(--cor-azul-claro) 100%);
+    border-bottom: 3px solid var(--cor-verde);
+    box-shadow: var(--sombra-grande);
+    z-index: 1000;
+}
+
+/* Contentor do cabeçalho */
+.contentor-cabecalho {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--espacamento-md) var(--espacamento-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo do logotipo */
+.logotipo {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    cursor: pointer;
+    transition: transform var(--transicao-base);
+}
+
+/* Efeito hover no logotipo */
+.logotipo:hover {
+    transform: scale(1.05);
+}
+
+/* Ícone do logotipo */
+.icone-logotipo {
+    font-size: 2.5rem;
+}
+
+/* Título do logotipo */
+.titulo-logotipo {
+    font-size: var(--tamanho-fonte-2xl);
+    font-weight: 700;
+    color: var(--cor-branca);
+    margin: 0;
+}
+
+/* Menu de navegação */
+.menu-navegacao {
+    display: flex;
+    gap: var(--espacamento-lg);
+    align-items: center;
+}
+
+/* Ligações de navegação */
+.ligacao-navegacao {
+    text-decoration: none;
+    color: var(--cor-branca);
+    font-weight: 600;
+    font-size: var(--tamanho-fonte-base);
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+    border-radius: 4px;
+    transition: all var(--transicao-base);
+    position: relative;
+}
+
+/* Pseudo-elemento para sublinhado animado */
+.ligacao-navegacao::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-verde);
+    transition: width var(--transicao-base);
+}
+
+/* Estados hover e ativo da ligação */
+.ligacao-navegacao:hover,
+.ligacao-navegacao.ativa {
+    color: var(--cor-verde);
+}
+
+.ligacao-navegacao:hover::after,
+.ligacao-navegacao.ativa::after {
+    width: 100%;
+}
+
+/* ============================================
+   CONTEÚDO PRINCIPAL
+   ============================================ */
+
+/* Contentor do conteúdo principal */
+.conteudo-principal {
+    min-height: calc(100vh - 200px);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--espacamento-2xl) var(--espacamento-lg);
+}
+
+/* Páginas (mostrar/esconder) */
+.pagina {
+    display: none;
+    animation: aparecimento var(--transicao-base);
+}
+
+/* Página ativa */
+.pagina.ativa {
+    display: block;
+}
+
+/* Animação de aparecimento */
+@keyframes aparecimento {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SEÇÃO HERÓI
+   ============================================ */
+
+/* Estilo da seção herói */
+.secao-heroi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacamento-2xl);
+    align-items: center;
+    margin-bottom: var(--espacamento-2xl);
+    padding: var(--espacamento-2xl);
+    background: linear-gradient(135deg, var(--cor-azul-profundo) 0%, var(--cor-verde) 100%);
+    border-radius: 16px;
+    box-shadow: var(--sombra-muito-grande);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Padrão de fundo animado */
+.secao-heroi::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: movimento-fundo 20s linear infinite;
+}
+
+/* Animação do padrão de fundo */
+@keyframes movimento-fundo {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* Conteúdo da seção herói */
+.conteudo-heroi {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título da seção herói */
+.titulo-heroi {
+    font-size: var(--tamanho-fonte-3xl);
+    font-weight: 700;
+    margin-bottom: var(--espacamento-md);
+    line-height: 1.2;
+    color: var(--cor-branca);
+}
+
+/* Descrição da seção herói */
+.descricao-heroi {
+    font-size: var(--tamanho-fonte-grande);
+    margin-bottom: var(--espacamento-lg);
+    opacity: 0.95;
+    color: var(--cor-branca);
+}
+
+/* Botão de ação */
+.botao-acao {
+    background-color: var(--cor-laranja);
+    color: var(--cor-branca);
+    border: none;
+    padding: var(--espacamento-md) var(--espacamento-lg);
+    font-size: var(--tamanho-fonte-grande);
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transicao-base);
+    box-shadow: var(--sombra-media);
+}
+
+/* Efeito hover do botão */
+.botao-acao:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-grande);
+    background-color: #E86A0F;
+}
+
+/* Visual da seção herói */
+.visual-heroi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Forma animada do herói */
+.forma-heroi {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: flutuacao 3s ease-in-out infinite;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+}
+
+/* Animação de flutuação */
+@keyframes flutuacao {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(20px); }
+}
+
+/* ============================================
+   SEÇÕES EDUCATIVAS
+   ============================================ */
+
+/* Estilo geral das seções educativas */
+.secao-educativa {
+    margin-bottom: var(--espacamento-2xl);
+    padding: var(--espacamento-2xl);
+    background-color: var(--cor-cinzento-claro);
+    border-radius: 12px;
+    border-left: 5px solid var(--cor-azul-profundo);
+}
+
+/* Título das seções educativas */
+.titulo-secao {
+    font-size: var(--tamanho-fonte-2xl);
+    font-weight: 700;
+    color: var(--cor-azul-profundo);
+    margin-bottom: var(--espacamento-xl);
+    text-align: center;
+}
+
+/* Grelha de conteúdo */
+.grelha-conteudo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Cartão de conteúdo */
+.cartao-conteudo {
+    background-color: var(--cor-branca);
+    padding: var(--espacamento-lg);
+    border-radius: 12px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-media);
+    transition: all var(--transicao-base);
+}
+
+/* Efeito hover do cartão */
+.cartao-conteudo:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-azul-profundo);
+    box-shadow: var(--sombra-grande);
+}
+
+/* Ícone do cartão */
+.icone-cartao {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacamento-md);
+}
+
+/* Título do cartão */
+.titulo-cartao {
+    font-size: var(--tamanho-fonte-grande);
+    font-weight: 600;
+    color: var(--cor-azul-profundo);
+    margin-bottom: var(--espacamento-sm);
+}
+
+/* Texto do cartão */
+.texto-cartao {
+    color: var(--cor-texto-claro);
+    font-size: var(--tamanho-fonte-pequeno);
+    line-height: 1.6;
+}
+
+/* ============================================
+   SEÇÃO DE IMPACTOS
+   ============================================ */
+
+/* Modificação da seção de impactos */
+.secao-impactos {
+    border-left-color: var(--cor-vermelho);
+}
+
+/* Título da seção de impactos */
+.secao-impactos .titulo-secao {
+    color: var(--cor-vermelho);
+}
+
+/* Grelha de impactos */
+.grelha-impactos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Cartão de impacto */
+.cartao-impacto {
+    background-color: var(--cor-branca);
+    padding: var(--espacamento-lg);
+    border-radius: 12px;
+    border-left: 4px solid var(--cor-vermelho);
+    box-shadow: var(--sombra-media);
+    transition: all var(--transicao-base);
+    position: relative;
+}
+
+/* Efeito hover do cartão de impacto */
+.cartao-impacto:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-grande);
+}
+
+/* Número do impacto */
+.numero-impacto {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: var(--cor-vermelho);
+    color: var(--cor-branca);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--tamanho-fonte-grande);
+}
+
+/* Título do cartão de impacto */
+.cartao-impacto .titulo-cartao {
+    margin-top: var(--espacamento-md);
+}
+
+/* ============================================
+   SEÇÃO DE SOLUÇÕES
+   ============================================ */
+
+/* Modificação da seção de soluções */
+.secao-solucoes {
+    border-left-color: var(--cor-verde);
+}
+
+/* Título da seção de soluções */
+.secao-solucoes .titulo-secao {
+    color: var(--cor-verde);
+}
+
+/* Grelha de soluções */
+.grelha-solucoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Cartão de solução */
+.cartao-solucao {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    padding: var(--espacamento-lg);
+    border-radius: 12px;
+    border: 2px solid var(--cor-verde);
+    box-shadow: var(--sombra-media);
+    transition: all var(--transicao-base);
+    text-align: center;
+}
+
+/* Efeito hover do cartão de solução */
+.cartao-solucao:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-grande);
+    border-color: var(--cor-laranja);
+}
+
+/* Ícone da solução */
+.icone-solucao {
+    font-size: 3rem;
+    margin-bottom: var(--espacamento-md);
+    display: block;
+}
+
+/* ============================================
+   SEÇÃO DE MONITORAMENTO
+   ============================================ */
+
+/* Modificação da seção de monitoramento */
+.secao-monitoramento {
+    border-left-color: var(--cor-azul-claro);
+}
+
+/* Conteúdo do monitoramento */
+.conteudo-monitoramento {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Item de monitoramento */
+.item-monitoramento {
+    background-color: var(--cor-branca);
+    padding: var(--espacamento-lg);
+    border-radius: 12px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-media);
+    transition: all var(--transicao-base);
+}
+
+/* Efeito hover do item de monitoramento */
+.item-monitoramento:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-grande);
+}
+
+/* Ícone de monitoramento */
+.icone-monitoramento {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacamento-md);
+}
+
+/* ============================================
+   SEÇÃO DE LOCAIS
+   ============================================ */
+
+/* Modificação da seção de locais */
+.secao-locais {
+    border-left-color: var(--cor-laranja);
+}
+
+/* Título da seção de locais */
+.secao-locais .titulo-secao {
+    color: var(--cor-laranja);
+}
+
+/* Grelha de locais */
+.grelha-locais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Cartão de local */
+.cartao-local {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
+    padding: var(--espacamento-lg);
+    border-radius: 12px;
+    border: 2px solid var(--cor-laranja);
+    box-shadow: var(--sombra-media);
+    transition: all var(--transicao-base);
+}
+
+/* Efeito hover do cartão de local */
+.cartao-local:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-grande);
+}
+
+/* Ícone do local */
+.icone-local {
+    font-size: 3rem;
+    margin-bottom: var(--espacamento-md);
+    display: block;
+}
+
+/* ============================================
+   SEÇÃO DE CHAMADA À AÇÃO
+   ============================================ */
+
+/* Estilo da seção de chamada à ação */
+.secao-chamada-acao {
+    text-align: center;
+    padding: var(--espacamento-2xl);
+    background: linear-gradient(135deg, var(--cor-azul-profundo) 0%, var(--cor-verde) 100%);
+    border-radius: 12px;
+    color: var(--cor-branca);
+    margin-bottom: var(--espacamento-2xl);
+}
+
+/* Título da chamada à ação */
+.secao-chamada-acao .titulo-secao {
+    color: var(--cor-branca);
+}
+
+/* Texto da chamada à ação */
+.texto-chamada {
+    font-size: var(--tamanho-fonte-grande);
+    margin-bottom: var(--espacamento-lg);
+    opacity: 0.95;
+}
+
+/* Botão grande de ação */
+.botao-acao-grande {
+    background-color: var(--cor-laranja);
+    color: var(--cor-branca);
+    border: none;
+    padding: var(--espacamento-lg) var(--espacamento-2xl);
+    font-size: var(--tamanho-fonte-grande);
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transicao-base);
+    box-shadow: var(--sombra-grande);
+}
+
+/* Efeito hover do botão grande */
+.botao-acao-grande:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-muito-grande);
+    background-color: #E86A0F;
+}
+
+/* ============================================
+   APP DO CLIMA
+   ============================================ */
+
+/* Contentor da app do clima */
+.contentor-clima {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho da app do clima */
+.cabecalho-clima {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-md);
+    margin-bottom: var(--espacamento-2xl);
+    padding-bottom: var(--espacamento-lg);
+    border-bottom: 2px solid var(--cor-borda);
+}
+
+/* Botão voltar */
+.botao-voltar {
+    background-color: var(--cor-azul-profundo);
+    color: var(--cor-branca);
+    border: none;
+    padding: var(--espacamento-sm) var(--espacamento-md);
+    font-size: var(--tamanho-fonte-base);
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transicao-base);
+}
+
+/* Efeito hover do botão voltar */
+.botao-voltar:hover {
+    background-color: var(--cor-azul-claro);
+    transform: translateX(-3px);
+}
+
+/* Título da app do clima */
+.titulo-clima {
+    font-size: var(--tamanho-fonte-2xl);
+    font-weight: 700;
+    color: var(--cor-texto-escuro);
+    margin: 0;
+}
+
+/* Aplicação do clima */
+.aplicacao-clima {
+    background-color: #f0f8ffcc;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: var(--sombra-grande);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Formulário de pesquisa */
+#formulario-pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 4px 10px;
+    background-color: #ffffffaa;
+}
+
+/* Entrada de pesquisa */
+.entrada-pesquisa {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Foco na entrada */
+.entrada-pesquisa:focus-visible {
+    outline: none;
+}
+
+/* Botão de pesquisa */
+.botao-pesquisa {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-azul-profundo);
+    font-weight: 600;
+}
+
+/* Seção do clima */
+#secao-clima {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Seção do clima ativa */
+#secao-clima.ativa {
+    display: block;
+}
+
+/* Título da localização */
+.titulo-localizacao {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--cor-azul-profundo);
+}
+
+/* Temperatura atual */
+#temperatura-atual {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    background: linear-gradient(to top, #345cc9, #6096dd);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Imagem do clima */
+.imagem-clima {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Valor da temperatura */
+.valor-temperatura {
+    font-weight: bold;
+    font-size: 48px;
+}
+
+/* Descrição da temperatura */
+.descricao-temperatura {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Outras informações */
+#outras-informacoes {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+/* Cartão de informação */
+.cartao-info {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background-color: #ffffff80;
+    gap: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da informação */
+.titulo-info {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Ícones das informações */
+#outras-informacoes i {
+    text-align: center;
+    font-size: 20px;
+    width: 20%;
+}
+
+/* Ícone de temperatura máxima */
+#icone-temp-max {
+    color: #ff0000d0;
+}
+
+/* Ícone de temperatura mínima */
+#icone-temp-min {
+    color: #0284c7;
+}
+
+/* Ícone de umidade */
+#icone-umidade {
+    color: #0ea5e9;
+}
+
+/* Ícone de vento */
+#icone-vento {
+    color: #0000ffd0;
+}
+
+/* Ícone de qualidade do ar */
+#icone-qualidade-ar {
+    color: #4b7285;
+}
+
+/* Descrição das funções */
+.descricao-funcoes {
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 0;
+    box-shadow: var(--sombra-media);
+}
+
+/* Título da descrição */
+.titulo-descricao {
+    color: var(--cor-azul-profundo);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Lista de funções */
+.lista-funcoes {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Item da lista de funções */
+.item-funcao {
+    margin-bottom: 8px;
+    color: var(--cor-texto-escuro);
+    font-size: 15px;
+}
+
+/* Área de alerta */
+#area-alerta {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--cor-vermelho);
+    font-weight: 600;
+}
+
+/* ============================================
+   RODAPÉ
+   ============================================ */
+
+/* Estilo do rodapé */
+.rodape {
+    background: linear-gradient(135deg, var(--cor-azul-profundo) 0%, var(--cor-azul-claro) 100%);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: var(--espacamento-2xl) var(--espacamento-lg);
+    margin-top: var(--espacamento-2xl);
+    border-top: 3px solid var(--cor-verde);
+}
+
+/* Texto do rodapé */
+.texto-rodape {
+    margin: 0;
+    font-size: var(--tamanho-fonte-base);
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLET
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Cabeçalho responsivo */
+    .contentor-cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--espacamento-md);
+    }
+
+    /* Menu responsivo - Ocultado por padrão no mobile, controlado via JS */
+    .menu-navegacao {
+        display: none;
+    }
+
+    /* Seção herói responsiva */
+    .secao-heroi {
+        grid-template-columns: 1fr;
+        padding: var(--espacamento-lg);
+    }
+
+    /* Forma herói responsiva */
+    .forma-heroi {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Conteúdo principal responsivo */
+    .conteudo-principal {
+        padding: var(--espacamento-lg) var(--espacamento-md);
+    }
+
+    /* Seção educativa responsiva */
+    .secao-educativa {
+        padding: var(--espacamento-lg);
+    }
+
+    /* Título herói responsivo */
+    .titulo-heroi {
+        font-size: var(--tamanho-fonte-2xl);
+    }
+
+    /* Título seção responsivo */
+    .titulo-secao {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    /* Grelhas responsivas */
+    .grelha-conteudo,
+    .grelha-impactos,
+    .grelha-solucoes,
+    .grelha-locais,
+    .conteudo-monitoramento {
+        grid-template-columns: 1fr;
+    }
+
+    /* Aplicação do clima responsiva */
+    .aplicacao-clima {
+        max-width: 100%;
+    }
+
+    /* Descrição das funções responsiva */
+    .descricao-funcoes {
+        max-width: 100%;
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE
+   ============================================ */
+
+@media (max-width: 480px) {
+    /* Título do logotipo responsivo */
+    .titulo-logotipo {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    /* Menu responsivo */
+    .menu-navegacao {
+        gap: var(--espacamento-sm);
+        font-size: var(--tamanho-fonte-pequeno);
+    }
+
+    /* Ligação de navegação responsiva */
+    .ligacao-navegacao {
+        padding: var(--espacamento-xs) var(--espacamento-xs);
+    }
+
+    /* Título herói responsivo */
+    .titulo-heroi {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    /* Descrição herói responsiva */
+    .descricao-heroi {
+        font-size: var(--tamanho-fonte-base);
+    }
+
+    /* Botão responsivo */
+    .botao-acao {
+        padding: var(--espacamento-md) var(--espacamento-md);
+        font-size: var(--tamanho-fonte-base);
+    }
+
+    /* Título seção responsivo */
+    .titulo-secao {
+        font-size: var(--tamanho-fonte-grande);
+    }
+
+    /* Títulos dos cartões responsivos */
+    .cartao-conteudo .titulo-cartao,
+    .cartao-impacto .titulo-cartao,
+    .cartao-solucao .titulo-cartao,
+    .cartao-local .titulo-cartao,
+    .item-monitoramento .titulo-cartao {
+        font-size: var(--tamanho-fonte-base);
+    }
+
+    /* Ícones responsivos */
+    .icone-cartao,
+    .icone-solucao,
+    .icone-local,
+    .icone-monitoramento {
+        font-size: 2rem;
+    }
+
+    /* Número de impacto responsivo */
+    .numero-impacto {
+        width: 35px;
+        height: 35px;
+        font-size: var(--tamanho-fonte-base);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE E MENU HAMBURGER
+   ============================================ */
+
+/* Estilos do Botão Hamburger */
+.botao-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform var(--transicao-base);
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.barra-hamburger {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-branca);
+    margin: 5px 0;
+    transition: var(--transicao-base);
+    border-radius: 3px;
+}
+
+.botao-hamburger.aberto .barra-hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.botao-hamburger.aberto .barra-hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-hamburger.aberto .barra-hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -7px);
+}
+
+.botao-hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* Media Queries para Tablets e Telemóveis */
+@media (max-width: 1024px) {
+    .secao-heroi {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--espacamento-xl);
+    }
+
+    .visual-heroi {
+        order: -1;
+    }
+
+    .forma-heroi {
+        width: 200px;
+        height: 200px;
+    }
+
+    .titulo-heroi {
+        font-size: var(--tamanho-fonte-2xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .contentor-cabecalho {
+        padding: var(--espacamento-sm) var(--espacamento-md);
+    }
+
+    .icone-logotipo {
+        font-size: 2rem;
+    }
+
+    .titulo-logotipo {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    /* Mostrar botão hamburger */
+    .botao-hamburger {
+        display: block;
+    }
+
+    /* Transformar menu em overlay mobile */
+    .menu-navegacao {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%; /* Alterado para 100% para melhor cobertura */
+        height: 100vh;
+        background: linear-gradient(135deg, var(--cor-azul-profundo) 0%, var(--cor-azul-claro) 100%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--espacamento-xl);
+        transition: right var(--transicao-base);
+        box-shadow: var(--sombra-muito-grande);
+        z-index: 1000;
+        display: flex; /* Garantir que é flex quando visível */
+    }
+
+    .menu-navegacao.aberto {
+        right: 0;
+    }
+
+    .ligacao-navegacao {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    /* Ajustes de layout para o conteúdo */
+    .conteudo-principal {
+        padding: var(--espacamento-xl) var(--espacamento-md);
+    }
+
+    .titulo-secao {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    .grelha-conteudo, .grelha-impactos, .grelha-solucoes, .conteudo-monitoramento, .grelha-locais {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-educativa {
+        padding: var(--espacamento-lg);
+    }
+
+    /* Ajustes específicos da App do Clima */
+    .contentor-pesquisa {
+        flex-direction: column;
+    }
+
+    .cartao-clima-principal {
+        padding: var(--espacamento-lg);
+    }
+
+    .grelha-detalhes-clima {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-heroi {
+        font-size: var(--tamanho-fonte-xl);
+    }
+
+    .botao-acao {
+        width: 100%;
+        padding: var(--espacamento-sm);
+    }
+
+    .cartao-impacto {
+        padding: var(--espacamento-md);
+    }
+
+    .numero-impacto {
+        width: 30px;
+        height: 30px;
+        font-size: var(--tamanho-fonte-base);
+        top: -10px;
+        left: 10px;
+    }
+}

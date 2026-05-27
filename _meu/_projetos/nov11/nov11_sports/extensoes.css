@@ -1,0 +1,337 @@
+/* ========================================
+   ESTILOS PARA EXTENSÕES
+   ======================================== */
+
+/* ========================================
+   1. CONTROLO DE STOCK
+   ======================================== */
+
+.evento-esgotado {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.evento-esgotado .botao {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.evento-esgotado .botao:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+/* Tabela de eventos admin com stock */
+#tabelaEventosAdmin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabelaEventosAdmin thead {
+    background-color: var(--cor-vermelha);
+    color: white;
+}
+
+#tabelaEventosAdmin th,
+#tabelaEventosAdmin td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#tabelaEventosAdmin tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* ========================================
+   2. SISTEMA DE CHAT
+   ======================================== */
+
+/* Badge de notificação no menu */
+.icone-notificacao-brilho {
+    color: var(--cor-vermelha) !important;
+    text-shadow: 0 0 10px var(--cor-vermelha);
+    animation: brilhoIcone 1.5s infinite ease-in-out;
+}
+
+@keyframes brilhoIcone {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+        text-shadow: 0 0 5px var(--cor-vermelha);
+    }
+    50% {
+        transform: scale(1.2);
+        filter: brightness(1.5);
+        text-shadow: 0 0 15px var(--cor-vermelha);
+    }
+}
+
+.badge-notificacao-chat {
+    display: none; /* Desativado conforme pedido */
+}
+
+.badge-conversa-admin {
+    background: var(--cor-vermelha);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+@keyframes pulsoNotificacao {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(199, 10, 6, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(199, 10, 6, 0);
+    }
+}
+
+/* Layout de conversas admin */
+.layout-conversas-admin {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    min-height: 600px;
+}
+
+#listaConversasAdmin {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #eee;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+#historicoConversaAdmin {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+.cartao-conversa-admin {
+    transition: all 0.3s ease;
+}
+
+.cartao-conversa-admin:hover {
+    background-color: #f9f9f9 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para conversas admin */
+@media (max-width: 1024px) {
+    .layout-conversas-admin {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   3. GESTÃO DE REGISTOS E PDF
+   ======================================== */
+
+/* Botões de ação para bilhetes e agendamentos */
+.botoes-acao-bilhete {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.botao-pdf,
+.botao-eliminar {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.botao-pdf {
+    background-color: #2196F3;
+    color: white;
+}
+
+.botao-pdf:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.botao-eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+.botao-eliminar:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
+}
+
+/* Cartão de bilhete com ações */
+.cartao-bilhete-completo {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.cartao-bilhete-completo:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-bilhete-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.info-bilhete-cabecalho h5 {
+    margin: 0;
+    color: var(--cor-vermelha);
+}
+
+.badge-status-bilhete {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.badge-ativo {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.badge-expirado {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Tabela de agendamentos com ações */
+.tabela-agendamentos-completa {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-agendamentos-completa thead {
+    background-color: var(--cor-vermelha);
+    color: white;
+}
+
+.tabela-agendamentos-completa th,
+.tabela-agendamentos-completa td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-agendamentos-completa tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Célula de ações */
+.celula-acoes {
+    display: flex;
+    gap: 8px;
+}
+
+/* ========================================
+   RESPONSIVIDADE GERAL
+   ======================================== */
+
+@media (max-width: 768px) {
+    .botoes-acao-bilhete {
+        flex-direction: column;
+    }
+
+    .botao-pdf,
+    .botao-eliminar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .info-bilhete-cabecalho {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .celula-acoes {
+        flex-direction: column;
+    }
+
+    .celula-acoes .botao {
+        width: 100%;
+    }
+
+    #listaConversasAdmin {
+        max-height: 300px;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cartao-bilhete-completo,
+.cartao-conversa-admin {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ========================================
+   ESTADOS E VALIDAÇÕES
+   ======================================== */
+
+.campo-obrigatorio {
+    border-color: var(--cor-vermelha) !important;
+}
+
+.mensagem-validacao {
+    color: var(--cor-vermelha);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.mensagem-sucesso {
+    color: #4CAF50;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* ========================================
+   IMPRESSÃO
+   ======================================== */
+
+@media print {
+    .botoes-acao-bilhete,
+    .botao-pdf,
+    .botao-eliminar {
+        display: none;
+    }
+
+    .cartao-bilhete-completo {
+        page-break-inside: avoid;
+        border: 1px solid #000;
+    }
+}

@@ -1,0 +1,121 @@
+{
+  "eventos": [
+    {
+      "id": 1,
+      "titulo": "Clássico do Futebol",
+      "data": "2025-02-15",
+      "hora": "20:00",
+      "localizacao": "Estádio Principal",
+      "categoria": "futebol",
+      "imagem": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&h=300&fit=crop",
+      "descricao": "Grande clássico entre as maiores equipas da região. Bilhetes a partir de 50€.",
+      "capacidade": 50000,
+      "disponivel": 12000,
+      "preco": 5000
+    },
+    {
+      "id": 2,
+      "titulo": "Espetáculo de Música ao Vivo",
+      "data": "2025-02-20",
+      "hora": "21:00",
+      "localizacao": "Arena de Eventos",
+      "categoria": "musica",
+      "imagem": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&h=300&fit=crop",
+      "descricao": "Apresentação de artistas internacionais. Uma noite inesquecível!",
+      "capacidade": 8000,
+      "disponivel": 2500,
+      "preco": 2000
+    },
+    {
+      "id": 3,
+      "titulo": "Campeonato de Voleibol",
+      "data": "2025-02-25",
+      "hora": "19:00",
+      "localizacao": "Ginásio Coberto",
+      "categoria": "desportos",
+      "imagem": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&h=300&fit=crop",
+      "descricao": "Campeonato distrital de voleibol com as melhores equipas.",
+      "capacidade": 3000,
+      "disponivel": 800,
+      "preco": 3000
+    },
+    {
+      "id": 4,
+      "titulo": "Festival de Gastronomia",
+      "data": "2025-03-01",
+      "hora": "18:00",
+      "localizacao": "Praça Central",
+      "categoria": "gastronomia",
+      "imagem": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
+      "descricao": "Degustação de pratos de chefs conceituados. Entrada gratuita!",
+      "capacidade": 5000,
+      "disponivel": 3500,
+      "preco": 1000
+    },
+    {
+      "id": 5,
+      "titulo": "Torneio de Basquetebol",
+      "data": "2025-03-05",
+      "hora": "20:00",
+      "localizacao": "Estádio Principal",
+      "categoria": "desportos",
+      "imagem": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "descricao": "Competição entre as melhores equipas de basquetebol do país.",
+      "capacidade": 10000,
+      "disponivel": 4200,
+      "preco": 4500
+    },
+    {
+      "id": 6,
+      "titulo": "Conferência de Tecnologia",
+      "data": "2025-03-10",
+      "hora": "09:00",
+      "localizacao": "Centro de Convenções",
+      "categoria": "tecnologia",
+      "imagem": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
+      "descricao": "Palestras sobre inovação e transformação digital.",
+      "capacidade": 2000,
+      "disponivel": 600,
+      "preco": 1500
+    }
+  ],
+  "galeria": [
+    {
+      "id": 1,
+      "titulo": "Estádio Iluminado",
+      "imagem": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+      "categoria": "estadio"
+    },
+    {
+      "id": 2,
+      "titulo": "Público Animado",
+      "imagem": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop",
+      "categoria": "publico"
+    },
+    {
+      "id": 3,
+      "titulo": "Momento de Ação",
+      "imagem": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "categoria": "acao"
+    },
+    {
+      "id": 4,
+      "titulo": "Celebração da Vitória",
+      "imagem": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      "categoria": "celebracao"
+    },
+    {
+      "id": 5,
+      "titulo": "Bancada Cheia",
+      "imagem": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      "categoria": "estadio"
+    },
+    {
+      "id": 6,
+      "titulo": "Noite de Espetáculo",
+      "imagem":  "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop",
+      "categoria": "espetaculo"
+    }
+  ],
+  "utilizadores": []
+}

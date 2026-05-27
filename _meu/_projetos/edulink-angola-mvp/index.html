@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLink Angola | Conectando Professores e Alunos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Google Fonts: Montserrat para títulos e Open Sans para corpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho Principal -->
+    <header class="cabecalho" id="cabecalho">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-texto">EduLink<span>Angola</span></span>
+            </div>
+            <nav class="navegacao" id="navegacao-principal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#professores">Encontrar Professores</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="acoes-cabecalho" id="acoes-cabecalho">
+                <button class="botao-secundario" id="btn-entrar">Entrar</button>
+                <button class="botao-primario" id="btn-registar">Registar</button>
+            </div>
+            <div class="acoes-autenticadas" id="acoes-autenticadas" style="display: none;">
+                <span id="nome-usuario-cabecalho" class="nome-usuario"></span>
+                <button class="botao-secundario" id="btn-sair">Sair</button>
+            </div>
+            <div class="menu-movel" id="menu-hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+        <!-- VISTA: Página Inicial (Pública) -->
+        <div id="vista-publica" class="vista">
+            <!-- Secção Hero -->
+            <section class="hero" id="inicio">
+                <div class="container">
+                    <div class="hero-conteudo">
+                        <h1>Educação de Qualidade ao seu Alcance em Angola</h1>
+                        <p>Encontre os melhores professores particulares para reforço escolar, línguas e preparação para exames. Conectamos talento e conhecimento.</p>
+                        <div class="busca-rapida">
+                            <input type="text" id="busca-disciplina" placeholder="O que quer aprender? (Ex: Matemática)">
+                            <select id="busca-provincia">
+                                <option value="">Todas as Províncias</option>
+                                <option value="Luanda">Luanda</option>
+                                <option value="Benguela">Benguela</option>
+                                <option value="Huambo">Huambo</option>
+                                <option value="Huíla">Huíla</option>
+                                <option value="Cabinda">Cabinda</option>
+                            </select>
+                            <button class="botao-primario" id="btn-buscar">Pesquisar</button>
+                        </div>
+                    </div>
+                    <div class="hero-imagem">
+                        <div class="decoracao-hero"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção de Filtros e Professores -->
+            <section class="professores" id="professores">
+                <div class="container">
+                    <div class="titulo-secao">
+                        <h2>Nossos Professores Especialistas</h2>
+                        <p>Professores verificados e avaliados pela comunidade.</p>
+                    </div>
+
+                    <div class="filtros-container">
+                        <button class="filtro-item ativo" data-categoria="todos">Todos</button>
+                        <button class="filtro-item" data-categoria="Matemática">Matemática</button>
+                        <button class="filtro-item" data-categoria="Português">Português</button>
+                        <button class="filtro-item" data-categoria="Inglês">Inglês</button>
+                        <button class="filtro-item" data-categoria="Física">Física</button>
+                        <button class="filtro-item" data-categoria="Química">Química</button>
+                    </div>
+
+                    <div class="grade-professores" id="grade-professores">
+                        <!-- Os cards dos professores serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secção Como Funciona -->
+            <section class="como-funciona" id="como-funciona">
+                <div class="container">
+                    <div class="titulo-secao">
+                        <h2>Como Funciona o EduLink</h2>
+                    </div>
+                    <div class="passos-grade">
+                        <div class="passo-card">
+                            <div class="passo-icone">1</div>
+                            <h3>Pesquise</h3>
+                            <p>Procure por disciplina, nível de ensino ou localização que melhor se adapte às suas necessidades.</p>
+                        </div>
+                        <div class="passo-card">
+                            <div class="passo-icone">2</div>
+                            <h3>Escolha</h3>
+                            <p>Analise o perfil dos professores, veja as avaliações de outros alunos e compare preços.</p>
+                        </div>
+                        <div class="passo-card">
+                            <div class="passo-icone">3</div>
+                            <h3>Agende</h3>
+                            <p>Reserve a sua aula diretamente pela plataforma e comece a aprender com segurança.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISTA: Autenticação (Login/Registo) -->
+        <div id="vista-autenticacao" class="vista" style="display: none;">
+            <section class="secao-autenticacao">
+                <div class="container">
+                    <div class="card-autenticacao">
+                        <div class="abas-autenticacao">
+                            <button class="aba-btn aba-ativa" data-aba="login">Entrar</button>
+                            <button class="aba-btn" data-aba="registo">Criar Conta</button>
+                        </div>
+
+                        <!-- Aba: Login -->
+                        <div id="aba-login" class="conteudo-aba ativo">
+                            <form id="form-login">
+                                <div class="campo-grupo">
+                                    <label for="login-email">Email</label>
+                                    <input type="email" id="login-email" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="login-senha">Senha</label>
+                                    <input type="password" id="login-senha" required>
+                                </div>
+                                <button type="submit" class="botao-primario largura-total">Entrar</button>
+                                <p class="texto-pequeno">Não tem conta? <a href="#" onclick="trocarAba('registo')">Registar-se aqui</a></p>
+                            </form>
+                        </div>
+
+                        <!-- Aba: Registo -->
+                        <div id="aba-registo" class="conteudo-aba">
+                            <form id="form-registo">
+                                <div class="campo-grupo">
+                                    <label for="registo-nome">Nome Completo</label>
+                                    <input type="text" id="registo-nome" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="registo-email">Email</label>
+                                    <input type="email" id="registo-email" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="registo-senha">Senha</label>
+                                    <input type="password" id="registo-senha" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="registo-contacto">Número de Contacto</label>
+                                    <input type="tel" id="registo-contacto" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="registo-tipo">Tipo de Utilizador</label>
+                                    <select id="registo-tipo" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="aluno">Aluno / Encarregado</option>
+                                        <option value="professor">Professor</option>
+                                    </select>
+                                </div>
+                                <div class="campo-grupo" id="grupo-disciplina" style="display: none;">
+                                    <label for="registo-disciplina">Disciplina (Professores)</label>
+                                    <select id="registo-disciplina">
+                                        <option value="">Selecione...</option>
+                                        <option value="Matemática">Matemática</option>
+                                        <option value="Português">Português</option>
+                                        <option value="Inglês">Inglês</option>
+                                        <option value="Física">Física</option>
+                                        <option value="Química">Química</option>
+                                    </select>
+                                </div>
+                                <div class="campo-grupo" id="grupo-preco" style="display: none;">
+                                    <label for="registo-preco">Preço por Hora (Kz)</label>
+                                    <input type="number" id="registo-preco" min="1000">
+                                </div>
+                                <button type="submit" class="botao-primario largura-total">Criar Conta</button>
+                                <p class="texto-pequeno">Já tem conta? <a href="#" onclick="trocarAba('login')">Entrar aqui</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISTA: Painel Aluno -->
+        <div id="vista-aluno" class="vista" style="display: none;">
+            <section class="painel-usuario">
+                <div class="container">
+                    <div class="menu-lateral">
+                        <button class="item-menu ativo" data-secao="perfil-aluno">Meu Perfil</button>
+                        <button class="item-menu" data-secao="agendamentos-aluno">Meus Agendamentos</button>
+                        <button class="item-menu" data-secao="encontrar-professores">Encontrar Professores</button>
+                    </div>
+
+                    <div class="conteudo-painel">
+                        <!-- Secção: Perfil do Aluno -->
+                        <div id="secao-perfil-aluno" class="secao-painel ativa">
+                            <h2>Meu Perfil</h2>
+                            <div class="card-perfil">
+                                <div class="avatar-grande" id="avatar-aluno">A</div>
+                                <form id="form-perfil-aluno">
+                                    <div class="campo-grupo">
+                                        <label for="perfil-nome-aluno">Nome Completo</label>
+                                        <input type="text" id="perfil-nome-aluno" required>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-email-aluno">Email</label>
+                                        <input type="email" id="perfil-email-aluno" disabled>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-contacto-aluno">Número de Contacto</label>
+                                        <input type="tel" id="perfil-contacto-aluno" required>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-morada-aluno">Morada</label>
+                                        <input type="text" id="perfil-morada-aluno" placeholder="Ex: Rua Principal, Luanda">
+                                    </div>
+                                    <button type="submit" class="botao-primario">Guardar Alterações</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Secção: Agendamentos do Aluno -->
+                        <div id="secao-agendamentos-aluno" class="secao-painel">
+                            <h2>Meus Agendamentos</h2>
+                            <div id="lista-agendamentos-aluno" class="lista-agendamentos">
+                                <!-- Agendamentos serão inseridos aqui -->
+                            </div>
+                        </div>
+
+                        <!-- Secção: Encontrar Professores (Aluno) -->
+                        <div id="secao-encontrar-professores" class="secao-painel">
+                            <h2>Encontrar Professores</h2>
+                            <div class="filtros-container">
+                                <button class="filtro-item ativo" data-categoria="todos">Todos</button>
+                                <button class="filtro-item" data-categoria="Matemática">Matemática</button>
+                                <button class="filtro-item" data-categoria="Português">Português</button>
+                                <button class="filtro-item" data-categoria="Inglês">Inglês</button>
+                                <button class="filtro-item" data-categoria="Física">Física</button>
+                                <button class="filtro-item" data-categoria="Química">Química</button>
+                            </div>
+                            <div class="grade-professores" id="grade-professores-aluno">
+                                <!-- Cards de professores -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISTA: Painel Professor -->
+        <div id="vista-professor" class="vista" style="display: none;">
+            <section class="painel-usuario">
+                <div class="container">
+                    <div class="menu-lateral">
+                        <button class="item-menu ativo" data-secao="perfil-professor">Meu Perfil</button>
+                        <button class="item-menu" data-secao="pedidos-aula">Pedidos de Aula</button>
+                    </div>
+
+                    <div class="conteudo-painel">
+                        <!-- Secção: Perfil do Professor -->
+                        <div id="secao-perfil-professor" class="secao-painel ativa">
+                            <h2>Meu Perfil</h2>
+                            <div class="card-perfil">
+                                <div class="avatar-grande" id="avatar-professor">P</div>
+                                <form id="form-perfil-professor">
+                                    <div class="campo-grupo">
+                                        <label for="perfil-nome-professor">Nome Completo</label>
+                                        <input type="text" id="perfil-nome-professor" required>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-email-professor">Email</label>
+                                        <input type="email" id="perfil-email-professor" disabled>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-contacto-professor">Número de Contacto</label>
+                                        <input type="tel" id="perfil-contacto-professor" required>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-disciplina-professor">Disciplina</label>
+                                        <select id="perfil-disciplina-professor" required>
+                                            <option value="Matemática">Matemática</option>
+                                            <option value="Português">Português</option>
+                                            <option value="Inglês">Inglês</option>
+                                            <option value="Física">Física</option>
+                                            <option value="Química">Química</option>
+                                        </select>
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="perfil-preco-professor">Preço por Hora (Kz)</label>
+                                        <input type="number" id="perfil-preco-professor" min="1000" required>
+                                    </div>
+                                    <button type="submit" class="botao-primario">Guardar Alterações</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Secção: Pedidos de Aula -->
+                        <div id="secao-pedidos-aula" class="secao-painel">
+                            <h2>Pedidos de Aula Recebidos</h2>
+                            <div id="lista-pedidos-aula" class="lista-pedidos">
+                                <!-- Pedidos serão inseridos aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- VISTA: Painel Admin -->
+        <div id="vista-admin" class="vista" style="display: none;">
+            <section class="painel-admin">
+                <div class="container">
+                    <div class="menu-lateral-admin">
+                        <button class="item-menu ativo" data-secao="dashboard-admin">Dashboard</button>
+                        <button class="item-menu" data-secao="usuarios-admin">Gestão de Usuários</button>
+                        <button class="item-menu" data-secao="criar-usuario-admin">Criar Usuário</button>
+                    </div>
+
+                    <div class="conteudo-painel-admin">
+                        <!-- Secção: Dashboard Admin -->
+                        <div id="secao-dashboard-admin" class="secao-painel ativa">
+                            <h2>Dashboard Administrativo</h2>
+                            <div class="metricas-grid">
+                                <div class="metrica-card">
+                                    <h3>Total de Professores</h3>
+                                    <p class="numero-grande" id="total-professores">0</p>
+                                </div>
+                                <div class="metrica-card">
+                                    <h3>Total de Alunos</h3>
+                                    <p class="numero-grande" id="total-alunos">0</p>
+                                </div>
+                                <div class="metrica-card">
+                                    <h3>Agendamentos Realizados</h3>
+                                    <p class="numero-grande" id="total-agendamentos">0</p>
+                                </div>
+                                <div class="metrica-card destaque">
+                                    <h3>Valor Total Acumulado</h3>
+                                    <p class="numero-grande" id="valor-total">0 Kz</p>
+                                </div>
+                            </div>
+
+                            <div class="grafico-container">
+                                <h3>Valor Mensal de Agendamentos</h3>
+                                <div id="grafico-mensal" class="grafico-simples">
+                                    <!-- Gráfico será renderizado aqui -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secção: Gestão de Usuários -->
+                        <div id="secao-usuarios-admin" class="secao-painel">
+                            <h2>Gestão de Usuários</h2>
+                            <div class="abas-usuarios">
+                                <button class="aba-usuarios aba-ativa" data-tipo="professores">Professores</button>
+                                <button class="aba-usuarios" data-tipo="alunos">Alunos</button>
+                            </div>
+                            <div id="lista-usuarios-admin" class="lista-usuarios-admin">
+                                <!-- Usuários serão listados aqui -->
+                            </div>
+                        </div>
+
+                        <!-- Secção: Criar Usuário -->
+                        <div id="secao-criar-usuario-admin" class="secao-painel">
+                            <h2>Criar Novo Usuário</h2>
+                            <form id="form-criar-usuario-admin">
+                                <div class="campo-grupo">
+                                    <label for="admin-novo-nome">Nome Completo</label>
+                                    <input type="text" id="admin-novo-nome" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="admin-novo-email">Email</label>
+                                    <input type="email" id="admin-novo-email" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="admin-novo-senha">Senha</label>
+                                    <input type="password" id="admin-novo-senha" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="admin-novo-contacto">Número de Contacto</label>
+                                    <input type="tel" id="admin-novo-contacto" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label for="admin-novo-tipo">Tipo de Usuário</label>
+                                    <select id="admin-novo-tipo" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="aluno">Aluno</option>
+                                        <option value="professor">Professor</option>
+                                    </select>
+                                </div>
+                                <div class="campo-grupo" id="grupo-admin-disciplina" style="display: none;">
+                                    <label for="admin-novo-disciplina">Disciplina</label>
+                                    <select id="admin-novo-disciplina">
+                                        <option value="Matemática">Matemática</option>
+                                        <option value="Português">Português</option>
+                                        <option value="Inglês">Inglês</option>
+                                        <option value="Física">Física</option>
+                                        <option value="Química">Química</option>
+                                    </select>
+                                </div>
+                                <div class="campo-grupo" id="grupo-admin-preco" style="display: none;">
+                                    <label for="admin-novo-preco">Preço por Hora (Kz)</label>
+                                    <input type="number" id="admin-novo-preco" min="1000">
+                                </div>
+                                <button type="submit" class="botao-primario">Criar Usuário</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape" id="rodape">
+        <div class="container">
+            <div class="rodape-conteudo">
+                <div class="rodape-coluna">
+                    <span class="logo-texto">EduLink<span>Angola</span></span>
+                    <p>A maior rede de professores particulares de Angola. Transformando a educação através da conexão.</p>
+                </div>
+                <div class="rodape-coluna">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#professores">Professores</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                    </ul>
+                </div>
+                <div class="rodape-coluna">
+                    <h4>Contacto</h4>
+                    <p>Email: contacto@edulink.ao</p>
+                    <p>Tel: +244 9XX XXX XXX</p>
+                    <p>Luanda, Angola</p>
+                </div>
+            </div>
+            <div class="rodape-inferior">
+                <p>&copy; 2026 EduLink Angola. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Agendamento -->
+    <div class="modal" id="modal-agendamento">
+        <div class="modal-conteudo">
+            <span class="fechar-modal">&times;</span>
+            <h2>Agendar Aula</h2>
+            <div id="detalhes-professor-modal"></div>
+            <form id="form-agendamento">
+                <div class="campo-grupo">
+                    <label for="nome-aluno">Seu Nome</label>
+                    <input type="text" id="nome-aluno" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="data-aula">Data Desejada</label>
+                    <input type="date" id="data-aula" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="morada-aula">Local de Encontro / Morada</label>
+                    <input type="text" id="morada-aula" placeholder="Ex: Rua Principal, Luanda" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="mensagem">Mensagem para o Professor</label>
+                    <textarea id="mensagem" rows="3"></textarea>
+                </div>
+                <button type="submit" class="botao-primario largura-total">Confirmar Agendamento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="gestor-dados.js"></script>
+    <script src="autenticacao.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
