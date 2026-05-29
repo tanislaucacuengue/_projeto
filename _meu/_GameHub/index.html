@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Link para Font Awesome (ícones) -->
+    <!-- Link para Font Awesome (ícones) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Link para Google Fonts (Poppins) -->
@@ -29,13 +30,15 @@
         <div class="contentor-cabecalho">
             <!-- Logo e título da aplicação -->
             <div class="logotipo">
-                <span class="icone-logotipo">🎮</span>
+                <span class="icone-logotipo"><i class="fas fa-gamepad"></i></span>
                 <h1 class="titulo-logotipo">GameHub</h1>
             </div>
             
             <!-- Botão Hamburger -->
             <button class="botao-hamburger" id="botao-hamburger">
-                <i class="fas fa-bars"></i>
+                <span class="barra-hamburger"></span>
+                <span class="barra-hamburger"></span>
+                <span class="barra-hamburger"></span>
             </button>
 
             <!-- Menu de navegação principal -->
@@ -50,13 +53,13 @@
                     <i class="fas fa-snake"></i> Cobra
                 </a>
                 <a href="#memoria" class="ligacao-navegacao" dados-pagina="memoria">
-                    <i class="fas fa-cards"></i> Memória
+                    <i class="fas fa-th"></i> Memória
                 </a>
                 <a href="#flappybird" class="ligacao-navegacao" dados-pagina="flappybird">
                     <i class="fas fa-dove"></i> Flappy
                 </a>
                 <a href="#jogo2048" class="ligacao-navegacao" dados-pagina="jogo2048">
-                    <i class="fas fa-th"></i> 2048
+                    <i class="fas fa-th-large"></i> 2048
                 </a>
             </nav>
         </div>
@@ -93,7 +96,7 @@
                 <div class="grelha-dicas">
                     <!-- Dica do Quiz -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">🧠</div>
+                        <div class="icone-dica"><i class="fas fa-brain"></i></div>
                         <h3 class="titulo-dica">Quiz - Teste seus Conhecimentos</h3>
                         <p class="texto-dica">
                             Responda a perguntas sobre geografia, história e curiosidades gerais. 
@@ -109,7 +112,7 @@
 
                     <!-- Dica da Cobra -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">🐍</div>
+                        <div class="icone-dica"><i class="fas fa-snake"></i></div>
                         <h3 class="titulo-dica">Cobra - Coma e Cresça</h3>
                         <p class="texto-dica">
                             Controle a cobra com as setas do teclado e coma a comida para crescer. 
@@ -126,7 +129,7 @@
 
                     <!-- Dica da Memória -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">🧩</div>
+                        <div class="icone-dica"><i class="fas fa-puzzle-piece"></i></div>
                         <h3 class="titulo-dica">Memória - Encontre os Pares</h3>
                         <p class="texto-dica">
                             Clique nas cartas para encontrar os pares correspondentes. 
@@ -142,7 +145,7 @@
 
                     <!-- Dica do Flappy Bird -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">🐦</div>
+                        <div class="icone-dica"><i class="fas fa-dove"></i></div>
                         <h3 class="titulo-dica">Flappy Bird - Voe Alto</h3>
                         <p class="texto-dica">
                             Clique ou pressione espaço para fazer o pássaro pular. 
@@ -158,7 +161,7 @@
 
                     <!-- Dica do 2048 -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">🔢</div>
+                        <div class="icone-dica"><i class="fas fa-th-large"></i></div>
                         <h3 class="titulo-dica">2048 - Combine Números</h3>
                         <p class="texto-dica">
                             Use as setas do teclado para mover os blocos. 
@@ -174,7 +177,7 @@
 
                     <!-- Dica Geral -->
                     <div class="cartao-dica">
-                        <div class="icone-dica">⭐</div>
+                        <div class="icone-dica"><i class="fas fa-star"></i></div>
                         <h3 class="titulo-dica">Dicas Gerais</h3>
                         <p class="texto-dica">
                             Todos os jogos têm um botão de reinício para começar do zero. 
@@ -196,22 +199,22 @@
                 
                 <div class="grelha-beneficios">
                     <div class="cartao-beneficio">
-                        <div class="numero-beneficio">1</div>
+                        <div class="icone-beneficio"><i class="fas fa-graduation-cap"></i></div>>
                         <h3>Educação</h3>
                         <p>Aprenda enquanto se diverte com conteúdo educativo</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="numero-beneficio">2</div>
+                        <<div class="icone-beneficio"><i class="fas fa-bolt"></i></div>
                         <h3>Reflexos</h3>
                         <p>Melhore seus reflexos e tempo de reação</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="numero-beneficio">3</div>
+                        <div class="icone-beneficio"><i class="fas fa-brain"></i></div>>
                         <h3>Memória</h3>
                         <p>Fortaleça sua memória e concentração</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="numero-beneficio">4</div>
+                        <<div class="icone-beneficio"><i class="fas fa-smile"></i></div>
                         <h3>Diversão</h3>
                         <p>Passe tempo de qualidade se divertindo</p>
                     </div>
@@ -273,9 +276,11 @@
 
                     <!-- Controles do jogo -->
                     <div class="controles-cobra">
-                        <label for="velocidade-cobra">Velocidade:</label>
-                        <input type="range" id="velocidade-cobra" min="50" max="300" step="10" value="100">
-                        <span id="valor-velocidade">100</span> ms
+                        <div class="grupo-velocidade">
+                            <label for="velocidade-cobra"><i class="fas fa-tachometer-alt"></i> Velocidade:</label>
+                            <input type="range" id="velocidade-cobra" min="50" max="300" step="10" value="100">
+                            <span id="valor-velocidade">100</span> ms
+                        </div>
 
                         <button id="botao-pausa-cobra" class="botao-pausa">
                             <i class="fas fa-pause"></i> Pausar
@@ -283,7 +288,19 @@
                     </div>
 
                     <!-- Canvas do jogo -->
-                    <canvas id="tela-cobra" width="600" height="600" class="tela-cobra"></canvas>
+                    <div class="contentor-tela-jogo">
+                        <canvas id="tela-cobra" width="600" height="600" class="tela-cobra"></canvas>
+                        
+                        <!-- Setas de Controlo Mobile -->
+                        <div class="controlos-mobile" id="controlos-mobile-cobra">
+                            <button class="btn-seta cima" id="btn-cobra-cima"><i class="fas fa-chevron-up"></i></button>
+                            <div class="linha-meio">
+                                <button class="btn-seta esquerda" id="btn-cobra-esquerda"><i class="fas fa-chevron-left"></i></button>
+                                <button class="btn-seta direita" id="btn-cobra-direita"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <button class="btn-seta baixo" id="btn-cobra-baixo"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
 
                     <!-- Menu de Game Over -->
                     <div id="menu-game-over-cobra" class="menu-game-over" style="display: none;">
@@ -352,7 +369,27 @@
                         </div>
                     </div>
 
-                    <canvas id="tela-flappy" width="400" height="600" class="tela-flappy"></canvas>
+                    <!-- Controles do jogo Flappy -->
+                    <div class="controles-flappy">
+                        <div class="grupo-velocidade">
+                            <label for="velocidade-flappy"><i class="fas fa-tachometer-alt"></i> Velocidade:</label>
+                            <input type="range" id="velocidade-flappy" min="1" max="10" step="1" value="3">
+                            <span id="valor-velocidade-flappy">3</span>
+                        </div>
+
+                        <button id="botao-pausa-flappy" class="botao-pausa">
+                            <i class="fas fa-play"></i> Iniciar
+                        </button>
+                    </div>
+
+                    <div class="contentor-tela-jogo">
+                        <canvas id="tela-flappy" width="400" height="600" class="tela-flappy"></canvas>
+                        
+                        <!-- Instrução Mobile -->
+                        <div class="instrucao-mobile" id="instrucao-mobile-flappy">
+                            <p><i class="fas fa-hand-pointer"></i> Toque para voar</p>
+                        </div>
+                    </div>
 
                     <div id="menu-game-over-flappy" class="menu-game-over" style="display: none;">
                         <div class="conteudo-game-over">
@@ -377,19 +414,31 @@
                     </button>
                 </div>
 
-                <div class="aplicacao-2048">
+                 <div class="aplicacao-2048">
                     <div class="info-2048">
                         <div class="item-info">
                             <span class="label-info">Pontuação:</span>
                             <span class="valor-info" id="pontuacao-2048">0</span>
                         </div>
                         <div class="item-info">
-                            <span class="label-info">Melhor:</span>
-                            <span class="valor-info" id="melhor-2048">0</span>
+                            <span class="label-info">Recorde:</span>
+                            <span class="valor-info" id="recorde-2048">0</span>
                         </div>
                     </div>
 
-                    <button onclick="reiniciar2048()" class="botao-reiniciar">
+                    <div class="contentor-tela-jogo">
+                        <div id="tabuleiro-2048" class="tabuleiro-2048"></div>
+                        
+                        <!-- Setas de Controlo Mobile -->
+                        <div class="controlos-mobile" id="controlos-mobile-2048">
+                            <button class="btn-seta cima" id="btn-2048-cima"><i class="fas fa-chevron-up"></i></button>
+                            <div class="linha-meio">
+                                <button class="btn-seta esquerda" id="btn-2048-esquerda"><i class="fas fa-chevron-left"></i></button>
+                                <button class="btn-seta direita" id="btn-2048-direita"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <button class="btn-seta baixo" id="btn-2048-baixo"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>>
                         <i class="fas fa-redo"></i> Novo Jogo
                     </button>
 

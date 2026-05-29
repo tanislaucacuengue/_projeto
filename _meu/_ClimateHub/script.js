@@ -140,6 +140,9 @@ async function manipularPesquisaClima(evento) {
 
         // Verificar se a requisição foi bem-sucedida (código 200)
         if (dadosClima.cod === 200) {
+            // Limpar a área de alerta quando a pesquisa é bem-sucedida
+            document.querySelector('#area-alerta').innerHTML = '';
+            
             // Exibir as informações do clima
             exibirInformacoesClima({
                 cidade: dadosClima.name,
@@ -467,14 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para alternar o menu
     const alternarMenu = () => {
         menuNavegacao.classList.toggle('aberto');
-        const icone = botaoHamburger.querySelector('i');
-        if (menuNavegacao.classList.contains('aberto')) {
-            icone.classList.remove('fa-bars');
-            icone.classList.add('fa-times');
-        } else {
-            icone.classList.remove('fa-times');
-            icone.classList.add('fa-bars');
-        }
+        botaoHamburger.classList.toggle('aberto');
     };
 
     // Evento de clique no botão hamburger

@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevHub - Ferramentas para Desenvolvedores</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Link para Font Awesome (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Cabeçalho/Barra de Navegação -->
     <header class="barra-navegacao">
         <div class="contentor-navegacao">
             <div class="logotipo">
-                <span class="icone-logotipo">⚙️</span>
+                <span class="icone-logotipo"><i class="fas fa-cog"></i></span>
                 <h1>DevHub</h1>
             </div>
             <!-- Botão Hamburger -->
@@ -52,22 +54,22 @@
                 <h3>Por que DevHub?</h3>
                 <div class="grelha-beneficios">
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio">🚀</div>
+                        <div class="icone-beneficio"><i class="fas fa-rocket"></i></div>
                         <h4>Rápido e Eficiente</h4>
                         <p>Acesso instantâneo a todas as ferramentas que precisa, sem complicações</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio">🎨</div>
+                        <div class="icone-beneficio"><i class="fas fa-palette"></i></div>
                         <h4>Interface Intuitiva</h4>
                         <p>Design limpo e focado que torna cada ferramenta fácil de usar</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio">⚡</div>
+                        <div class="icone-beneficio"><i class="fas fa-bolt"></i></div>
                         <h4>Produtividade</h4>
                         <p>Economize tempo com ferramentas otimizadas para desenvolvedores</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio">🔧</div>
+                        <div class="icone-beneficio"><i class="fas fa-tools"></i></div>
                         <h4>Tudo em Um Lugar</h4>
                         <p>Não precisa de abrir múltiplas abas - tudo integrado aqui</p>
                     </div>
@@ -80,7 +82,7 @@
                 <div class="grelha-ferramentas">
                     <!-- Cartão Calculadora -->
                     <div class="cartao-ferramenta" onclick="navegarPara('calculadora')">
-                        <div class="icone-ferramenta">🧮</div>
+                        <div class="icone-ferramenta"><i class="fas fa-calculator"></i></div>
                         <h4>Calculadora</h4>
                         <p>Cálculos rápidos e precisos com interface intuitiva</p>
                         <span class="seta-ferramenta">→</span>
@@ -88,7 +90,7 @@
 
                     <!-- Cartão Gerador de Cores RGB -->
                     <div class="cartao-ferramenta" onclick="navegarPara('rgb')">
-                        <div class="icone-ferramenta">🎨</div>
+                        <div class="icone-ferramenta"><i class="fas fa-palette"></i></div>
                         <h4>Gerador de Cores RGB</h4>
                         <p>Crie cores personalizadas com controle total dos valores RGB</p>
                         <span class="seta-ferramenta">→</span>
@@ -96,7 +98,7 @@
 
                     <!-- Cartão Gerador de Border-Radius -->
                     <div class="cartao-ferramenta" onclick="navegarPara('bordas')">
-                        <div class="icone-ferramenta">◇</div>
+                        <div class="icone-ferramenta"><i class="fas fa-vector-square"></i></div>
                         <h4>Border-Radius</h4>
                         <p>Gere propriedades CSS de border-radius de forma visual</p>
                         <span class="seta-ferramenta">→</span>
@@ -104,7 +106,7 @@
 
                     <!-- Cartão Gerador de Filtros -->
                     <div class="cartao-ferramenta" onclick="navegarPara('filtros')">
-                        <div class="icone-ferramenta">🖼️</div>
+                        <div class="icone-ferramenta"><i class="fas fa-image"></i></div>
                         <h4>Filtros de Imagens</h4>
                         <p>Aplique filtros CSS a imagens e veja o resultado em tempo real</p>
                         <span class="seta-ferramenta">→</span>
@@ -116,7 +118,7 @@
         <!-- Página Calculadora -->
         <section id="calculadora" class="pagina">
             <div class="cabecalho-ferramenta">
-                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <button class="botao-voltar" onclick="navegarPara('inicio')"><i class="fas fa-arrow-left"></i> Voltar</button>
                 <h2>Calculadora</h2>
             </div>
             <div class="contentor-ferramenta">
@@ -154,7 +156,7 @@
         <!-- Página Gerador de Cores RGB -->
         <section id="rgb" class="pagina">
             <div class="cabecalho-ferramenta">
-                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <button class="botao-voltar" onclick="navegarPara('inicio')"><i class="fas fa-arrow-left"></i> Voltar</button>
                 <h2>Gerador de Cores RGB</h2>
             </div>
             <div class="contentor-ferramenta contentor-rgb">
@@ -196,7 +198,7 @@
         <!-- Página Gerador de Border-Radius -->
         <section id="bordas" class="pagina">
             <div class="cabecalho-ferramenta">
-                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <button class="botao-voltar" onclick="navegarPara('inicio')"><i class="fas fa-arrow-left"></i> Voltar</button>
                 <h2>Gerador de Border-Radius</h2>
             </div>
             <div class="contentor-ferramenta contentor-bordas">
@@ -246,7 +248,7 @@
         <!-- Página Gerador de Filtros -->
         <section id="filtros" class="pagina">
             <div class="cabecalho-ferramenta">
-                <button class="botao-voltar" onclick="navegarPara('inicio')">← Voltar</button>
+                <button class="botao-voltar" onclick="navegarPara('inicio')"><i class="fas fa-arrow-left"></i> Voltar</button>
                 <h2>Filtros de Imagens</h2>
             </div>
             <div class="contentor-ferramenta contentor-filtros">

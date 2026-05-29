@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RobotTech Academy</title>
+  <link rel="stylesheet" href="estilos/principal.css" />
+  <link rel="stylesheet" href="estilos/animacoes.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Fundo de partículas/estrelas -->
+  <div id="fundo-estrelas" class="fundo-estrelas">
+    <div class="camada-estrelas" id="camada-estrelas-1"></div>
+    <div class="camada-estrelas" id="camada-estrelas-2"></div>
+    <div class="camada-estrelas" id="camada-estrelas-3"></div>
+    <div class="grade-tecnologica"></div>
+  </div>
+
+  <!-- Barra de Navegação -->
+  <nav id="barra-navegacao" class="barra-navegacao">
+    <div class="nav-conteudo">
+      <div class="nav-logo" onclick="navegarPara('inicio')">
+        <span class="logo-robot">RobotTech</span>
+        <span class="logo-academy">Academy</span>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#" onclick="navegarPara('inicio')" class="nav-link">Início</a>
+        <a href="#" onclick="navegarPara('cursos')" class="nav-link">Cursos</a>
+        <a href="#" onclick="navegarPara('sobre')" class="nav-link">Sobre</a>
+      </div>
+      <div class="nav-acoes">
+        <div id="nav-nao-autenticado" class="nav-nao-autenticado">
+          <button class="botao-secundario" onclick="abrirModal('modal-login')">Entrar</button>
+          <button class="botao-primario" onclick="abrirModal('modal-registo')">Registar</button>
+        </div>
+        <div id="nav-autenticado" class="nav-autenticado oculto">
+          <div class="nav-perfil" onclick="alternarMenuPerfil()">
+            <div class="avatar-pequeno" id="avatar-nav">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <span id="nome-nav-utilizador" class="nome-nav"></span>
+            <svg class="seta-dropdown" viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div id="menu-perfil" class="menu-perfil oculto">
+            <a href="#" onclick="navegarPara('perfil')">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+              Meu Perfil
+            </a>
+            <a href="#" onclick="navegarPara('meus-cursos')">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              Meus Cursos
+            </a>
+            <a href="#" onclick="navegarPara('certificados')">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+              Certificados
+            </a>
+            <div id="link-admin-menu" class="oculto">
+              <a href="#" onclick="navegarPara('admin')">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                Painel Admin
+              </a>
+            </div>
+            <hr />
+            <a href="#" onclick="terminarSessao()">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+              Sair
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main id="conteudo-principal" class="conteudo-principal">
+
+    <!-- PÁGINA: INÍCIO -->
+    <section id="pagina-inicio" class="pagina ativa">
+      <div class="hero-secao">
+        <div class="hero-conteudo">
+          <div class="hero-texto">
+            <h1 class="titulo-hero">
+              <span class="texto-gradiente">Aprende.</span>
+              <span class="texto-gradiente">Cria.</span>
+              <span class="texto-gradiente">Inova.</span>
+            </h1>
+            <p class="subtitulo-hero">A plataforma de aprendizagem tecnológica mais avançada. Domina Programação, Robótica, Eletrónica e muito mais.</p>
+            <div class="hero-botoes">
+              <button class="botao-primario botao-grande" onclick="navegarPara('cursos')">
+                Explorar Cursos
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <button class="botao-fantasma botao-grande" onclick="abrirModal('modal-registo')">Começar Grátis</button>
+            </div>
+          </div>
+          <div class="hero-estatisticas">
+            <div class="cartao-estatistica">
+              <span class="numero-estatistica" id="stat-cursos">5</span>
+              <span class="label-estatistica">Cursos</span>
+            </div>
+            <div class="cartao-estatistica">
+              <span class="numero-estatistica" id="stat-aulas">20+</span>
+              <span class="label-estatistica">Aulas</span>
+            </div>
+            <div class="cartao-estatistica">
+              <span class="numero-estatistica" id="stat-alunos">∞</span>
+              <span class="label-estatistica">Alunos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cursos em Destaque -->
+      <div class="secao-cursos-destaque">
+        <h2 class="titulo-secao">Cursos em Destaque</h2>
+        <div class="grelha-cursos" id="grelha-cursos-inicio"></div>
+        <div class="centro-botao">
+          <button class="botao-secundario" onclick="navegarPara('cursos')">Ver Todos os Cursos</button>
+        </div>
+      </div>
+
+      <!-- Como Funciona -->
+      <div class="secao-como-funciona">
+        <h2 class="titulo-secao">Como Funciona</h2>
+        <div class="grelha-passos">
+          <div class="cartao-passo">
+            <div class="icone-passo">01</div>
+            <h3>Regista-te</h3>
+            <p>Cria a tua conta gratuitamente e acede a todos os cursos disponíveis.</p>
+          </div>
+          <div class="cartao-passo">
+            <div class="icone-passo">02</div>
+            <h3>Escolhe um Curso</h3>
+            <p>Seleciona o curso que mais te interessa e inscreve-te.</p>
+          </div>
+          <div class="cartao-passo">
+            <div class="icone-passo">03</div>
+            <h3>Aprende</h3>
+            <p>Assiste às aulas em vídeo, faz os quizzes e acompanha o teu progresso.</p>
+          </div>
+          <div class="cartao-passo">
+            <div class="icone-passo">04</div>
+            <h3>Certifica-te</h3>
+            <p>Conclui o curso e recebe o teu certificado digital verificável.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA: CURSOS -->
+    <section id="pagina-cursos" class="pagina oculto">
+      <div class="cabecalho-pagina">
+        <h1 class="titulo-pagina">Catálogo de Cursos</h1>
+        <p class="subtitulo-pagina">Explora a nossa seleção de cursos tecnológicos</p>
+      </div>
+      <div class="filtros-cursos">
+        <button class="filtro-btn ativo" onclick="filtrarCursos('todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarCursos('programacao', this)">Programação</button>
+        <button class="filtro-btn" onclick="filtrarCursos('robotica', this)">Robótica</button>
+        <button class="filtro-btn" onclick="filtrarCursos('eletronica', this)">Eletrónica</button>
+        <button class="filtro-btn" onclick="filtrarCursos('cansats', this)">Cansats</button>
+        <button class="filtro-btn" onclick="filtrarCursos('computacao-grafica', this)">Computação Gráfica</button>
+      </div>
+      <div class="grelha-cursos grelha-cursos-completa" id="grelha-todos-cursos"></div>
+    </section>
+
+    <!-- PÁGINA: DETALHE DO CURSO -->
+    <section id="pagina-detalhe-curso" class="pagina oculto">
+      <div id="conteudo-detalhe-curso"></div>
+    </section>
+
+    <!-- PÁGINA: AULA -->
+    <section id="pagina-aula" class="pagina oculto">
+      <div id="conteudo-aula"></div>
+    </section>
+
+    <!-- PÁGINA: PERFIL -->
+    <section id="pagina-perfil" class="pagina oculto">
+      <div id="conteudo-perfil"></div>
+    </section>
+
+    <!-- PÁGINA: MEUS CURSOS -->
+    <section id="pagina-meus-cursos" class="pagina oculto">
+      <div id="conteudo-meus-cursos"></div>
+    </section>
+
+    <!-- PÁGINA: CERTIFICADOS -->
+    <section id="pagina-certificados" class="pagina oculto">
+      <div id="conteudo-certificados"></div>
+    </section>
+
+    <!-- PÁGINA: ADMIN -->
+    <section id="pagina-admin" class="pagina oculto">
+      <div id="conteudo-admin"></div>
+    </section>
+
+    <!-- PÁGINA: SOBRE -->
+    <section id="pagina-sobre" class="pagina oculto">
+      <div class="cabecalho-pagina">
+        <h1 class="titulo-pagina">Sobre a RobotTech Academy</h1>
+      </div>
+      <div class="conteudo-sobre">
+        <div class="cartao-sobre">
+          <h2>A Nossa Missão</h2>
+          <p>A RobotTech Academy nasceu com a missão de democratizar o acesso ao ensino tecnológico de qualidade. Acreditamos que qualquer pessoa, independentemente da sua localização ou condição socioeconómica, deve ter acesso a educação tecnológica de excelência.</p>
+        </div>
+        <div class="cartao-sobre">
+          <h2>O Que Oferecemos</h2>
+          <p>Oferecemos cursos nas áreas de Programação, Robótica, Eletrónica, Computação Gráfica e Aeroespacial (CanSats). Cada curso é cuidadosamente desenvolvido por especialistas da área, com conteúdo prático e atualizado.</p>
+        </div>
+        <div class="cartao-sobre">
+          <h2>Certificação</h2>
+          <p>Ao concluir qualquer curso, recebes um certificado digital com código de verificação único, reconhecido e verificável online. O teu esforço e dedicação merecem ser reconhecidos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: LOGIN -->
+  <div id="modal-login" class="modal-overlay oculto" onclick="fecharModalExterno(event, 'modal-login')">
+    <div class="modal-caixa">
+      <button class="modal-fechar" onclick="fecharModal('modal-login')">×</button>
+      <div class="modal-logo">
+        <span class="logo-robot">RobotTech</span>
+        <span class="logo-academy">Academy</span>
+      </div>
+      <h2 class="modal-titulo">Entrar na Plataforma</h2>
+      <form id="formulario-login" onsubmit="submeterLogin(event)">
+        <div class="campo-formulario">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="o.teu@email.com" required />
+        </div>
+        <div class="campo-formulario">
+          <label for="login-senha">Senha</label>
+          <div class="campo-senha">
+            <input type="password" id="login-senha" placeholder="A tua senha" required />
+            <button type="button" class="botao-ver-senha" onclick="alternarSenha('login-senha')">👁</button>
+          </div>
+        </div>
+        <div id="erro-login" class="mensagem-erro oculto"></div>
+        <button type="submit" class="botao-primario botao-completo" id="botao-login">
+          <span>Entrar</span>
+        </button>
+      </form>
+      <p class="modal-rodape">Não tens conta? <a href="#" onclick="trocarModal('modal-login', 'modal-registo')">Registar aqui</a></p>
+    </div>
+  </div>
+
+  <!-- MODAL: REGISTO -->
+  <div id="modal-registo" class="modal-overlay oculto" onclick="fecharModalExterno(event, 'modal-registo')">
+    <div class="modal-caixa">
+      <button class="modal-fechar" onclick="fecharModal('modal-registo')">×</button>
+      <div class="modal-logo">
+        <span class="logo-robot">RobotTech</span>
+        <span class="logo-academy">Academy</span>
+      </div>
+      <h2 class="modal-titulo">Criar Conta</h2>
+      <form id="formulario-registo" onsubmit="submeterRegisto(event)">
+        <div class="campo-formulario">
+          <label for="registo-nome">Nome Completo</label>
+          <input type="text" id="registo-nome" placeholder="O teu nome" required />
+        </div>
+        <div class="campo-formulario">
+          <label for="registo-email">Email</label>
+          <input type="email" id="registo-email" placeholder="o.teu@email.com" required />
+        </div>
+        <div class="campo-formulario">
+          <label for="registo-senha">Senha</label>
+          <div class="campo-senha">
+            <input type="password" id="registo-senha" placeholder="Mínimo 6 caracteres" required minlength="6" />
+            <button type="button" class="botao-ver-senha" onclick="alternarSenha('registo-senha')">👁</button>
+          </div>
+        </div>
+        <div id="erro-registo" class="mensagem-erro oculto"></div>
+        <button type="submit" class="botao-primario botao-completo" id="botao-registo">
+          <span>Criar Conta</span>
+        </button>
+      </form>
+      <p class="modal-rodape">Já tens conta? <a href="#" onclick="trocarModal('modal-registo', 'modal-login')">Entrar aqui</a></p>
+    </div>
+  </div>
+
+  <!-- MODAL: QUIZ -->
+  <div id="modal-quiz" class="modal-overlay oculto" onclick="fecharModalExterno(event, 'modal-quiz')">
+    <div class="modal-caixa modal-quiz-caixa">
+      <button class="modal-fechar" onclick="fecharModal('modal-quiz')">×</button>
+      <div id="conteudo-quiz"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: CERTIFICADO -->
+  <div id="modal-certificado" class="modal-overlay oculto" onclick="fecharModalExterno(event, 'modal-certificado')">
+    <div class="modal-caixa modal-certificado-caixa">
+      <button class="modal-fechar" onclick="fecharModal('modal-certificado')">×</button>
+      <div id="conteudo-modal-certificado"></div>
+    </div>
+  </div>
+
+  <!-- Notificação Toast -->
+  <div id="notificacao-toast" class="notificacao-toast oculto">
+    <span id="texto-toast"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/api.js"></script>
+  <script src="scripts/autenticacao.js"></script>
+  <script src="scripts/cursos.js"></script>
+  <script src="scripts/aula.js"></script>
+  <script src="scripts/perfil.js"></script>
+  <script src="scripts/admin.js"></script>
+  <script src="scripts/principal.js"></script>
+
+</body>
+</html>
