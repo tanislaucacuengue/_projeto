@@ -1,199 +1,56 @@
-================================================================================
-                    DEVHUB - FERRAMENTAS PARA DESENVOLVEDORES
-                              Sumário da Aplicação
-================================================================================
+# DevHub — Sumário do projecto
 
- FICHEIROS PRINCIPAIS:
-─────────────────────────────────────────────────────────────────────────────
+## Visão geral
 
-1. index.html (17 KB)
-   - Estrutura HTML completa da aplicação
-   - 5 páginas principais: Home, Calculadora, Cores RGB, Border-Radius, Filtros
-   - 154 classes CSS e 41 IDs
-   - Navegação intuitiva
+O DevHub é uma aplicação web estática de ferramentas para desenvolvimento front-end. A interface inicial dá acesso a quatro utilitários: calculadora, gerador RGB, configurador de `border-radius` e filtros CSS para uma imagem de exemplo.
 
-2. styles.css (20 KB)
-   - 930 linhas de CSS
-   - Design profissional em azul, branco e azul escuro
-   - Animações e transições suaves
-   - Totalmente responsivo (mobile, tablet, desktop)
-   - Variáveis CSS para fácil manutenção
+## Ficheiros principais
 
-3. script.js (11 KB)
-   - 296 linhas de JavaScript puro (sem dependências)
-   - Navegação entre páginas
-   - Lógica para todas as 4 ferramentas
-   - Suporte para teclado na calculadora
-   - Função de cópia para clipboard
+| Ficheiro | Responsabilidade |
+|---|---|
+| `index.html` | Estrutura das secções, navegação, controlos e saídas. |
+| `style.css` | Estilos, estados interactivos, foco de teclado e adaptação a diferentes larguras de ecrã. |
+| `script.js` | Navegação, cálculo aritmético, actualização das pré-visualizações, atalhos e cópia. |
+| `background001.jpg` | Imagem local utilizada na ferramenta de filtros. |
 
-4. background001.jpg (176 KB)
-   - Imagem para o gerador de filtros
+A pasta também contém `README.md`, este sumário e `DevHub - Ferramentas para Desenvolvedores.md`. Os nomes acima correspondem aos ficheiros observados no projecto.
 
-5. espaco.jpg (485 KB)
-   - Imagem adicional
+## Ferramentas
 
-================================================================================
- FERRAMENTAS INTEGRADAS:
-─────────────────────────────────────────────────────────────────────────────
+1. **Calculadora:** adição, subtracção, multiplicação e divisão, com decimais e suporte de teclado.
+2. **Gerador RGB:** três controlos de 0 a 255, pré-visualização e saída CSS no formato RGB.
+3. **Border-radius:** quatro valores independentes, pré-visualização e declaração CSS.
+4. **Filtros de imagem:** escala de cinza, sépia, desfoque, inversão, opacidade, brilho, contraste e saturação.
 
-1. CALCULADORA
-     Operações: +, -, ×, ÷
-     Suporte para teclado
-     Botões: Limpar, Apagar, =
-     Display claro e legível
+A cópia automática depende da API de área de transferência do navegador e de um contexto seguro. Se não estiver disponível, o texto é seleccionado para cópia manual.
 
-2. GERADOR DE CORES RGB
-     Sliders para R, G, B (0-255)
-     Pré-visualização em tempo real
-     Saída em formato rgb(r, g, b)
-     Botão copiar para clipboard
+## Implementação e dependências
 
-3. GERADOR DE BORDER-RADIUS
-     Controle de 4 cantos independentes
-     Valores de 0% a 100%
-     Pré-visualização visual
-     Saída em formato CSS
+O projecto utiliza HTML, CSS e JavaScript vanilla, sem manifesto de pacotes ou etapa de compilação identificados nesta pasta. Font Awesome 6.5.1 é carregado através de um CDN externo, pelo que os ícones necessitam de acesso à Internet.
 
-4. GERADOR DE FILTROS DE IMAGENS
-     8 filtros CSS: grayscale, sepia, blur, invert, opacity, brightness, contrast, saturate
-     Pré-visualização em tempo real
-     Saída em formato CSS
-     Controle granular de cada filtro
+A aplicação tem regras CSS para ecrãs de diferentes larguras. A presença dessas regras não substitui testes visuais em dispositivos e navegadores reais.
 
-================================================================================
- DESIGN E CORES:
-─────────────────────────────────────────────────────────────────────────────
+## Acessibilidade e segurança
 
-Paleta de Cores:
-    Azul Primário: #0066CC
-    Azul Escuro: #003366
-    Azul Claro: #4D94FF
-    Branco: #FFFFFF
-    Cinzento Claro: #F5F7FA
-    Texto: #333333
+- Os controlos deslizantes têm rótulos associados e os cartões de ferramentas são ligações utilizáveis por teclado.
+- O menu mobile comunica o estado aberto/fechado e responde à tecla `Escape`.
+- A calculadora avalia apenas expressões aritméticas com os operadores disponibilizados; não utiliza execução de código JavaScript arbitrário.
+- Os indicadores de foco são visíveis durante a navegação por teclado.
 
-Tipografia:
-    Títulos: Font-weight 700, tamanho 32px-48px
-    Subtítulos: Font-weight 600, tamanho 20px-24px
-    Corpo: Font-weight 400, tamanho 14px-16px
-    Família: System fonts (Segoe UI, Roboto, etc.)
+Estas medidas são melhorias implementadas, não uma certificação de acessibilidade. Não foi detectada uma suite de testes automatizada nesta pasta.
 
-================================================================================
- CARACTERÍSTICAS ESPECIAIS:
-─────────────────────────────────────────────────────────────────────────────
+## Execução local
 
-✓ Navegação Intuitiva: Menu fixo no topo com links para todas as ferramentas
-✓ Página Inicial Informativa: Hero section + benefícios + showcase de ferramentas
-✓ Animações Suaves: Transições e efeitos hover em todos os elementos
-✓ Responsivo: Funciona perfeitamente em desktop, tablet e mobile
-✓ Sem Dependências: Apenas HTML, CSS e JavaScript vanilla
-✓ Suporte para Teclado: Atalhos na calculadora
-✓ Clipboard: Cópia rápida de resultados
-✓ Performance: Carregamento rápido e otimizado
+Na pasta `_meu/_DevHub`, execute:
 
-================================================================================
- RESPONSIVIDADE:
-─────────────────────────────────────────────────────────────────────────────
+```bash
+python3 -m http.server 8000
+```
 
-Desktop (1920px+):
-    Layout completo com 2 colunas onde apropriado
-    Navegação horizontal no topo
-    Espaçamento generoso
+Aceda a `http://localhost:8000`. O servidor serve os ficheiros estáticos e fornece um contexto local adequado à API de área de transferência nos navegadores compatíveis.
 
-Tablet (768px - 1024px):
-    Layout adaptado
-    Navegação compacta
-    Espaçamento reduzido
+## Autoria
 
-Mobile (até 480px):
-    Layout single column
-    Navegação otimizada
-    Botões maiores para toque
-    Espaçamento mínimo
+**Desenvolvido por Benjamim Tanislau José Cacuengue**, como parte do seu percurso de aprendizagem e desenvolvimento de competências.
 
-================================================================================
- COMO USAR:
-─────────────────────────────────────────────────────────────────────────────
-
-Opção 1: Abrir Localmente
-  1. Abra o ficheiro index.html num navegador web
-  2. A aplicação carregará imediatamente
-
-Opção 2: Usar um Servidor Local
-  • Python 3: python3 -m http.server 8000
-  • Node.js: npx http-server
-  • PHP: php -S localhost:8000
-
-Depois aceda a http://localhost:8000
-
-================================================================================
-  COMPATIBILIDADE:
-─────────────────────────────────────────────────────────────────────────────
-
-  Chrome/Edge (versão 90+)
-  Firefox (versão 88+)
-  Safari (versão 14+)
-  Navegadores baseados em Chromium
-  Dispositivos móveis (iOS e Android)
-
-================================================================================
- ESTATÍSTICAS:
-─────────────────────────────────────────────────────────────────────────────
-
-Linhas de Código:
-    HTML: ~400 linhas
-    CSS: 930 linhas
-    JavaScript: 296 linhas
-    Total: ~1,626 linhas
-
-Tamanho dos Ficheiros:
-    index.html: 17 KB
-    styles.css: 20 KB
-    script.js: 11 KB
-    Imagens: ~661 KB
-    Total: ~709 KB (sem compressão)
-
-================================================================================
- EXEMPLOS DE USO:
-─────────────────────────────────────────────────────────────────────────────
-
-Calculadora:
-  5 + 3 = 8
-  10 * 2.5 = 25
-  100 / 4 = 25
-
-Cores RGB:
-  Vermelho: 255, Verde: 0, Azul: 0 → rgb(255, 0, 0) [Vermelho puro]
-  Vermelho: 0, Verde: 255, Azul: 0 → rgb(0, 255, 0) [Verde puro]
-
-Border-Radius:
-  TR: 50%, TL: 50%, BR: 50%, BL: 50% → border-radius: 50% 50% 50% 50%; [Círculo]
-
-Filtros:
-  Grayscale: 100% → Imagem em preto e branco
-  Sepia: 100% → Efeito vintage
-
-================================================================================
- FICHEIROS INCLUSOS:
-─────────────────────────────────────────────────────────────────────────────
-
- index.html - Página principal
- styles.css - Estilos CSS
- script.js - Lógica JavaScript
- background001.jpg - Imagem para filtros
- DevHub.md - Planeamento do projeto
- SUMMARY.md - Este ficheiro
-
-================================================================================
- CONCLUSÃO:
-─────────────────────────────────────────────────────────────────────────────
-
-A aplicação DevHub é uma solução completa e profissional para desenvolvedores,
-oferecendo múltiplas ferramentas úteis numa interface intuitiva e moderna.
-
-Desenvolvido com ❤️ para a comunidade de desenvolvedores.
-
-Versão: 1.0.0
-Data: Janeiro 2026
-
-================================================================================
+**Revisão documental:** 2 de Novembro de 2026.

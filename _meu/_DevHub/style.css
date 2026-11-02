@@ -337,11 +337,14 @@ body {
 }
 
 .cartao-ferramenta {
+    display: block;
     background-color: var(--branco);
     padding: var(--espacamento-lg);
     border-radius: 12px;
     box-shadow: var(--sombra-md);
+    color: inherit;
     cursor: pointer;
+    text-decoration: none;
     transition: all var(--transicao-base);
     border: 2px solid transparent;
     position: relative;
@@ -873,13 +876,16 @@ body {
         justify-content: center;
         align-items: center;
         gap: var(--espacamento-xl);
-        transition: 0.4s ease;
+        visibility: hidden;
+        transition: right 0.4s ease, visibility 0s linear 0.4s;
         z-index: 1000;
         box-shadow: var(--sombra-xl);
     }
 
     .menu-navegacao.aberto {
         right: 0;
+        visibility: visible;
+        transition: right 0.4s ease, visibility 0s;
     }
 
     .link-navegacao {
@@ -935,4 +941,11 @@ body {
     .botao-acao {
         width: 100%;
     }
+}
+
+/* Indicador de foco para navegação por teclado, incluindo os controlos range. */
+:focus-visible {
+    outline: 3px solid #ffbf47;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px var(--azul-escuro);
 }
