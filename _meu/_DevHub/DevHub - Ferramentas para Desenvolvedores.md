@@ -1,208 +1,72 @@
-# DevHub - Ferramentas para Desenvolvedores
+# DevHub — Ferramentas para Desenvolvedores
 
-Uma aplicação web moderna e intuitiva que integra múltiplas ferramentas que eu achei que são essenciais para desenvolvedores, tudo num único hub centralizado.
+Aplicação web estática com ferramentas práticas para apoiar o desenvolvimento front-end. O projecto reúne uma calculadora, um gerador de cores RGB, um configurador visual de `border-radius` e um painel de filtros CSS para imagens.
 
-##  Características Principais
+## Objectivo
 
-- **Calculadora Interativa**: Cálculos rápidos com interface intuitiva
-- **Gerador de Cores RGB**: Crie cores personalizadas com controle total dos valores RGB
-- **Gerador de Border-Radius**: Gere propriedades CSS de border-radius de forma visual
-- **Gerador de Filtros de Imagens**: Aplique filtros CSS a imagens em tempo real
+Reunir, numa única interface, pequenos utilitários que permitem experimentar valores, visualizar alterações e copiar declarações CSS sem instalar uma aplicação ou depender de um serviço de processamento remoto.
 
-##  Design
-
-A aplicação utiliza um esquema de cores profissional:
-- **Azul Primário**: #0066CC
-- **Azul Escuro**: #003366
-- **Branco**: #FFFFFF
-- **Cinzento Claro**: #F5F7FA
-
-##  Estrutura de Ficheiros
-
-```
-dev-hub-app/
-  index.html           # Página principal HTML
-  styles.css           # Estilos CSS (930 linhas)
-  script.js            # Lógica JavaScript (296 linhas)
-  background001.jpg    # Imagem para filtros
-  SUMMARY.md           # Documento de planeamento
-  DevHub.md            # Este ficheiro
-```
-
-##  Como Usar
-
-### Opção 1: Abrir Localmente
-1. Abra o ficheiro `index.html` num navegador web
-2. A aplicação carregará imediatamente
-
-### Opção 2: Usar um Servidor Local
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# Node.js (com http-server)
-npx http-server
-
-# PHP
-php -S localhost:8000
-```
-
-Depois aceda a `http://localhost:8000` no seu navegador.
-
-##  Funcionalidades Detalhadas
-
-### 1. Calculadora
-- Operações básicas: adição, subtração, multiplicação, divisão
-- Suporte para teclado
-- Botões de limpar e apagar
-- Display claro e legível
-
-**Atalhos de Teclado:**
-- `0-9`: Números
-- `+`, `-`, `*`, `/`: Operadores
-- `Enter` ou `=`: Calcular resultado
-- `Backspace`: Apagar último dígito
-- `Escape`: Limpar tudo
-
-### 2. Gerador de Cores RGB
-- Sliders para controlar valores de Vermelho, Verde e Azul
-- Pré-visualização em tempo real
-- Saída em formato RGB
-- Botão para copiar para clipboard
-
-### 3. Gerador de Border-Radius
-- Controle individual de cada canto
-- Pré-visualização visual
-- Saída em formato CSS
-- Cópia rápida para clipboard
-
-### 4. Gerador de Filtros de Imagens
-- 8 filtros CSS diferentes:
-  - Escala de Cinza
-  - Sépia
-  - Desfoque
-  - Inverter cores
-  - Opacidade
-  - Brilho
-  - Contraste
-  - Saturação
-- Pré-visualização em tempo real
-- Saída em formato CSS
-
-##  Benefícios para Desenvolvedores
-
- **Rápido e Eficiente** - Acesso instantâneo a todas as ferramentas
- **Interface Intuitiva** - Design limpo e focado
- **Produtividade** - Economize tempo com ferramentas otimizadas
- **Tudo em Um Lugar** - Não precisa de abrir múltiplas abas
-
-##  Compatibilidade
-
--  Chrome/Edge (versão 90+)
--  Firefox (versão 88+)
--  Safari (versão 14+)
--  Navegadores baseados em Chromium
--  Responsivo em dispositivos móveis
-
-##  Tecnologias Utilizadas
-
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilos e animações
-- **JavaScript Vanilla**: Interatividade sem dependências
-
-##  Responsividade
-
-A aplicação é totalmente responsiva e funciona perfeitamente em:
-- Desktop (1920px+)
-- Tablet (768px - 1024px)
-- Mobile (até 480px)
-
-##  Características Especiais
-
-### Animações e Transições
-- Transições suaves entre páginas
-- Efeitos hover nos cards
-- Animações de entrada
-- Feedback visual nos botões
-
-### Acessibilidade
-- Navegação por teclado
-- Contraste adequado
-- Semântica HTML apropriada
-- Labels descritivas
-
-### Performance
-- Sem dependências externas
-- Carregamento rápido
-- Otimizado para performance
-- Ficheiros CSS e JS minificáveis
-
-##  Exemplos de Uso
+## Funcionalidades
 
 ### Calculadora
+
+- Operações de adição, subtracção, multiplicação e divisão.
+- Botões para limpar e apagar o último carácter.
+- Atalhos de teclado para números, operadores, cálculo (`Enter` ou `=`), apagar (`Backspace`) e limpar (`Escape`).
+- Avaliação aritmética restrita a números decimais e aos operadores suportados, sem executar código JavaScript arbitrário.
+
+### Gerador de cores RGB
+
+- Controlos deslizantes independentes para vermelho, verde e azul, entre 0 e 255.
+- Pré-visualização da cor e saída em formato `rgb(r, g, b)`.
+
+### Gerador de `border-radius`
+
+- Ajuste independente dos quatro cantos.
+- Pré-visualização e saída de uma declaração CSS.
+
+### Filtros de imagem
+
+- Controlos para escala de cinza, sépia, desfoque, inversão, opacidade, brilho, contraste e saturação.
+- Pré-visualização aplicada à imagem local `background001.jpg` e saída CSS correspondente.
+
+Os resultados podem ser copiados quando a API de área de transferência estiver disponível. Em contextos não seguros ou sem permissão, o resultado é seleccionado para cópia manual.
+
+## Tecnologias e ficheiros
+
+- `index.html` — estrutura e controlos da interface.
+- `style.css` — apresentação, animações e regras responsivas.
+- `script.js` — navegação, cálculo, pré-visualizações, atalhos e cópia.
+- `background001.jpg` — imagem local usada no painel de filtros.
+- `README.md`, `SUMMARY.md` e este documento — documentação do projecto.
+
+A interface é construída com HTML, CSS e JavaScript vanilla. Os ícones usam Font Awesome 6.5.1 através de uma folha de estilos servida por CDN; por isso, os ícones podem não aparecer sem ligação à Internet. Não foi identificado um manifesto de dependências ou um processo de build nesta pasta.
+
+## Navegação e acessibilidade
+
+Os cartões da página inicial são ligações de navegação por teclado. Os controlos deslizantes têm rótulos associados, o menu mobile expõe o seu estado e pode ser fechado com `Escape`, e os elementos interactivos têm indicação de foco visível. Estas melhorias não equivalem a uma certificação de conformidade; a validação com leitores de ecrã e em diferentes navegadores continua por fazer.
+
+## Como executar
+
+A partir desta pasta, pode servir os ficheiros com Python 3:
+
+```bash
+python3 -m http.server 8000
 ```
-5 + 3 = 8
-10 * 2.5 = 25
-100 / 4 = 25
-```
 
-### Cores RGB
-```
-Vermelho: 255, Verde: 0, Azul: 0 → rgb(255, 0, 0) [Vermelho puro]
-Vermelho: 0, Verde: 255, Azul: 0 → rgb(0, 255, 0) [Verde puro]
-```
+Depois, abra `http://localhost:8000` no navegador. A aplicação necessita de JavaScript activo. O contexto `localhost` também permite utilizar a API de área de transferência nos navegadores que a suportam.
 
-### Border-Radius
-```
-TR: 50%, TL: 50%, BR: 50%, BL: 50% → border-radius: 50% 50% 50% 50%; [Círculo]
-TR: 100%, TL: 0%, BR: 0%, BL: 0% → border-radius: 100% 0% 0% 0%; [Canto arredondado]
-```
+## Limites conhecidos
 
-### Filtros
-```
-Grayscale: 100% → Imagem em preto e branco
-Sepia: 100% → Efeito vintage
-Blur: 10px → Imagem desfocada
-```
+- Não foi encontrada uma suite de testes automatizada nesta pasta.
+- As regras CSS incluem pontos de adaptação para ecrãs menores, mas a apresentação não foi validada visualmente em vários dispositivos nesta revisão.
+- Os ícones dependem do CDN indicado acima; as ferramentas principais são executadas localmente no navegador.
+- Não foi identificado um ficheiro de licença. Consulte o autor antes de reutilizar ou redistribuir o projecto.
 
-##  Notas de Desenvolvimento
+## Autor e percurso de desenvolvimento
 
-- O código é bem comentado e fácil de manter
-- Segue boas práticas de desenvolvimento web
-- Sem dependências externas (vanilla JavaScript)
-- Código modular e reutilizável
+**Desenvolvido por Benjamim Tanislau José Cacuengue.**
 
-##  Resolução de Problemas
+Este projecto integra o meu percurso contínuo de aprendizagem e desenvolvimento de competências. Cada exercício representa uma oportunidade prática de consolidar conhecimentos, experimentar soluções e evoluir como desenvolvedor.
 
-### A aplicação não carrega
-- Verifique se o ficheiro `index.html` está no mesmo diretório que `styles.css` e `script.js`
-- Certifique-se de que tem permissões de leitura nos ficheiros
-
-### Os estilos não aparecem
-- Limpe o cache do navegador (Ctrl+Shift+Delete)
-- Verifique se o ficheiro `styles.css` está acessível
-
-### As imagens não aparecem
-- Certifique-se de que `background001.jpg` está no mesmo diretório
-- Verifique as permissões do ficheiro
-
-##  Suporte
-
-Para questões ou sugestões, considere:
-1. Verificar a consola do navegador (F12) para erros
-2. Testar em outro navegador
-3. Limpar o cache e recarregar
-
-##  Licença
-
-Esta aplicação foi criada como ferramenta educacional para desenvolvedores.
-
-##  Créditos
-
-Desenvolvido com ❤️ para a comunidade de desenvolvedores.
-
----
-
-**Versão**: 1.0.0  
-**Data**: Janeiro 2026  
-**Última Atualização**: 29 de Janeiro de 2026
+**Última revisão documental:** 2 de Novembro de 2026.

@@ -198,12 +198,78 @@ function inicializarGeradorFiltros() {
 /**
  * Calcula o resultado da expressão no visor da calculadora
  */
+function avaliarExpressaoAritmetica(expressao) {
+    const entrada = String(expressao).replace(/\s+/g, '');
+    let posicao = 0;
+
+    const lerNumero = () => {
+        const inicio = posicao;
+        let digitos = 0;
+
+        while (/[0-9]/.test(entrada[posicao] || '')) {
+            posicao++;
+            digitos++;
+        }
+
+        if (entrada[posicao] === '.') {
+            posicao++;
+            while (/[0-9]/.test(entrada[posicao] || '')) {
+                posicao++;
+                digitos++;
+            }
+        }
+
+        if (digitos === 0) throw new Error('Número inválido');
+        const numero = Number(entrada.slice(inicio, posicao));
+        if (!Number.isFinite(numero)) throw new Error('Número fora do intervalo');
+        return numero;
+    };
+
+    const lerFator = () => {
+        let sinal = 1;
+        while (entrada[posicao] === '+' || entrada[posicao] === '-') {
+            if (entrada[posicao] === '-') sinal *= -1;
+            posicao++;
+        }
+        return sinal * lerNumero();
+    };
+
+    const lerTermo = () => {
+        let resultado = lerFator();
+        while (entrada[posicao] === '*' || entrada[posicao] === '/') {
+            const operador = entrada[posicao++];
+            const operando = lerFator();
+            if (operador === '/' && operando === 0) throw new Error('Divisão por zero');
+            resultado = operador === '*' ? resultado * operando : resultado / operando;
+        }
+        return resultado;
+    };
+
+    const lerExpressao = () => {
+        let resultado = lerTermo();
+        while (entrada[posicao] === '+' || entrada[posicao] === '-') {
+            const operador = entrada[posicao++];
+            const operando = lerTermo();
+            resultado = operador === '+' ? resultado + operando : resultado - operando;
+        }
+        return resultado;
+    };
+
+    if (!entrada) throw new Error('Expressão vazia');
+    const resultado = lerExpressao();
+    if (posicao !== entrada.length || !Number.isFinite(resultado)) {
+        throw new Error('Expressão inválida');
+    }
+    return resultado;
+}
+
 function calcularResultado() {
-    const visor = document.forms.calculadora.exibir;
+    const visor = document.querySelector('.visor-calculadora');
+    if (!visor) return;
+
     try {
-        // Usar uma forma mais segura que eval se possível, mas mantendo a lógica original
-        visor.value = eval(visor.value);
-    } catch (erro) {
+        visor.value = String(avaliarExpressaoAritmetica(visor.value));
+    } catch {
         visor.value = 'Erro';
     }
 }
@@ -215,15 +281,37 @@ function calcularResultado() {
 /**
  * Copia o valor de um elemento para a área de transferência
  * @param {string} idElemento - O ID do elemento de entrada
+ * @param {HTMLButtonElement} botao - O botão accionado para copiar
  */
-function copiarParaAreaTransferencia(idElemento) {
+function copiarParaAreaTransferencia(idElemento, botao) {
     const elemento = document.getElementById(idElemento);
+    if (!elemento) return;
     const texto = elemento.value;
-    
-    // Capturar o botão antes da promessa para evitar problemas com event.target
-    const botao = window.event ? window.event.target : null;
-    
-    navigator.clipboard.writeText(texto).then(() => {
+    const seleccionarParaCopiaManual = (mensagem) => {
+        elemento.focus();
+        elemento.select();
+        mostrarNotificacao(mensagem, true);
+    };
+
+    if (!window.isSecureContext || !navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+        seleccionarParaCopiaManual('A cópia automática requer HTTPS ou localhost; o texto foi seleccionado para cópia manual.');
+        return;
+    }
+
+    let promessaCopia;
+    try {
+        promessaCopia = navigator.clipboard.writeText(texto);
+    } catch {
+        seleccionarParaCopiaManual('Não foi possível copiar automaticamente; o texto foi seleccionado para cópia manual.');
+        return;
+    }
+
+    if (!promessaCopia || typeof promessaCopia.then !== 'function') {
+        seleccionarParaCopiaManual('Não foi possível copiar automaticamente; o texto foi seleccionado para cópia manual.');
+        return;
+    }
+
+    promessaCopia.then(() => {
         // Feedback visual no botão
         if (botao) {
             const textoOriginal = botao.textContent;
@@ -239,11 +327,8 @@ function copiarParaAreaTransferencia(idElemento) {
         
         // Mostrar notificação na plataforma (sucesso)
         mostrarNotificacao('Código copiado com sucesso!', false);
-        
-    }).catch(erro => {
-        console.error('Erro ao copiar:', erro);
-        mostrarNotificacao('Erro ao copiar código.', true);
-    });
+
+    }).catch(() => seleccionarParaCopiaManual('Não foi possível copiar automaticamente; o texto foi seleccionado para cópia manual.'));
 }
 
 function mostrarNotificacao(mensagem, erro = false) {
@@ -254,6 +339,8 @@ function mostrarNotificacao(mensagem, erro = false) {
     const notificacao = document.createElement('div');
     notificacao.className = `notificacao-plataforma ${erro ? 'erro' : ''}`;
     notificacao.textContent = mensagem;
+    notificacao.setAttribute('role', erro ? 'alert' : 'status');
+    notificacao.setAttribute('aria-live', erro ? 'assertive' : 'polite');
     
     document.body.appendChild(notificacao);
     
@@ -302,25 +389,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Suporte para teclado na calculadora
 document.addEventListener('keydown', (e) => {
-    const calc = document.forms.calculadora;
-    if (!calc || !document.getElementById('calculadora').classList.contains('ativa')) return;
+    const visor = document.querySelector('.visor-calculadora');
+    const calc = document.getElementById('calculadora');
+    if (!visor || !calc || !calc.classList.contains('ativa')) return;
 
     if (e.key >= '0' && e.key <= '9') {
-        calc.exibir.value += e.key;
+        visor.value += e.key;
     } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
         e.preventDefault();
-        calc.exibir.value += e.key;
+        visor.value += e.key;
     } else if (e.key === 'Enter' || e.key === '=') {
         e.preventDefault();
         calcularResultado();
     } else if (e.key === 'Backspace') {
         e.preventDefault();
-        calc.exibir.value = calc.exibir.value.slice(0, -1);
+        visor.value = visor.value.slice(0, -1);
     } else if (e.key === 'Escape') {
         e.preventDefault();
-        calc.exibir.value = '';
+        visor.value = '';
     } else if (e.key === '.') {
-        calc.exibir.value += '.';
+        visor.value += '.';
     }
 });
 
@@ -336,9 +424,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const linksNavegacao = document.querySelectorAll('.link-navegacao');
 
     const alternarMenu = () => {
+        if (!botaoHamburger || !menuNavegacao) return;
         botaoHamburger.classList.toggle('ativo');
         menuNavegacao.classList.toggle('aberto');
-        document.body.style.overflow = menuNavegacao.classList.contains('aberto') ? 'hidden' : 'auto';
+        const menuAberto = menuNavegacao.classList.contains('aberto');
+        botaoHamburger.setAttribute('aria-expanded', String(menuAberto));
+        botaoHamburger.setAttribute('aria-label', menuAberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+        document.body.style.overflow = menuAberto ? 'hidden' : 'auto';
     };
 
     if (botaoHamburger) {
@@ -356,8 +448,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && botaoHamburger && menuNavegacao && menuNavegacao.classList.contains('aberto')) {
+            alternarMenu();
+            botaoHamburger.focus();
+        }
+    });
+
     document.addEventListener('click', (e) => {
-        if (menuNavegacao && menuNavegacao.classList.contains('aberto') && 
+        if (menuNavegacao && botaoHamburger && menuNavegacao.classList.contains('aberto') &&
             !menuNavegacao.contains(e.target) && 
             !botaoHamburger.contains(e.target)) {
             alternarMenu();

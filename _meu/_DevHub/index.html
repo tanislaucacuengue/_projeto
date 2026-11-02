@@ -17,7 +17,7 @@
                 <h1>DevHub</h1>
             </div>
             <!-- Botão Hamburger -->
-            <button class="botao-hamburger" id="botao-hamburger">
+            <button type="button" class="botao-hamburger" id="botao-hamburger" aria-label="Abrir menu de navegação" aria-controls="menu-navegacao" aria-expanded="false">
                 <span class="barra"></span>
                 <span class="barra"></span>
                 <span class="barra"></span>
@@ -81,36 +81,36 @@
                 <h3>Nossas Ferramentas</h3>
                 <div class="grelha-ferramentas">
                     <!-- Cartão Calculadora -->
-                    <div class="cartao-ferramenta" onclick="navegarPara('calculadora')">
+                    <a class="cartao-ferramenta" href="#calculadora">
                         <div class="icone-ferramenta"><i class="fas fa-calculator"></i></div>
                         <h4>Calculadora</h4>
                         <p>Cálculos rápidos e precisos com interface intuitiva</p>
                         <span class="seta-ferramenta">→</span>
-                    </div>
+                    </a>
 
                     <!-- Cartão Gerador de Cores RGB -->
-                    <div class="cartao-ferramenta" onclick="navegarPara('rgb')">
+                    <a class="cartao-ferramenta" href="#rgb">
                         <div class="icone-ferramenta"><i class="fas fa-palette"></i></div>
                         <h4>Gerador de Cores RGB</h4>
                         <p>Crie cores personalizadas com controle total dos valores RGB</p>
                         <span class="seta-ferramenta">→</span>
-                    </div>
+                    </a>
 
                     <!-- Cartão Gerador de Border-Radius -->
-                    <div class="cartao-ferramenta" onclick="navegarPara('bordas')">
+                    <a class="cartao-ferramenta" href="#bordas">
                         <div class="icone-ferramenta"><i class="fas fa-vector-square"></i></div>
                         <h4>Border-Radius</h4>
                         <p>Gere propriedades CSS de border-radius de forma visual</p>
                         <span class="seta-ferramenta">→</span>
-                    </div>
+                    </a>
 
                     <!-- Cartão Gerador de Filtros -->
-                    <div class="cartao-ferramenta" onclick="navegarPara('filtros')">
+                    <a class="cartao-ferramenta" href="#filtros">
                         <div class="icone-ferramenta"><i class="fas fa-image"></i></div>
                         <h4>Filtros de Imagens</h4>
                         <p>Aplique filtros CSS a imagens e veja o resultado em tempo real</p>
                         <span class="seta-ferramenta">→</span>
-                    </div>
+                    </a>
                 </div>
             </section>
         </section>
@@ -123,7 +123,7 @@
             </div>
             <div class="contentor-ferramenta">
                 <form name="calculadora" class="formulario-calculadora">
-                    <input type="text" name="exibir" class="visor-calculadora" readonly>
+                    <input type="text" name="exibir" class="visor-calculadora" aria-label="Visor da calculadora" readonly>
                     
                     <div class="grelha-calculadora">
                         <button type="button" class="btn-calc" onclick="calculadora.exibir.value += '1'">1</button>
@@ -164,7 +164,7 @@
                 
                 <div class="controlos-cor">
                     <div class="grupo-entrada-cor">
-                        <label>Vermelho</label>
+                        <label for="deslizanteVermelho">Vermelho</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="deslizanteVermelho" min="0" max="255" value="100" class="deslizante-cor deslizante-vermelho">
                             <span class="valor-deslizante" id="valorVermelho">100</span>
@@ -172,7 +172,7 @@
                     </div>
 
                     <div class="grupo-entrada-cor">
-                        <label>Verde</label>
+                        <label for="deslizanteVerde">Verde</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="deslizanteVerde" min="0" max="255" value="150" class="deslizante-cor deslizante-verde">
                             <span class="valor-deslizante" id="valorVerde">150</span>
@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="grupo-entrada-cor">
-                        <label>Azul</label>
+                        <label for="deslizanteAzul">Azul</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="deslizanteAzul" min="0" max="255" value="200" class="deslizante-cor deslizante-azul">
                             <span class="valor-deslizante" id="valorAzul">200</span>
@@ -189,8 +189,8 @@
                 </div>
 
                 <div class="saida-cor">
-                    <input type="text" id="saidaCor" class="campo-saida" readonly>
-                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaCor')">Copiar</button>
+                    <input type="text" id="saidaCor" class="campo-saida" aria-label="Código RGB resultante" readonly>
+                    <button type="button" class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaCor', this)">Copiar</button>
                 </div>
             </div>
         </section>
@@ -206,7 +206,7 @@
 
                 <div class="controlos-borda">
                     <div class="grupo-entrada-borda">
-                        <label>Canto Superior Direito</label>
+                        <label for="bordaSD">Canto Superior Direito</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="bordaSD" min="0" max="100" value="0" class="deslizante-borda">
                             <span class="valor-deslizante" id="valorBordaSD">0%</span>
@@ -214,7 +214,7 @@
                     </div>
 
                     <div class="grupo-entrada-borda">
-                        <label>Canto Superior Esquerdo</label>
+                        <label for="bordaSE">Canto Superior Esquerdo</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="bordaSE" min="0" max="100" value="0" class="deslizante-borda">
                             <span class="valor-deslizante" id="valorBordaSE">0%</span>
@@ -222,7 +222,7 @@
                     </div>
 
                     <div class="grupo-entrada-borda">
-                        <label>Canto Inferior Direito</label>
+                        <label for="bordaID">Canto Inferior Direito</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="bordaID" min="0" max="100" value="0" class="deslizante-borda">
                             <span class="valor-deslizante" id="valorBordaID">0%</span>
@@ -230,7 +230,7 @@
                     </div>
 
                     <div class="grupo-entrada-borda">
-                        <label>Canto Inferior Esquerdo</label>
+                        <label for="bordaIE">Canto Inferior Esquerdo</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="bordaIE" min="0" max="100" value="0" class="deslizante-borda">
                             <span class="valor-deslizante" id="valorBordaIE">0%</span>
@@ -239,8 +239,8 @@
                 </div>
 
                 <div class="saida-borda">
-                    <input type="text" id="saidaBorda" class="campo-saida" readonly>
-                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaBorda')">Copiar</button>
+                    <input type="text" id="saidaBorda" class="campo-saida" aria-label="Código CSS de border-radius resultante" readonly>
+                    <button type="button" class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaBorda', this)">Copiar</button>
                 </div>
             </div>
         </section>
@@ -258,7 +258,7 @@
 
                 <div class="controlos-filtros">
                     <div class="grupo-entrada-filtro">
-                        <label>Escala de Cinza</label>
+                        <label for="filtroCinza">Escala de Cinza</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroCinza" min="0" max="100" value="0" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorCinza">0%</span>
@@ -266,7 +266,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Sépia</label>
+                        <label for="filtroSepia">Sépia</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroSepia" min="0" max="100" value="0" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorSepia">0%</span>
@@ -274,7 +274,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Desfoque (Blur)</label>
+                        <label for="filtroDesfoque">Desfoque (Blur)</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroDesfoque" min="0" max="20" value="0" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorDesfoque">0px</span>
@@ -282,7 +282,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Inverter</label>
+                        <label for="filtroInverter">Inverter</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroInverter" min="0" max="100" value="0" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorInverter">0%</span>
@@ -290,7 +290,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Opacidade</label>
+                        <label for="filtroOpacidade">Opacidade</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroOpacidade" min="0" max="100" value="100" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorOpacidade">100%</span>
@@ -298,7 +298,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Brilho</label>
+                        <label for="filtroBrilho">Brilho</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroBrilho" min="0" max="200" value="100" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorBrilho">100%</span>
@@ -306,7 +306,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Contraste</label>
+                        <label for="filtroContraste">Contraste</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroContraste" min="0" max="200" value="100" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorContraste">100%</span>
@@ -314,7 +314,7 @@
                     </div>
 
                     <div class="grupo-entrada-filtro">
-                        <label>Saturação</label>
+                        <label for="filtroSaturacao">Saturação</label>
                         <div class="contentor-deslizante">
                             <input type="range" id="filtroSaturacao" min="0" max="200" value="100" class="deslizante-filtro">
                             <span class="valor-deslizante" id="valorSaturacao">100%</span>
@@ -323,8 +323,8 @@
                 </div>
 
                 <div class="saida-filtros">
-                    <input type="text" id="saidaFiltros" class="campo-saida" readonly>
-                    <button class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaFiltros')">Copiar</button>
+                    <input type="text" id="saidaFiltros" class="campo-saida" aria-label="Código CSS dos filtros resultante" readonly>
+                    <button type="button" class="botao-copiar" onclick="copiarParaAreaTransferencia('saidaFiltros', this)">Copiar</button>
                 </div>
             </div>
         </section>
