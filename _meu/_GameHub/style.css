@@ -744,6 +744,10 @@ body {
     background: linear-gradient(135deg, var(--cor-azul-profundo), var(--cor-azul-claro));
     border: 2px solid var(--cor-azul-profundo);
     border-radius: var(--raio-medio);
+    appearance: none;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -751,6 +755,11 @@ body {
     font-size: var(--tamanho-fonte-3xl);
     transition: all var(--transicao-base);
     box-shadow: var(--sombra-media);
+}
+
+.carta-memoria:focus-visible {
+    outline: 3px solid var(--cor-laranja);
+    outline-offset: 3px;
 }
 
 .carta-memoria:hover {

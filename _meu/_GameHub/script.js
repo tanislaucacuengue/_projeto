@@ -43,7 +43,7 @@ function navegarPara(idPagina) {
     ligacoesNavegacao.forEach(ligacao => ligacao.classList.remove('ativa'));
     
     // Adicionar classe ativa à ligação correspondente
-    const ligacaoAtiva = document.querySelector(`[dados-pagina="${idPagina}"]`);
+    const ligacaoAtiva = document.querySelector(`[data-pagina="${idPagina}"]`);
     if (ligacaoAtiva) {
         ligacaoAtiva.classList.add('ativa');
     }
@@ -235,7 +235,6 @@ function proximaPerguntaQuiz() {
         if (estadoQuiz.nivelAtual < 2) {
             estadoQuiz.nivelAtual++;
             estadoQuiz.perguntaAtual = 0;
-            estadoQuiz.respostasCorretas = 0;
             mostrarPerguntaQuiz();
         } else {
             mostrarResultadoQuiz();
@@ -300,14 +299,7 @@ function inicializarCobra() {
     gerarComidaCobra();
     desenharCobra();
     
-    // Configurar listeners
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Space' && estadoAplicacao.paginaAtual === 'cobra') {
-            e.preventDefault();
-            alternarPausaCobra();
-        }
-        tratarTeclaCobra(e);
-    });
+    // Configurar controlos; os listeners globais são registados uma só vez.
     document.getElementById('botao-pausa-cobra').onclick = alternarPausaCobra;
     document.getElementById('velocidade-cobra').oninput = alterarVelocidadeCobra;
 
@@ -389,6 +381,7 @@ function moverCobra() {
 }
 
 function tratarTeclaCobra(evento) {
+    if (estadoAplicacao.paginaAtual !== 'cobra') return;
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(evento.key)) {
         evento.preventDefault();
         if (estadoCobra.direcao === 'ArrowUp' && evento.key === 'ArrowDown') return;
@@ -489,18 +482,33 @@ function inicializarMemoria() {
 
 function desenharTabuleiroMemoria() {
     const tabuleiro = document.getElementById('tabuleiro-memoria');
+    const nomesIcones = {
+        'fa-apple-whole': 'maçã',
+        'fa-carrot': 'cenoura',
+        'fa-lemon': 'limão',
+        'fa-ice-cream': 'gelado',
+        'fa-pizza-slice': 'pizza',
+        'fa-burger': 'hambúrguer',
+        'fa-cookie': 'bolacha',
+        'fa-hotdog': 'cachorro-quente'
+    };
     tabuleiro.innerHTML = '';
     estadoMemoria.cartas.forEach(carta => {
-        const elemento = document.createElement('div');
+        const elemento = document.createElement('button');
+        const revelada = carta.virada || carta.encontrada;
+        elemento.type = 'button';
         elemento.className = 'carta-memoria';
+        elemento.setAttribute('aria-pressed', String(revelada));
+        elemento.setAttribute('aria-label', revelada
+            ? `Carta ${carta.id + 1}: ${nomesIcones[carta.icone]}${carta.encontrada ? ', par encontrado' : ''}`
+            : `Carta ${carta.id + 1}, por revelar`);
         if (carta.encontrada) elemento.classList.add('encontrada');
         else if (carta.virada) elemento.classList.add('virada');
-        
-        if (carta.virada || carta.encontrada) {
-            elemento.innerHTML = `<i class="fas ${carta.icone}"></i>`;
-        } else {
-            elemento.innerHTML = `<i class="fas fa-question"></i>`;
-        }
+
+        const icone = document.createElement('i');
+        icone.className = `fas ${revelada ? carta.icone : 'fa-question'}`;
+        icone.setAttribute('aria-hidden', 'true');
+        elemento.appendChild(icone);
         elemento.onclick = () => clicarCartaMemoria(carta.id);
         tabuleiro.appendChild(elemento);
     });
@@ -586,14 +594,6 @@ function inicializarFlappy() {
         document.getElementById('valor-velocidade-flappy').textContent = e.target.value;
     };
 
-    document.addEventListener('keydown', (e) => {
-        if (estadoAplicacao.paginaAtual !== 'flappybird') return;
-        if (e.code === 'Space') {
-            e.preventDefault();
-            if (estadoFlappy.pausado) btnPausa.click();
-            else if (estadoFlappy.emJogo) estadoFlappy.passaro.velocidadeY = -estadoFlappy.velocidadePulo;
-        }
-    });
     
     estadoFlappy.tela.onclick = () => {
         if (estadoFlappy.emJogo && !estadoFlappy.pausado) estadoFlappy.passaro.velocidadeY = -estadoFlappy.velocidadePulo;
@@ -752,7 +752,6 @@ function inicializar2048() {
     adicionarBloco2048();
     desenharTabuleiro2048();
     
-    document.addEventListener('keydown', tratarTecla2048);
     document.getElementById('btn-2048-cima').onclick = () => mover2048('cima');
     document.getElementById('btn-2048-baixo').onclick = () => mover2048('baixo');
     document.getElementById('btn-2048-esquerda').onclick = () => mover2048('esquerda');
@@ -854,47 +853,69 @@ function mover2048(direcao) {
 
 function reiniciar2048() { inicializar2048(); }
 
-// ============================================
-// LÓGICA DO MENU HAMBURGER
+// LÓGICA DE TECLADO E MENU HAMBURGER
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    const botaoProximo = document.getElementById('botao-proximo');
+    if (botaoProximo) botaoProximo.addEventListener('click', proximaPerguntaQuiz);
+
     const botaoHamburger = document.getElementById('botao-hamburger');
     const menuNavegacao = document.getElementById('menu-navegacao');
     const ligacoesNavegacao = document.querySelectorAll('.ligacao-navegacao');
 
-    const alternarMenu = () => {
+    const alternarMenu = (abrir = !menuNavegacao.classList.contains('aberto')) => {
         if (!menuNavegacao || !botaoHamburger) return;
-        menuNavegacao.classList.toggle('aberto');
-        botaoHamburger.classList.toggle('aberto');
-        document.body.style.overflow = menuNavegacao.classList.contains('aberto') ? 'hidden' : 'auto';
+        menuNavegacao.classList.toggle('aberto', abrir);
+        botaoHamburger.classList.toggle('aberto', abrir);
+        botaoHamburger.setAttribute('aria-expanded', String(abrir));
+        botaoHamburger.setAttribute('aria-label', abrir ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+        document.body.style.overflow = abrir ? 'hidden' : 'auto';
     };
 
     if (botaoHamburger) {
-        botaoHamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
+        botaoHamburger.addEventListener('click', (evento) => {
+            evento.stopPropagation();
             alternarMenu();
         });
     }
 
-    ligacoesNavegacao.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const idPagina = link.getAttribute('dados-pagina');
-            if (idPagina) {
-                navegarPara(idPagina);
-            }
-            if (menuNavegacao && menuNavegacao.classList.contains('aberto')) {
-                alternarMenu();
-            }
+    ligacoesNavegacao.forEach(ligacao => {
+        ligacao.addEventListener('click', (evento) => {
+            evento.preventDefault();
+            const idPagina = ligacao.dataset.pagina;
+            if (idPagina) navegarPara(idPagina);
+            if (menuNavegacao && menuNavegacao.classList.contains('aberto')) alternarMenu(false);
         });
     });
 
-    document.addEventListener('click', (e) => {
-        if (menuNavegacao && menuNavegacao.classList.contains('aberto') && 
-            !menuNavegacao.contains(e.target) && 
-            !botaoHamburger.contains(e.target)) {
-            alternarMenu();
+    document.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Escape' && menuNavegacao && menuNavegacao.classList.contains('aberto')) {
+            alternarMenu(false);
+            botaoHamburger.focus();
+        }
+
+        if (estadoAplicacao.paginaAtual === 'cobra') {
+            if (evento.code === 'Space') {
+                evento.preventDefault();
+                alternarPausaCobra();
+            }
+            tratarTeclaCobra(evento);
+        } else if (estadoAplicacao.paginaAtual === 'flappybird' && evento.code === 'Space') {
+            evento.preventDefault();
+            const botaoPausaFlappy = document.getElementById('botao-pausa-flappy');
+            if (estadoFlappy.pausado) botaoPausaFlappy.click();
+            else if (estadoFlappy.emJogo) estadoFlappy.passaro.velocidadeY = -estadoFlappy.velocidadePulo;
+        } else if (estadoAplicacao.paginaAtual === 'jogo2048') {
+            tratarTecla2048(evento);
+        }
+    });
+
+    document.addEventListener('click', (evento) => {
+        if (menuNavegacao && menuNavegacao.classList.contains('aberto') &&
+            !menuNavegacao.contains(evento.target) &&
+            botaoHamburger && !botaoHamburger.contains(evento.target)) {
+            alternarMenu(false);
         }
     });
 });
