@@ -39,13 +39,15 @@ Os comandos/instruções seguintes foram encontrados na documentação ou no man
 
 ## Notas de funcionamento
 
-Os recordes são guardados no armazenamento local do navegador. O projecto não demonstra um servidor de aplicação nem sincronização entre dispositivos.
+Os recordes são guardados no armazenamento local do navegador. O projecto não demonstra um servidor de aplicação nem sincronização entre dispositivos. A Memória acompanha as tentativas, mas não tem temporizador. O 2048 permite iniciar um novo jogo, porém ainda não detecta automaticamente o fim de jogo.
+
+Os ícones Font Awesome e a fonte Poppins são carregados por CDN; é necessária ligação à Internet para obter esses recursos visuais. O menu de navegação e as cartas da Memória incluem controlos acessíveis por teclado.
 
 ## Publicação
 
 A publicação desta pasta não foi confirmada. A ausência de configuração Vercel versionada não permite concluir se existe ou não um deploy externo; verificar o projecto e o directório-base na plataforma antes de alterar qualquer configuração.
 
-A revisão que originou este README foi estática: não foram executados código, testes, builds, instalação de dependências ou deploy.
+A revisão incluiu verificações estáticas de sintaxe JavaScript, estrutura HTML e documentação, além de um smoke test local em Chromium. As chamadas de rede externas foram bloqueadas durante o teste; não foram instaladas dependências nem efectuados builds ou deploys.
 
 ## Documentação existente
 

@@ -35,7 +35,7 @@
             </div>
             
             <!-- Botão Hamburger -->
-            <button class="botao-hamburger" id="botao-hamburger">
+            <button class="botao-hamburger" id="botao-hamburger" type="button" aria-label="Abrir menu de navegação" aria-controls="menu-navegacao" aria-expanded="false">
                 <span class="barra-hamburger"></span>
                 <span class="barra-hamburger"></span>
                 <span class="barra-hamburger"></span>
@@ -43,22 +43,22 @@
 
             <!-- Menu de navegação principal -->
             <nav class="menu-navegacao" id="menu-navegacao">
-                <a href="#inicio" class="ligacao-navegacao ativa" dados-pagina="inicio">
+                <a href="#inicio" class="ligacao-navegacao ativa" data-pagina="inicio">
                     <i class="fas fa-home"></i> Início
                 </a>
-                <a href="#quiz" class="ligacao-navegacao" dados-pagina="quiz">
+                <a href="#quiz" class="ligacao-navegacao" data-pagina="quiz">
                     <i class="fas fa-brain"></i> Quiz
                 </a>
-                <a href="#cobra" class="ligacao-navegacao" dados-pagina="cobra">
+                <a href="#cobra" class="ligacao-navegacao" data-pagina="cobra">
                     <i class="fas fa-snake"></i> Cobra
                 </a>
-                <a href="#memoria" class="ligacao-navegacao" dados-pagina="memoria">
+                <a href="#memoria" class="ligacao-navegacao" data-pagina="memoria">
                     <i class="fas fa-th"></i> Memória
                 </a>
-                <a href="#flappybird" class="ligacao-navegacao" dados-pagina="flappybird">
+                <a href="#flappybird" class="ligacao-navegacao" data-pagina="flappybird">
                     <i class="fas fa-dove"></i> Flappy
                 </a>
-                <a href="#jogo2048" class="ligacao-navegacao" dados-pagina="jogo2048">
+                <a href="#jogo2048" class="ligacao-navegacao" data-pagina="jogo2048">
                     <i class="fas fa-th-large"></i> 2048
                 </a>
             </nav>
@@ -139,7 +139,7 @@
                         <ul class="lista-dica">
                             <li>✓ 16 cartas (8 pares)</li>
                             <li>✓ Contador de tentativas</li>
-                            <li>✓ Timer automático</li>
+                            <li>✓ Resultado baseado no número de tentativas</li>
                         </ul>
                     </div>
 
@@ -186,8 +186,8 @@
                         </p>
                         <ul class="lista-dica">
                             <li>✓ Recordes salvos localmente</li>
-                            <li>✓ Sem necessidade de conexão</li>
-                            <li>✓ Compatível com todos os dispositivos</li>
+                            <li>✓ Ícones e fonte são carregados de CDNs externos</li>
+                            <li>✓ Controlos por teclado, botões e clique/toque</li>
                         </ul>
                     </div>
                 </div>
@@ -199,22 +199,22 @@
                 
                 <div class="grelha-beneficios">
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio"><i class="fas fa-graduation-cap"></i></div>>
+                        <div class="icone-beneficio"><i class="fas fa-graduation-cap"></i></div>
                         <h3>Educação</h3>
                         <p>Aprenda enquanto se diverte com conteúdo educativo</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <<div class="icone-beneficio"><i class="fas fa-bolt"></i></div>
+                        <div class="icone-beneficio"><i class="fas fa-bolt"></i></div>
                         <h3>Reflexos</h3>
                         <p>Melhore seus reflexos e tempo de reação</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <div class="icone-beneficio"><i class="fas fa-brain"></i></div>>
+                        <div class="icone-beneficio"><i class="fas fa-brain"></i></div>
                         <h3>Memória</h3>
                         <p>Fortaleça sua memória e concentração</p>
                     </div>
                     <div class="cartao-beneficio">
-                        <<div class="icone-beneficio"><i class="fas fa-smile"></i></div>
+                        <div class="icone-beneficio"><i class="fas fa-smile"></i></div>
                         <h3>Diversão</h3>
                         <p>Passe tempo de qualidade se divertindo</p>
                     </div>
@@ -293,12 +293,12 @@
                         
                         <!-- Setas de Controlo Mobile -->
                         <div class="controlos-mobile" id="controlos-mobile-cobra">
-                            <button class="btn-seta cima" id="btn-cobra-cima"><i class="fas fa-chevron-up"></i></button>
+                            <button type="button" class="btn-seta cima" id="btn-cobra-cima" aria-label="Mover para cima"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
                             <div class="linha-meio">
-                                <button class="btn-seta esquerda" id="btn-cobra-esquerda"><i class="fas fa-chevron-left"></i></button>
-                                <button class="btn-seta direita" id="btn-cobra-direita"><i class="fas fa-chevron-right"></i></button>
+                                <button type="button" class="btn-seta esquerda" id="btn-cobra-esquerda" aria-label="Mover para a esquerda"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                <button type="button" class="btn-seta direita" id="btn-cobra-direita" aria-label="Mover para a direita"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                             </div>
-                            <button class="btn-seta baixo" id="btn-cobra-baixo"><i class="fas fa-chevron-down"></i></button>
+                            <button type="button" class="btn-seta baixo" id="btn-cobra-baixo" aria-label="Mover para baixo"><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -410,11 +410,11 @@
                 <div class="cabecalho-jogo">
                     <h2 class="titulo-jogo">2048 - Combine Números</h2>
                     <button class="botao-voltar" onclick="navegarPara('inicio')">
-                        <i class="fas fa-arrow-left"></i> Voltar
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar
                     </button>
                 </div>
 
-                 <div class="aplicacao-2048">
+                <div class="aplicacao-2048">
                     <div class="info-2048">
                         <div class="item-info">
                             <span class="label-info">Pontuação:</span>
@@ -427,32 +427,21 @@
                     </div>
 
                     <div class="contentor-tela-jogo">
-                        <div id="tabuleiro-2048" class="tabuleiro-2048"></div>
-                        
-                        <!-- Setas de Controlo Mobile -->
-                        <div class="controlos-mobile" id="controlos-mobile-2048">
-                            <button class="btn-seta cima" id="btn-2048-cima"><i class="fas fa-chevron-up"></i></button>
+                        <div id="tabuleiro-2048" class="tabuleiro-2048" role="group" aria-label="Tabuleiro 2048"></div>
+
+                        <div class="controlos-mobile" id="controlos-mobile-2048" role="group" aria-label="Controlos direccionais">
+                            <button type="button" class="btn-seta cima" id="btn-2048-cima" aria-label="Mover para cima"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
                             <div class="linha-meio">
-                                <button class="btn-seta esquerda" id="btn-2048-esquerda"><i class="fas fa-chevron-left"></i></button>
-                                <button class="btn-seta direita" id="btn-2048-direita"><i class="fas fa-chevron-right"></i></button>
+                                <button type="button" class="btn-seta esquerda" id="btn-2048-esquerda" aria-label="Mover para a esquerda"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                <button type="button" class="btn-seta direita" id="btn-2048-direita" aria-label="Mover para a direita"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                             </div>
-                            <button class="btn-seta baixo" id="btn-2048-baixo"><i class="fas fa-chevron-down"></i></button>
-                        </div>
-                    </div>>
-                        <i class="fas fa-redo"></i> Novo Jogo
-                    </button>
-
-                    <div id="tabuleiro-2048" class="tabuleiro-2048"></div>
-
-                    <div id="menu-game-over-2048" class="menu-game-over" style="display: none;">
-                        <div class="conteudo-game-over">
-                            <h3>Game Over!</h3>
-                            <p>Sua pontuação: <span id="pontuacao-final-2048">0</span></p>
-                            <button onclick="reiniciar2048()" class="botao-reiniciar">
-                                <i class="fas fa-redo"></i> Jogar Novamente
-                            </button>
+                            <button type="button" class="btn-seta baixo" id="btn-2048-baixo" aria-label="Mover para baixo"><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
                         </div>
                     </div>
+
+                    <button type="button" onclick="reiniciar2048()" class="botao-reiniciar">
+                        <i class="fas fa-redo" aria-hidden="true"></i> Novo Jogo
+                    </button>
                 </div>
             </div>
         </section>
