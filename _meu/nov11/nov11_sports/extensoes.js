@@ -599,14 +599,14 @@ window.exportarBilhetePDF = function(idBilhete) {
     const bilhete = estadoApp.utilizadorAtual.bilhetes.find(b => b.id === idBilhete);
     if (!bilhete) return;
 
-    // Verificar se jsPDF está disponível
-    if (typeof jsPDF === 'undefined') {
+    // A distribuição UMD expõe a classe em window.jspdf.jsPDF.
+    const JsPDF = window.jspdf?.jsPDF || window.jsPDF;
+    if (typeof JsPDF !== 'function') {
         mostrarNotificacao('Biblioteca jsPDF não está carregada. Por favor, recarregue a página.', 'error');
         return;
     }
 
-    const { jsPDF } = window;
-    const doc = new jsPDF();
+    const doc = new JsPDF();
 
     // Cores Nov11 Sports
     const corVermelha = [199, 10, 6];
@@ -692,13 +692,14 @@ window.exportarAgendamentoPDF = function(idAgendamento) {
     
     if (!agendamento) return;
 
-    if (typeof jsPDF === 'undefined') {
+    // A distribuição UMD expõe a classe em window.jspdf.jsPDF.
+    const JsPDF = window.jspdf?.jsPDF || window.jsPDF;
+    if (typeof JsPDF !== 'function') {
         mostrarNotificacao('Biblioteca jsPDF não está carregada. Por favor, recarregue a página.', 'error');
         return;
     }
 
-    const { jsPDF } = window;
-    const doc = new jsPDF();
+    const doc = new JsPDF();
 
     const corVermelha = [199, 10, 6];
     const corCinza = [154, 150, 141];
@@ -793,7 +794,6 @@ window.exportarAgendamentoPDF = function(idAgendamento) {
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    inicializarControloStock();
     inicializarChat();
     inicializarGestaoRegistos();
 });

@@ -10,6 +10,7 @@ let estadoApp = {
 // Carregar dados ao iniciar a página
 document.addEventListener('DOMContentLoaded', async () => {
     await carregarDados();
+    inicializarControloStock();
     configurarOuvintesEventos();
     carregarUtilizadorDoArmazenamento();
     renderizarEventos();
@@ -138,6 +139,8 @@ function configurarOuvintesEventos() {
         const estaAtivo = menuNav.classList.toggle('ativo');
         if (hamburguer) {
             hamburguer.classList.toggle('ativo');
+            hamburguer.setAttribute('aria-expanded', String(estaAtivo));
+            hamburguer.setAttribute('aria-label', estaAtivo ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
             // Animação do hambúrguer para X
             const spans = hamburguer.querySelectorAll('span');
             if (estaAtivo) {
@@ -179,7 +182,11 @@ function configurarOuvintesEventos() {
             if (window.innerWidth <= 768 && menuNav && menuNav.classList.contains('ativo')) {
                 setTimeout(() => {
                     menuNav.classList.remove('ativo');
-                    if (hamburguer) hamburguer.classList.remove('ativo');
+                    if (hamburguer) {
+                        hamburguer.classList.remove('ativo');
+                        hamburguer.setAttribute('aria-expanded', 'false');
+                        hamburguer.setAttribute('aria-label', 'Abrir menu de navegação');
+                    }
                     if (overlayMenu) overlayMenu.classList.remove('ativo');
                     document.body.style.overflow = 'auto';
                 }, 100);
@@ -208,6 +215,55 @@ function configurarOuvintesEventos() {
                 modal.classList.remove('ativo');
             }
         });
+    });
+
+    const focoAnteriorModal = new WeakMap();
+    const observadorModais = new MutationObserver(alteracoes => {
+        alteracoes.forEach(({ target: modal }) => {
+            if (modal.classList.contains('ativo')) {
+                focoAnteriorModal.set(modal, document.activeElement);
+                modal.querySelector('.fechar')?.focus();
+            } else {
+                const elementoAnterior = focoAnteriorModal.get(modal);
+                if (elementoAnterior && elementoAnterior !== document.body && elementoAnterior.isConnected) {
+                    elementoAnterior.focus();
+                }
+                focoAnteriorModal.delete(modal);
+            }
+        });
+    });
+    document.querySelectorAll('.modal').forEach(modal => {
+        observadorModais.observe(modal, { attributes: true, attributeFilter: ['class'] });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const modalAtivo = document.querySelector('.modal.ativo');
+        if (modalAtivo) {
+            if (e.key === 'Escape') {
+                modalAtivo.classList.remove('ativo');
+                return;
+            }
+            if (e.key === 'Tab') {
+                const selectorFocaveis = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+                const focaveis = Array.from(modalAtivo.querySelectorAll(selectorFocaveis)).filter(elemento => elemento.getClientRects().length > 0);
+                if (!focaveis.length) {
+                    e.preventDefault();
+                    modalAtivo.focus();
+                    return;
+                }
+                const primeiro = focaveis[0];
+                const ultimo = focaveis[focaveis.length - 1];
+                if (e.shiftKey && (document.activeElement === primeiro || !modalAtivo.contains(document.activeElement))) {
+                    e.preventDefault();
+                    ultimo.focus();
+                } else if (!e.shiftKey && (document.activeElement === ultimo || !modalAtivo.contains(document.activeElement))) {
+                    e.preventDefault();
+                    primeiro.focus();
+                }
+            }
+        } else if (e.key === 'Escape' && menuNav && menuNav.classList.contains('ativo')) {
+            toggleMenu();
+        }
     });
 
     document.getElementById('entradaPesquisa').addEventListener('input', filtrarEventos);

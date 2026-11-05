@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StadiumPro - Sistema de Gestão de Estádios</title>
     <link rel="stylesheet" href="estilos.css">
 
@@ -23,11 +23,11 @@
             <div class="marca-nav">
                 <h1>Nov11 Sports</h1>
             </div>
-            <div class="hamburguer" id="botaoHamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button type="button" class="hamburguer" id="botaoHamburguer" aria-label="Abrir menu de navegação" aria-controls="menuNav" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
             <ul class="menu-nav" id="menuNav">
                 <li class="item-menu-lateral-topo">
                     <h2>Menu Nov11 Sports</h2>
@@ -70,15 +70,15 @@
             <!-- Carrossel de Imagens -->
             <div class="contentor-carrossel">
                 <div class="carrossel" id="slideContainer">
-                    <img src="img/Nov_11 (1).png">
-                    <img src="img/img (1).png">
-                    <img src="img/fundo.png">
-                    <img src="img/Nov_11 (1).jpg">
-                    <img src="img/Nov_11 (2).jpg">
-                    <img src="img/Nov_11 (3).jpg">
+                    <img src="img/Nov_11 (1).png" alt="Jogadores de futebol com equipamentos vermelho, preto e amarelo numa imagem promocional.">
+                    <img src="img/img (1).png" alt="Vista aérea de um estádio oval com cobertura colorida.">
+                    <img src="img/fundo.png" alt="Vista interior de estádio com campo de futebol e pista de atletismo.">
+                    <img src="img/Nov_11 (1).jpg" alt="Vista exterior de estádio com fachada curva e cobertura.">
+                    <img src="img/Nov_11 (2).jpg" alt="Vista interior de estádio com bancadas coloridas e campo de futebol.">
+                    <img src="img/Nov_11 (3).jpg" alt="Vista aérea de estádio com campo e áreas de estacionamento.">
                 </div>
-                <button class="controlo-carrossel anterior" onclick="mudarSlide(-1)">&#10094;</button>
-                <button class="controlo-carrossel seguinte" onclick="mudarSlide(1)">&#10095;</button>
+                <button type="button" class="controlo-carrossel anterior" aria-label="Ver imagem anterior" onclick="mudarSlide(-1)">&#10094;</button>
+                <button type="button" class="controlo-carrossel seguinte" aria-label="Ver imagem seguinte" onclick="mudarSlide(1)">&#10095;</button>
             </div>
         </div>
     
@@ -196,7 +196,9 @@
             
             <!-- Filtros -->
             <div class="filtros">
+                <label class="visually-hidden" for="entradaPesquisa">Procurar eventos</label>
                 <input type="text" id="entradaPesquisa" placeholder="Procurar eventos..." class="entrada-filtro">
+                <label class="visually-hidden" for="filtroCategoria">Filtrar por categoria</label>
                 <select id="filtroCategoria" class="selecao-filtro">
                     <option value="">Todas as categorias</option>
                     <option value="futebol">Futebol</option>
@@ -524,16 +526,18 @@
     </section>
 
     <!-- Modal de Autenticação -->
-    <div id="modalAutenticacao" class="modal">
+    <div id="modalAutenticacao" class="modal" role="dialog" aria-modal="true" aria-label="Autenticação" tabindex="-1">
         <div class="conteudo-modal">
-            <span class="fechar">&times;</span>
+            <button type="button" class="fechar" aria-label="Fechar autenticação">&times;</button>
             
             <!-- Formulário de Login -->
             <div id="formularioLogin" class="formulario-autenticacao ativo">
                 <h2>Login</h2>
                 <form onsubmit="processarLogin(event)">
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Palavra-passe" required>
+                    <label for="emailLogin">Email</label>
+                    <input id="emailLogin" type="email" autocomplete="username" placeholder="Email" required>
+                    <label for="palavraPasseLogin">Palavra-passe</label>
+                    <input id="palavraPasseLogin" type="password" autocomplete="current-password" placeholder="Palavra-passe" required>
                     <button type="submit" class="botao botao-primario">Entrar</button>
                 </form>
                 <p>Não tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Registe-se</a></p>
@@ -543,10 +547,14 @@
             <div id="formularioRegisto" class="formulario-autenticacao">
                 <h2>Registo</h2>
                 <form onsubmit="processarRegisto(event)">
-                    <input type="text" placeholder="Nome completo" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Palavra-passe" required>
-                    <input type="password" placeholder="Confirmar palavra-passe" required>
+                    <label for="nomeRegisto">Nome completo</label>
+                    <input id="nomeRegisto" type="text" autocomplete="name" placeholder="Nome completo" required>
+                    <label for="emailRegisto">Email</label>
+                    <input id="emailRegisto" type="email" autocomplete="email" placeholder="Email" required>
+                    <label for="palavraPasseRegisto">Palavra-passe</label>
+                    <input id="palavraPasseRegisto" type="password" autocomplete="new-password" placeholder="Palavra-passe" required>
+                    <label for="confirmarPalavraPasse">Confirmar palavra-passe</label>
+                    <input id="confirmarPalavraPasse" type="password" autocomplete="new-password" placeholder="Confirmar palavra-passe" required>
                     <button type="submit" class="botao botao-primario">Registar</button>
                 </form>
                 <p>Já tem conta? <a href="#" onclick="alternarFormularioAutenticacao(event)">Faça login</a></p>
@@ -557,9 +565,9 @@
     <!-- Modal de Perfil removido - Perfil agora é uma secção integrada -->
 
     <!-- Modal de Detalhes do Evento -->
-    <div id="modalDetalheEvento" class="modal">
+    <div id="modalDetalheEvento" class="modal" role="dialog" aria-modal="true" aria-label="Detalhes do evento" tabindex="-1">
         <div class="conteudo-modal modal-evento">
-            <span class="fechar"></span>
+            <button type="button" class="fechar" aria-label="Fechar detalhes do evento">&times;</button>
             <div id="conteudoDetalheEvento">
                 <!-- Os detalhes do evento serão carregados aqui -->
             </div>
@@ -567,9 +575,9 @@
     </div>
 
     <!-- Modal para Aceitar/Recusar Pedido -->
-    <div id="modalAcaoPedido" class="modal">
+    <div id="modalAcaoPedido" class="modal" role="dialog" aria-modal="true" aria-label="Acção do pedido" tabindex="-1">
         <div class="conteudo-modal">
-            <span class="fechar"></span>
+            <button type="button" class="fechar" aria-label="Fechar acção do pedido">&times;</button>
             <div id="conteudoAcaoPedido">
                 <!-- O conteúdo será carregado aqui -->
             </div>
@@ -596,10 +604,10 @@
                 <div class="footer-col">
                     <h4>Obter Ajuda</h4>
                     <ul>
-                        <li><a href="">Online</a></li>
-                        <li><a href="">Serviços Apoio</a></li>
-                        <li><a href="">Pela plataforma</a></li>
-                        <li><a href="">Pelo Chat</a></li>
+                        <li><span class="ligacao-nao-disponivel">Online</span></li>
+                        <li><span class="ligacao-nao-disponivel">Serviços de apoio</span></li>
+                        <li><span class="ligacao-nao-disponivel">Pela plataforma</span></li>
+                        <li><span class="ligacao-nao-disponivel">Pelo chat</span></li>
                     </ul>
                 </div>
                 <!-- fim do footer col -->
@@ -611,24 +619,28 @@
 
                     <div class="form-sub">
                         <form id="formularioContactoFooter">
-                            <input type="email" id="emailContactoFooter" placeholder="O seu e-mail" required>
+                            <label class="visually-hidden" for="emailContactoFooter">O seu e-mail</label>
+                            <input type="email" id="emailContactoFooter" autocomplete="email" placeholder="O seu e-mail" required>
+                            <label class="visually-hidden" for="mensagemContactoFooter">Como podemos ajudar?</label>
                             <textarea id="mensagemContactoFooter" placeholder="Como podemos ajudar?" rows="3" required></textarea>
                             <button type="submit">Enviar Mensagem</button>
                         </form>
                     </div>
                     <!-- fim form sub -->
 
-                    <div class="midias-sociais">
-                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <div class="midias-sociais" aria-label="Redes sociais">
+                        <span class="social-placeholder" role="img" aria-label="Facebook — ligação por configurar"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+                        <span class="social-placeholder" role="img" aria-label="Instagram — ligação por configurar"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+                        <span class="social-placeholder" role="img" aria-label="Twitter — ligação por configurar"><i class="fab fa-twitter" aria-hidden="true"></i></span>
                     </div>
         
                 </div>
                 <!-- fim do footer col -->
             </div>
-        </    <!-- Botão Voltar ao Topo -->
-    <button id="botaoVoltarTopo" class="botao-voltar-topo" title="Voltar ao Topo">
+        </div>
+    </footer>
+    <!-- Botão Voltar ao Topo -->
+    <button id="botaoVoltarTopo" class="botao-voltar-topo" aria-label="Voltar ao topo" title="Voltar ao Topo">
         <i class="fas fa-chevron-up"></i>
     </button>
 
