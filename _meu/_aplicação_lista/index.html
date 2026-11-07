@@ -1,134 +1,284 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-AO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Lista de Tarefas</title>
+    <meta name="description" content="Uma lista simples de tarefas para organizar o que precisa de ser feito.">
+    <title>Lista de tarefas</title>
 
-    <!-- Font Awesome -->
+    <!-- Dependências visuais e de interface já usadas pelo projecto. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <style>
-        *{
-            margin: 0;
-            padding: 0;
+        * {
             box-sizing: border-box;
-            letter-spacing: 1px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            text-transform: capitalize;
         }
 
-        body{
+        body {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            padding: 1rem;
             background: linear-gradient(45deg, #ff0 50%, #333 50%);
         }
 
-        .contentor{
-            height: 450px;
-            width: 330px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-            padding: 10px;
+        .contentor {
+            width: min(330px, 100%);
+            height: min(450px, calc(100dvh - 2rem));
+            min-height: 280px;
+            padding: 1rem;
             overflow-y: auto;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
         }
 
-        #input{
-            height: 50px;
+        h1 {
+            margin: 0 0 1rem;
+            color: #222;
+            font-size: 1.35rem;
+            text-align: center;
+        }
+
+        .rotulo-oculto {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .formulario-tarefas {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 0.5rem;
+            margin: 0 0 0.75rem;
+        }
+
+        #input {
             width: 100%;
-            outline: none;
-            border: none;
+            min-width: 0;
+            min-height: 46px;
+            padding: 0.65rem 0.75rem;
+            border: 2px solid transparent;
             border-radius: 5px;
             background: #666;
             color: #fff;
-            padding: 0 10px;
-            margin: 15px 0;
+            font-size: 1rem;
         }
 
-        #input::placeholder{
+        #input::placeholder {
             color: #fff;
+            opacity: 1;
         }
 
-        ul{
+        button:focus-visible,
+        #input:focus-visible {
+            outline: 3px solid #0056b3;
+            outline-offset: 3px;
+        }
+
+        .botao-adicionar {
+            min-height: 46px;
+            padding: 0.6rem 0.75rem;
+            border: 0;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .botao-adicionar:hover {
+            background: #444;
+        }
+
+        #estado-lista {
+            min-height: 1.4em;
+            margin: 0 0 0.5rem;
+            color: #333;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        #lista-tarefas {
+            display: grid;
+            gap: 0.55rem;
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
 
-        ul li{
+        .tarefa-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto;
+            align-items: center;
+            gap: 0.45rem;
+            min-width: 0;
+            padding: 0.6rem 0.65rem;
+            border-radius: 8px;
             background: #eee;
-            border-radius: 50px;
-            margin: 10px 0;
-            padding: 10px 50px 10px 15px;
-            position: relative;
+            color: #222;
         }
 
-        ul .fa-check,
-        ul .fa-trash{
-            position: absolute;
-            cursor: pointer;
-            top: 50%;
-            transform: translateY(-50%);
+        .texto-tarefa {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
-        ul .fa-check{
-            right: 40px;
-            color: green;
+        .tarefa-item.concluida {
+            background: #d9f2d9;
         }
 
-        ul .fa-trash{
-            right: 15px;
-            color: red;
-        }
-
-        ul .checked{
-            background: lightgreen;
+        .tarefa-item.concluida .texto-tarefa {
             text-decoration: line-through;
+        }
+
+        .acao-tarefa {
+            display: inline-grid;
+            place-items: center;
+            width: 2.4rem;
+            min-height: 2.4rem;
+            padding: 0.4rem;
+            border: 0;
+            border-radius: 5px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .marcar-tarefa {
+            color: #176b2c;
+        }
+
+        .remover-tarefa {
+            color: #a11b1b;
+        }
+
+        .acao-tarefa:hover {
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            .contentor {
+                height: min(450px, calc(100dvh - 1.5rem));
+                padding: 0.85rem;
+            }
+
+            .formulario-tarefas {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .botao-adicionar {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <main class="contentor" aria-labelledby="titulo-lista">
+        <h1 id="titulo-lista">Lista de tarefas</h1>
 
-<div class="contentor">
-    <input type="text" id="input" placeholder="Pressione Enter para adicionar tarefas">
-    <ul></ul>
-</div>
+        <form id="formulario-tarefas" class="formulario-tarefas">
+            <label class="rotulo-oculto" for="input">Nova tarefa</label>
+            <input
+                type="text"
+                id="input"
+                name="tarefa"
+                autocomplete="off"
+                placeholder="Escreve uma tarefa"
+                aria-describedby="estado-lista"
+                required
+            >
+            <button class="botao-adicionar" type="submit">Adicionar</button>
+        </form>
 
-<script>
-$(document).ready(function(){
+        <p id="estado-lista" role="status" aria-live="polite">A lista está vazia. Adiciona uma tarefa acima.</p>
+        <ul id="lista-tarefas" aria-label="Tarefas adicionadas"></ul>
+    </main>
 
-    $('#input').on('keypress', function(e){
-        if(e.which === 13 && $(this).val().trim() !== ''){
-            let tarefa = $(this).val();
+    <script>
+        $(function () {
+            const $formulario = $('#formulario-tarefas');
+            const $campoTarefa = $('#input');
+            const $listaTarefas = $('#lista-tarefas');
+            const $estadoLista = $('#estado-lista');
 
-            $('ul').append(`
-                <li>
-                    ${tarefa}
-                    <i class="fas fa-check"></i>
-                    <i class="fas fa-trash"></i>
-                </li>
-            `);
+            $formulario.on('submit', function (evento) {
+                evento.preventDefault();
 
-            $(this).val('');
-        }
-    });
+                const tarefa = $campoTarefa.val().trim();
+                if (!tarefa) {
+                    $estadoLista.text('Escreve uma tarefa antes de a adicionar.');
+                    $campoTarefa.trigger('focus');
+                    return;
+                }
 
-    $('ul').on('click', '.fa-trash', function(){
-        $(this).parent('li').fadeOut(200, function(){
-            $(this).remove();
+                const $item = $('<li>').addClass('tarefa-item');
+                const $texto = $('<span>').addClass('texto-tarefa').text(tarefa);
+                const $botaoConcluir = $('<button>', {
+                    type: 'button',
+                    class: 'acao-tarefa marcar-tarefa',
+                    'aria-pressed': 'false'
+                }).attr('aria-label', `Marcar como concluída: ${tarefa}`);
+                const $iconeConcluir = $('<i>', {
+                    class: 'fas fa-check',
+                    'aria-hidden': 'true'
+                });
+                const $botaoRemover = $('<button>', {
+                    type: 'button',
+                    class: 'acao-tarefa remover-tarefa'
+                }).attr('aria-label', `Remover tarefa: ${tarefa}`);
+                const $iconeRemover = $('<i>', {
+                    class: 'fas fa-trash',
+                    'aria-hidden': 'true'
+                });
+
+                $botaoConcluir.append($iconeConcluir);
+                $botaoRemover.append($iconeRemover);
+                $item.append($texto, $botaoConcluir, $botaoRemover);
+                $listaTarefas.append($item);
+
+                $campoTarefa.val('').trigger('focus');
+                $estadoLista.text(`Tarefa adicionada: ${tarefa}`);
+            });
+
+            $listaTarefas.on('click', '.marcar-tarefa', function () {
+                const $botao = $(this);
+                const $item = $botao.closest('.tarefa-item');
+                const tarefa = $item.find('.texto-tarefa').text();
+                const concluida = $botao.attr('aria-pressed') === 'true';
+                const novoEstado = !concluida;
+
+                $botao.attr('aria-pressed', String(novoEstado));
+                $botao.attr(
+                    'aria-label',
+                    `${novoEstado ? 'Reabrir' : 'Marcar como concluída'}: ${tarefa}`
+                );
+                $item.toggleClass('concluida', novoEstado);
+                $estadoLista.text(novoEstado ? `Tarefa concluída: ${tarefa}` : `Tarefa reaberta: ${tarefa}`);
+            });
+
+            $listaTarefas.on('click', '.remover-tarefa', function () {
+                const $item = $(this).closest('.tarefa-item');
+                const tarefa = $item.find('.texto-tarefa').text();
+
+                $item.remove();
+                $campoTarefa.trigger('focus');
+                $estadoLista.text(`Tarefa removida: ${tarefa}`);
+            });
         });
-    });
-
-    $('ul').on('click', '.fa-check', function(){
-        $(this).parent('li').toggleClass('checked');
-    });
-
-});
-</script>
-
+    </script>
 </body>
 </html>
