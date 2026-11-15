@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101C32">
+  <meta name="description" content="A digital museum celebrating the machines that explored the Moon and Mars.">
+  <title>NASA Space Legacy — The Forgotten Explorers</title>
+  <link rel="icon" href="assets/icons/mission-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="ligacao-saltar" href="#conteudo">Skip to content</a>
+
+  <header class="cabecalho" id="topo">
+    <div class="barra-navegacao">
+      <a class="marca" href="#inicio" aria-label="NASA Space Legacy home">
+        <span class="marca-simbolo" aria-hidden="true"><span></span></span>
+        <span class="marca-palavras"><span>NASA SPACE</span><strong>LEGACY</strong></span>
+      </a>
+
+      <button class="botao-menu" id="botao-menu" type="button" aria-expanded="false" aria-controls="navegacao-principal" aria-label="Open navigation menu">
+        <span></span><span></span>
+      </button>
+
+      <nav class="navegacao" id="navegacao-principal" aria-label="Main navigation">
+        <a href="#inicio">Home</a>
+        <a href="#exploradores">Explorers</a>
+        <a href="#linha-temporal">Timeline</a>
+        <a href="#galeria">NASA Gallery</a>
+        <a class="ligacao-favoritos" href="#favoritos">Saved <span id="contagem-favoritos">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+      <div class="hero-imagem" aria-hidden="true">
+        <img src="assets/images/hero-mars.jpg" alt="" fetchpriority="high" onerror="this.src='assets/images/fallback-mars.svg'">
+      </div>
+      <div class="hero-sombra" aria-hidden="true"></div>
+      <div class="hero-conteudo">
+        <p class="sobretitulo"><span class="ponto-ao-vivo"></span> AN ARCHIVE OF HUMAN CURIOSITY</p>
+        <h1 id="titulo-principal">THE FORGOTTEN <span>EXPLORERS</span></h1>
+        <p class="hero-descricao">Discover the machines that explored beyond Earth.</p>
+        <div class="hero-acoes">
+          <a class="botao botao-primario" href="#exploradores">Explore Missions <span aria-hidden="true">↗</span></a>
+          <a class="botao botao-contorno" href="#linha-temporal">Trace the timeline</a>
+        </div>
+        <div class="hero-legenda">
+          <span class="linha-legenda"></span>
+          <span>PATHFINDER · MARS · 1997</span>
+          <a href="https://images.nasa.gov/details/PIA00621" target="_blank" rel="noreferrer">NASA IMAGE RECORD ↗</a>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>01</span><span class="hero-index-linha"></span><span>04</span></div>
+      <div class="hero-marcador" aria-hidden="true"><span>PATHFINDER LANDING SITE</span><i></i><span>ARES VALLIS · MARS</span></div>
+    </section>
+
+    <section class="faixa-factos" aria-label="Museum collection facts">
+      <div class="facto"><span class="facto-numero">04</span><span class="facto-texto">Machines<br>remembered</span></div>
+      <div class="facto"><span class="facto-numero">02</span><span class="facto-texto">Worlds<br>explored</span></div>
+      <div class="facto"><span class="facto-numero">33</span><span class="facto-texto">Years of<br>discovery</span></div>
+      <p class="faixa-citacao">“A mission ends.<br><strong>Its questions live on.</strong>”</p>
+    </section>
+
+    <section class="introducao secao-largura" aria-labelledby="titulo-missao">
+      <div class="introducao-titulo">
+        <p class="sobretitulo sobretitulo-escuro">A DIGITAL MUSEUM · EST. 2026</p>
+        <h2 id="titulo-missao">Some explorers<br>never came home.</h2>
+      </div>
+      <div class="introducao-texto">
+        <p>They were built to travel farther than we could. Across quiet plains, crater rims and ancient flood channels, these machines turned distant worlds into places we could study.</p>
+        <p>This archive preserves the stories behind the hardware: what each explorer set out to do, what it found, and what its journey left behind.</p>
+        <a class="ligacao-texto" href="#exploradores">Enter the archive <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="destaques secao-largura" aria-labelledby="titulo-destaques">
+      <div class="cabecalho-secao">
+        <div><p class="sobretitulo sobretitulo-escuro">THE COLLECTION</p><h2 id="titulo-destaques">Featured explorers</h2></div>
+        <a class="ligacao-texto" href="#exploradores">View all missions <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="grelha-destaques" id="cartoes-destaques" aria-live="polite"></div>
+    </section>
+
+    <section class="arquivo secao-largura" id="exploradores" aria-labelledby="titulo-arquivo">
+      <div class="arquivo-topo">
+        <div><p class="sobretitulo sobretitulo-escuro">FIELD NOTES · 1971—2004</p><h2 id="titulo-arquivo">The explorer archive</h2><p class="subtitulo-secao">Four machines. Two worlds. One shared legacy.</p></div>
+        <span class="arquivo-contador"><span class="ponto-azul"></span> 04 RECORDS</span>
+      </div>
+
+      <div class="controlos-arquivo">
+        <label class="pesquisa-exploradores" for="pesquisa-exploradores">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg>
+          <span class="visualmente-oculto">Search explorers</span>
+          <input id="pesquisa-exploradores" type="search" placeholder="Search a machine or mission…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="filtros-destino" role="group" aria-label="Filter explorers by destination">
+          <button type="button" class="filtro-ativo" data-destino="all" aria-pressed="true">All <span>04</span></button>
+          <button type="button" data-destino="moon" aria-pressed="false">Moon</button>
+          <button type="button" data-destino="mars" aria-pressed="false">Mars</button>
+        </div>
+      </div>
+      <div class="grelha-exploradores" id="cartoes-exploradores" aria-live="polite"></div>
+      <p class="nota-arquivo"><span aria-hidden="true">ⓘ</span> Mission facts are linked to NASA sources. Archival photographs are credited to their original records.</p>
+    </section>
+
+    <section class="secao-favoritos" id="favoritos" aria-labelledby="titulo-favoritos">
+      <div class="secao-largura">
+        <div class="cabecalho-secao cabecalho-favoritos">
+          <div><p class="sobretitulo">YOUR PERSONAL ARCHIVE</p><h2 id="titulo-favoritos">Saved for later</h2><p class="subtitulo-secao">Keep the missions that stay with you.</p></div>
+          <span class="selo-privado"><span aria-hidden="true">⌑</span> STORED ON THIS DEVICE</span>
+        </div>
+        <div class="grelha-exploradores grelha-favoritos" id="cartoes-favoritos" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="timeline secao-largura" id="linha-temporal" aria-labelledby="titulo-timeline">
+      <div class="cabecalho-secao">
+        <div><p class="sobretitulo sobretitulo-escuro">A CHRONOLOGY OF REACH</p><h2 id="titulo-timeline">Worlds, one step at a time</h2></div>
+        <span class="arquivo-contador">1971 — 2004</span>
+      </div>
+      <p class="subtitulo-secao">Select a milestone to open its mission record.</p>
+      <div class="linha-temporal" id="eventos-timeline" aria-label="Mission timeline"></div>
+    </section>
+
+    <section class="galeria" id="galeria" aria-labelledby="titulo-galeria">
+      <div class="secao-largura">
+        <div class="galeria-cabecalho">
+          <div><p class="sobretitulo">FROM THE NASA IMAGE AND VIDEO LIBRARY</p><h2 id="titulo-galeria">The archive, in pictures.</h2><p>Search official NASA records. Every image links back to its source.</p></div>
+          <div class="marca-api" aria-label="Powered by NASA's public image API"><span class="marca-api-orbita" aria-hidden="true">N</span><span>NASA<br><strong>MEDIA LIBRARY</strong></span></div>
+        </div>
+        <form class="pesquisa-galeria" id="formulario-galeria">
+          <label for="pesquisa-galeria">Search the NASA archive</label>
+          <div class="pesquisa-galeria-campo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg><input id="pesquisa-galeria" type="search" value="Mars rover" placeholder="Try “Apollo lunar rover”…" maxlength="100"><button class="botao botao-primario" type="submit">Search <span aria-hidden="true">↗</span></button></div>
+          <p class="galeria-nota">Images and descriptions are provided by NASA’s public archive. Availability depends on the NASA API.</p>
+        </form>
+        <div class="estado-galeria" id="estado-galeria" role="status" aria-live="polite">Connecting to the NASA Image and Video Library…</div>
+        <div class="grelha-galeria" id="resultados-galeria"></div>
+      </div>
+    </section>
+
+    <section class="fecho secao-largura" aria-labelledby="titulo-fecho">
+      <p class="sobretitulo sobretitulo-escuro">THEIR WORK STILL SPEAKS</p>
+      <h2 id="titulo-fecho">Curiosity has<br><span>no finish line.</span></h2>
+      <a class="botao botao-escuro" href="#exploradores">Explore their stories <span aria-hidden="true">↗</span></a>
+      <span class="fecho-orbita fecho-orbita-um" aria-hidden="true"></span><span class="fecho-orbita fecho-orbita-dois" aria-hidden="true"></span>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-principal secao-largura">
+      <a class="marca marca-rodape" href="#inicio">
+        <span class="marca-simbolo" aria-hidden="true"><span></span></span><span class="marca-palavras"><span>NASA SPACE</span><strong>LEGACY</strong></span>
+      </a>
+      <p>An independent educational prototype celebrating the machines that reached beyond Earth.</p>
+      <div class="rodape-ligacoes"><a href="#exploradores">Mission archive</a><a href="#galeria">NASA image library</a><a href="https://www.nasa.gov/" target="_blank" rel="noreferrer">NASA.gov ↗</a></div>
+    </div>
+    <div class="rodape-fim secao-largura"><span>THE FORGOTTEN EXPLORERS · 2026</span><span>NASA SPACE APPS CHALLENGE PROTOTYPE</span><span>Not affiliated with or endorsed by NASA.</span></div>
+  </footer>
+
+  <dialog class="dialogo dialogo-detalhe" id="detalhes-explorador" aria-labelledby="titulo-dialogo-detalhe">
+    <div class="dialogo-conteudo" id="conteudo-detalhe"></div>
+  </dialog>
+  <dialog class="dialogo dialogo-previa" id="previa-imagem" aria-labelledby="titulo-previa">
+    <button class="fechar-dialogo" type="button" data-fechar-previa aria-label="Close image preview">×</button>
+    <div id="conteudo-previa"></div>
+  </dialog>
+</body>
+</html>
